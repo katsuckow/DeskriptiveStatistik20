@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Einführung und einige Übungen | Deskriptive Statistik mit R</title>
+  <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Einführung und einige Übungen | Deskriptive Statistik mit R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Einführung und einige Übungen | Deskriptive Statistik mit R" />
+  
+  <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’" />
+  
+
+<meta name="author" content="Katja Suckow" />
+
+
+<meta name="date" content="2020-04-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="datenbeschreibungen-in-r.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Willkommen und Einleitung</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#was-braucht-man-für-diesen-kurs"><i class="fa fa-check"></i><b>1.1</b> Was braucht man für diesen Kurs?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#anforderungen-und-zeitplan-für-das-semester"><i class="fa fa-check"></i><b>1.2</b> Anforderungen und Zeitplan für das Semester</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tutorium"><i class="fa fa-check"></i><b>1.3</b> Tutorium</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Einführung und einige Übungen</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#psycholinguistische-experimente"><i class="fa fa-check"></i><b>2.1</b> Psycholinguistische Experimente</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#einleitung-datentypen-in-der-linguistik"><i class="fa fa-check"></i><b>2.2</b> Einleitung: Datentypen in der Linguistik</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#population-und-stichprobe"><i class="fa fa-check"></i><b>2.3</b> Population und Stichprobe</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#deskriptive-statistik-und-inferenzstatistik"><i class="fa fa-check"></i><b>2.4</b> Deskriptive Statistik und Inferenzstatistik</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#kurze-einführung-in-r"><i class="fa fa-check"></i><b>2.5</b> Kurze Einführung in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#drei-hauptfenster"><i class="fa fa-check"></i><b>2.5.1</b> drei Hauptfenster:</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#editoren"><i class="fa fa-check"></i><b>2.5.2</b> Editoren:</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#skript"><i class="fa fa-check"></i><b>2.5.3</b> Skript</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#workspace"><i class="fa fa-check"></i><b>2.5.4</b> Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#r-als-taschenrechner-beispiele"><i class="fa fa-check"></i><b>2.6</b> R als Taschenrechner: Beispiele</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#einige-vordefinierte-beispielfunktionen"><i class="fa fa-check"></i><b>2.7</b> Einige vordefinierte Beispielfunktionen</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#hilfefunktionen"><i class="fa fa-check"></i><b>2.8</b> Hilfefunktionen</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#pakete-laden"><i class="fa fa-check"></i><b>2.9</b> Pakete Laden</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#vergleichsoperatoren"><i class="fa fa-check"></i><b>2.10</b> Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#logische-vergleichsoperatoren"><i class="fa fa-check"></i><b>2.11</b> Logische Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#variablen-in-r"><i class="fa fa-check"></i><b>2.12</b> Variablen in R</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#bis-nächste-woche"><i class="fa fa-check"></i><b>2.13</b> Bis nächste Woche</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="datenbeschreibungen-in-r.html"><a href="datenbeschreibungen-in-r.html"><i class="fa fa-check"></i><b>3</b> Datenbeschreibungen in R</a></li>
+<li class="chapter" data-level="4" data-path="häufigkeitsverteilungen.html"><a href="häufigkeitsverteilungen.html"><i class="fa fa-check"></i><b>4</b> Häufigkeitsverteilungen</a></li>
+<li class="chapter" data-level="5" data-path="masse-der-zentralen-tendenz.html"><a href="masse-der-zentralen-tendenz.html"><i class="fa fa-check"></i><b>5</b> Masse der zentralen Tendenz</a></li>
+<li class="chapter" data-level="6" data-path="kovarianz-und-korrelation.html"><a href="kovarianz-und-korrelation.html"><i class="fa fa-check"></i><b>6</b> Kovarianz und Korrelation</a></li>
+<li class="chapter" data-level="7" data-path="datenvisualisierungen-1.html"><a href="datenvisualisierungen-1.html"><i class="fa fa-check"></i><b>7</b> Datenvisualisierungen 1</a></li>
+<li class="chapter" data-level="8" data-path="datenvisualisierungen-2.html"><a href="datenvisualisierungen-2.html"><i class="fa fa-check"></i><b>8</b> Datenvisualisierungen 2</a></li>
+<li class="chapter" data-level="9" data-path="datenvisualisierungen-3.html"><a href="datenvisualisierungen-3.html"><i class="fa fa-check"></i><b>9</b> Datenvisualisierungen 3</a></li>
+<li class="chapter" data-level="10" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html"><i class="fa fa-check"></i><b>10</b> Explorative Datenanalyse</a></li>
+<li class="chapter" data-level="11" data-path="modelle.html"><a href="modelle.html"><i class="fa fa-check"></i><b>11</b> Modelle</a></li>
+<li class="chapter" data-level="12" data-path="wiederholung-und-fragerunde.html"><a href="wiederholung-und-fragerunde.html"><i class="fa fa-check"></i><b>12</b> Wiederholung und Fragerunde</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deskriptive Statistik mit R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Einführung und einige Übungen</h1>
+<div id="psycholinguistische-experimente" class="section level2">
+<h2><span class="header-section-number">2.1</span> Psycholinguistische Experimente</h2>
+<p>In der Linguistik des germanistischen Instituts haben wir einen starken psycholinguistischen Schwerpunkt. Um einen eigenen Forschungsschwerpunkt in der Psycholinguistik zu entwickeln oder einfach reinzuschauen, ob einem diese Arbeit liegt, empfiehlt sich ein Experimentalpraktikum. Darin werden meist folgende Aspekte bearbeitet.</p>
+<ul>
+<li><span class="math inline">\(\rightarrow\)</span> Forschungsfrage</li>
+<li><span class="math inline">\(\rightarrow\)</span> experimentelle Hypothese</li>
+<li><span class="math inline">\(\rightarrow\)</span> experimentelle Methoden: von Art erhobener Daten abhängig (Akzeptabilitätsurteile, Lesezeiten, Reaktionszeiten <span class="math inline">\(\dots\)</span>)</li>
+<li><span class="math inline">\(\rightarrow\)</span> Datenerhebung</li>
+<li><span class="math inline">\(\rightarrow\)</span> Datenauswertung:
+<ol style="list-style-type: decimal">
+<li>Deskriptive Beschreibung der Daten</li>
+<li>Inferenzstatistik zur Überprüfung der Hypothese</li>
+</ol></li>
+<li><span class="math inline">\(\rightarrow\)</span> Interpretation der erhobenen Daten</li>
+</ul>
+<p>Obwohl jede dieser Schritte für sich wichtig und zentral in der psycholinguistischen Forschung ist, bieten wir “Deskriptive Statistik” und “Inferenzstatistik” (von Thomas Weskott geleitet) als separate Kurse an.</p>
+</div>
+<div id="einleitung-datentypen-in-der-linguistik" class="section level2">
+<h2><span class="header-section-number">2.2</span> Einleitung: Datentypen in der Linguistik</h2>
+<p><strong>Qualitative Daten</strong> Nicht-numerische, oft verschriftlichte oder in audiovisueller Form vorliegende Daten. Verwendung häufig explorativ und hypothesengenerierend. (e.g., Interviews)</p>
+<p><strong>Quantitative Daten</strong> Numerische (bzw. in numerischer Form überführte) Daten, die mit dem Ziel der Überprüfung von Hypothesen und Theorien erhoben werden</p>
+<p>In diesem Kurs <strong>Deskriptive Statistik</strong> sind wir an der Auswertung von Quantitativen Daten interessiert.</p>
+</div>
+<div id="population-und-stichprobe" class="section level2">
+<h2><span class="header-section-number">2.3</span> Population und Stichprobe</h2>
+<p>In der psycholinguistischen Forschung werden Daten in einer kontrollierten Umgebung (Experiment) erhoben, die Aussagen für die Gesamtpopulation zu einer bestimmten linguistischen Fragestellung machen zu können.</p>
+<p>Dabei wird eine kleine Gruppe der Population (Stichprobe) in einem Experiment getestet. Bestimmte Daten dieser Stichprobe werden erhoben und anschliessend die Ergebnisse dieser Daten auf die Gesamtpopulation projiziert. Die erhobenen Daten der Stichprobe müssen erst in deskriptive statistische Kennwerte umgewandelt werden und anschliessend mittels statistischer Verfahren Hypothesen geprüft werden, um Aussagen über die Gesamtpopulation machen zu können.</p>
+</div>
+<div id="deskriptive-statistik-und-inferenzstatistik" class="section level2">
+<h2><span class="header-section-number">2.4</span> Deskriptive Statistik und Inferenzstatistik</h2>
+<p><strong>Deskriptive Statistik</strong> übersichtliche Darstellung der erhobenen Daten einer Stichprobe in Form statistischer Kennwerte (Mittelwerte, Streuung, Verteilung, Grafiken)</p>
+<p><strong>Inferenzstatistik</strong> Statistische Verfahren, die es ermöglichen Rückschlüsse aus den Daten auf die Gesamtpopulation zu ziehen, um Schätzungen für Populationswerte zu berechnen oder experimentelle Hypothesen zu testen.</p>
+</div>
+<div id="kurze-einführung-in-r" class="section level2">
+<h2><span class="header-section-number">2.5</span> Kurze Einführung in R</h2>
+<p><strong>R</strong> ist eine freie Programmiersprache zur statistischen Datenanalyse und Erstellung von Grafiken. Sie kann auch als Skriptsprache benutzt werden, um einfache Skripte und Programme zu schreiben. <strong>R</strong> ist vor allem in der Wissenschaft weit verbreitet und löst hier zunehmend SPSS ab. <strong>R</strong> bietet viele Methoden und Pakete zu statistischen Auswertung und Datendarstellung, die ständig in open-source weiterentwickelt werden, es steht kostenlos zur Verfügung und kann auf jeder Plattform (Windows, Mac, Linux) laufen.</p>
+<div id="drei-hauptfenster" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> drei Hauptfenster:</h3>
+<p>Die grafische Oberfläche von <strong>R</strong> unterscheidet sich zwischen den genutzten Windows und Mac. Die Funktionalität bleibt dabei natürlich gleich. Die grafische Oberfläche von <strong>R</strong> in Windows sieht furchtbar altbacken und erinnert noch an alte DOS Zeiten. Deshalb benutzen wir hier <strong>RStudio</strong>, um eine zeitgemäße grafische Oberfläche zu haben. <strong>RStudio</strong> kommt mit vielen zusätzlichen Funktionen, die aber nicht alle hier besprochen werden.</p>
+<p>Grundsätzlich besteht R aus drei Hauptfenstern:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Konsole</strong> - hier können die Befehle direkt eingegeben werden</li>
+<li><strong>Editor</strong> - hier können die eingegebenen Befehle gespeichert werden</li>
+<li><strong>Grafikfenster</strong> - hier werden die Daten grafisch dargestellt</li>
+</ol>
+</div>
+<div id="editoren" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Editoren:</h3>
+<p>Obwohl R ein eigenes Editorfenster mitbringt, kann es sich lohnen, einen anderen Editor zu nutzen. Wir empfehlen und nutzen in diesem Kurs <strong>RStudio</strong>.</p>
+<ul>
+<li>RStudio</li>
+<li>Notepad++</li>
+<li>Textwrangler</li>
+<li><span class="math inline">\(\dots\)</span></li>
+</ul>
+</div>
+<div id="skript" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Skript</h3>
+<p>Das Skript enthält eine Sammlung von Befehlen. Diese können auch direkt über Konsole ausgeführt werden. Es empfiehlt sich jedoch sehr, diese im Editor zu speichern, um später noch einmal darauf zugreifen zu können.</p>
+</div>
+<div id="workspace" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Workspace</h3>
+<p>Der Workspace enthält Sammlung von Objekten, die in einer Session erstellt wurden. Diese kann explizit gespeichert werden, um die einzelnen Objekte noch einmal neu zu laden.</p>
+</div>
+</div>
+<div id="r-als-taschenrechner-beispiele" class="section level2">
+<h2><span class="header-section-number">2.6</span> R als Taschenrechner: Beispiele</h2>
+<p>Um sich erstmal mit <strong>R</strong> vertraut zu machen, kann man R erstmal als Taschenrechner einsetzen. Dabei ist die Anwendung recht assoziativ und kann wie folgt eingesetzt werden.</p>
+<p>Probieren Sie diese Beispiele erstmal selbst zuerst in Ihrem Terminal und dann aus dem Editor heraus aus!</p>
+<p><strong>Addition + </strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">7</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p><strong>Subtraktion - </strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">325</span> <span class="op">-</span><span class="st"> </span><span class="dv">18</span></code></pre></div>
+<pre><code>## [1] 307</code></pre>
+<p><strong>Multiplikation * </strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">43</span> <span class="op">*</span><span class="st"> </span><span class="dv">21</span></code></pre></div>
+<pre><code>## [1] 903</code></pre>
+<p><strong>Division / </strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">442</span> <span class="op">/</span><span class="st"> </span><span class="dv">13</span></code></pre></div>
+<pre><code>## [1] 34</code></pre>
+<p><strong>Exponent ^ </strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">32</span><span class="op">^</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 1024</code></pre>
+</div>
+<div id="einige-vordefinierte-beispielfunktionen" class="section level2">
+<h2><span class="header-section-number">2.7</span> Einige vordefinierte Beispielfunktionen</h2>
+<p>Funktionen können auch sehr einfach in <strong>R</strong> selbst geschrieben werden. Dazu kommenw wir später auch noch. Man muss allerdings nicht alles neu erfinden, besonders weil <strong>R</strong> auch viele Funktionen vordefiniert mitbringt.</p>
+<p>Die Syntax ist relativ simpel. Die Funktion hat einen eigenen Namen und die übergebenen Argumente, mit denen die Funktion Berechnungen durchführt werden in der Klammer nach dem Funktionsnamen übergeben.</p>
+<p>Unten sind ein paar Beispiele für frequente leicht nachvollziehbare Funktionen aufgelistet.</p>
+<p><strong>Summe sum()</strong> - Bildung der Summe, der übergebenen Argumente:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">3</span>,<span class="dv">45</span>,<span class="dv">12</span>,<span class="dv">34</span>)</code></pre></div>
+<pre><code>## [1] 94</code></pre>
+<p><strong>Wurzel sqrt()</strong> - Bildung der Wurzel von einem übergebenen Argument:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">1024</span>)</code></pre></div>
+<pre><code>## [1] 32</code></pre>
+<p><strong>Minimum min()</strong> - Ermittlung der kleinsten Zahl aus einer Liste von übergebenen Werten:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">min</span>(<span class="dv">43</span>,<span class="dv">24</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">76</span>,<span class="dv">14</span>,<span class="dv">56</span>,<span class="dv">99</span>,<span class="dv">12</span>)</code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<p><strong>Maximum max()</strong> - Ermittlung der höchsten Zahl aus einer Liste von übergebenen Werten:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(<span class="dv">43</span>,<span class="dv">24</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">76</span>,<span class="dv">14</span>,<span class="dv">56</span>,<span class="dv">99</span>,<span class="dv">12</span>)</code></pre></div>
+<pre><code>## [1] 99</code></pre>
+<p><strong>Absoluter Wert (Betrag) abs()</strong> - Ermittlung des absoluten Betrags aus einem Wert:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abs</span>(<span class="op">-</span><span class="dv">25</span>)</code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<p><strong>Aneinanderreihung concatenate c()</strong> verbindet in Klammern stehende Zahlen zu einer Liste</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">7</span>)</code></pre></div>
+<p><strong>List ls()</strong></p>
+<ul>
+<li>listet alle Elemente im aktuellen Workspace auf</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
+<p><strong>Gib Pfad des aktuellen working directory zurück getwd()</strong></p>
+<ul>
+<li>Gibt Verzeichnis des aktuellen Workspace aus</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<p><strong>Setze working directory auf folgenden Pfad setwd()</strong></p>
+<ul>
+<li>Setzt den aktuellen Workspace in angegebenes Verzeichnis</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="op">&lt;</span>Pfad<span class="op">&gt;</span>)</code></pre></div>
+<p><strong>Lies Datensatz ein read.table()</strong></p>
+<ul>
+<li>liest einen Datensatz in aktuellen Workspace ein</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.table</span>(<span class="op">&lt;</span>file<span class="op">&gt;</span>, <span class="dt">header =</span> T)</code></pre></div>
+<p><strong>write.table()</strong></p>
+<ul>
+<li>exportiert eine Variable aus aktuellem working directory in die angegebene Dateinamen</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.table</span>(<span class="op">&lt;</span>Variablenname<span class="op">&gt;</span>,<span class="dt">file =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+</div>
+<div id="hilfefunktionen" class="section level2">
+<h2><span class="header-section-number">2.8</span> Hilfefunktionen</h2>
+<p>Mit der Hilfefunktion <strong>?</strong> lässt sich zu jeder R-Funktion eine hilfreiche Beschreibung anzeigen. Schreiben Sie einfach das <strong>?</strong> direkt vor die Funktion zu der Sie mehr erfahren wollen und <strong>R</strong> öffnet ein Hilfsfenster. Probieren Sie es einmal aus und schreiben:</p>
+<p><strong>?sum</strong></p>
+<p>Mit <strong>?sum</strong> können Sie sich die Informationen zum <strong>sum</strong> Befehl anzeigen lassen. Meist werden am Ende der Beschreibung auch Beispiele zur Benutzung angezeigt.</p>
+<p>Alternativ können Sie auch den <strong>help(<Befehl>)</strong> benutzen:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?sum
+<span class="kw">help</span>(sum)</code></pre></div>
+</div>
+<div id="pakete-laden" class="section level2">
+<h2><span class="header-section-number">2.9</span> Pakete Laden</h2>
+<p>Pakete sind eine Sammlung verschiedener Funktionen zu einem Thema.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># installiert das Paket</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)
+
+<span class="co"># lädt das Paket</span>
+<span class="kw">library</span>(tidyverse)</code></pre></div>
+</div>
+<div id="vergleichsoperatoren" class="section level2">
+<h2><span class="header-section-number">2.10</span> Vergleichsoperatoren</h2>
+<p>Hier sind die Beispiele logischer Vergleichsoperatoren. Deren Interpretation gibt entweder <strong>TRUE</strong> oder <strong>FALSE</strong> zurück.</p>
+<p>gleich <strong>==</strong></p>
+<ul>
+<li>Vergleich ob die Werte beider Ausdrücke identisch sind</li>
+<li>ja: <strong>TRUE</strong></li>
+<li>nein: <strong>FALSE</strong></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">==</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>ungleich: <strong>!=</strong></p>
+<ul>
+<li>Vergleich ob die Werte beider Ausdrücke ungleich sind</li>
+<li>ja sie sind ungleich: <strong>TRUE</strong></li>
+<li>nein sie sind gleich: <strong>FALSE</strong></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">!=</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>größer: <strong>&gt;</strong></p>
+<ul>
+<li>ist der Wert links größer als der Wert rechts?</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>kleiner: <strong>&lt;</strong></p>
+<ul>
+<li>ist der Wert links kleiner als der Wert rechts?</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>größer gleich: <strong>&gt;=</strong></p>
+<ul>
+<li>ist der Wert links größer oder gleich gleich der Wert rechts?</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>kleiner gleich: <strong>&lt;=</strong></p>
+<ul>
+<li>ist der Wert links kleiner als der Wert rechts?</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&lt;=</span><span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&lt;=</span><span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="logische-vergleichsoperatoren" class="section level2">
+<h2><span class="header-section-number">2.11</span> Logische Vergleichsoperatoren</h2>
+<p>Konjunktion, logisches “Und”: <strong>&amp;&amp;</strong> oder <strong>&amp;</strong></p>
+<ul>
+<li>beim logischen <strong>Und</strong> werden die Werte der beiden Ausdrücke verglichen - nur wenn beide <strong>TRUE</strong> ergeben, wird der Gesamtausdruck <strong>TRUE</strong> ergeben</li>
+<li>im unteren Beispiele sind beide Ausdrück <strong>TRUE</strong></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&lt;=</span><span class="st"> </span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span><span class="dv">4</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Disjunktion, logisches “oder”: <strong>||</strong> oder <strong>|</strong></p>
+<ul>
+<li>beim logischen <strong>Oder</strong> reicht es, wenn ein zu vergleichender Ausdruck <strong>TRUE</strong> ist, um den gesamten Ausdruck <strong>TRUE</strong> zu machen.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">||</span><span class="st"> </span><span class="dv">5</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Negation: !</p>
+<ul>
+<li>bei der Negation wird der Wahrheitsgehalt eines Ausdruckes umgekehrt.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">!</span>(<span class="dv">4</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">||</span><span class="st"> </span><span class="dv">5</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="variablen-in-r" class="section level2">
+<h2><span class="header-section-number">2.12</span> Variablen in R</h2>
+<p>Verschiedene Werte oder Ergebnisse einer Berechnung können leicht in Variablen (Platzhalter) gespeichert werden. Diese Variablen müssen in <strong>R</strong> mit einem Buchstaben beginnen. Die Zuweisung von Werten in eine Variable erfolgt entweder mit einem Pfeil <strong>&lt;-</strong> oder mit einem simplen <strong>=</strong> (beides ohne Unterschied möglich):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">15</span>
+b =<span class="st"> </span><span class="dv">23</span>
+ab =<span class="st"> </span><span class="kw">c</span>(a,b)
+ab</code></pre></div>
+<pre><code>## [1] 15 23</code></pre>
+</div>
+<div id="bis-nächste-woche" class="section level2">
+<h2><span class="header-section-number">2.13</span> Bis nächste Woche</h2>
+<ul>
+<li><p><strong>R</strong> + <strong>RStudio</strong> herunterladen, starten und die verschiedenen hier diskutierten Befehle ausprobieren.</p></li>
+<li>einen Datensatz in R einlesen!</li>
+<li><p><span class="math inline">\(\rightarrow\)</span> wird auf studip zur Verfügung gestellt</p></li>
+</ul>
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
+<!-- par(mar = c(4, 4, .1, .1)) -->
+<!-- plot(pressure, type = 'b', pch = 19) -->
+<!-- ``` -->
+<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+<!-- ```{r nice-tab, tidy=FALSE} -->
+<!-- knitr::kable( -->
+<!--   head(iris, 20), caption = 'Here is a nice table!', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datenbeschreibungen-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["NewBook.pdf", "NewBook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
