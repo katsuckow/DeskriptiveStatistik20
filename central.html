@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Deskriptive Statistik mit R</title>
+  <title>Chapter 5 Maße der zentralen Tendenz | Deskriptive Statistik mit R</title>
   <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Deskriptive Statistik mit R" />
+  <meta property="og:title" content="Chapter 5 Maße der zentralen Tendenz | Deskriptive Statistik mit R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="katsuckow/DeskriptiveStatistik20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Deskriptive Statistik mit R" />
+  <meta name="twitter:title" content="Chapter 5 Maße der zentralen Tendenz | Deskriptive Statistik mit R" />
   
   <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="intro.html"/>
+<link rel="prev" href="distribution.html"/>
+<link rel="next" href="kovarianz-und-korrelation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -177,7 +177,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.13" data-path="central.html"><a href="central.html#normalverteilung-schiefe"><i class="fa fa-check"></i><b>5.13</b> Normalverteilung: Schiefe</a></li>
 <li class="chapter" data-level="5.14" data-path="central.html"><a href="central.html#normalverteilung-kurtosis"><i class="fa fa-check"></i><b>5.14</b> Normalverteilung: Kurtosis</a></li>
 <li class="chapter" data-level="5.15" data-path="central.html"><a href="central.html#hausaufgabe"><i class="fa fa-check"></i><b>5.15</b> Hausaufgabe</a></li>
-<li class="chapter" data-level="5.16" data-path="central.html"><a href="central.html#übung"><i class="fa fa-check"></i><b>5.16</b> Übung</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="kovarianz-und-korrelation.html"><a href="kovarianz-und-korrelation.html"><i class="fa fa-check"></i><b>6</b> Kovarianz und Korrelation</a><ul>
 <li class="chapter" data-level="6.1" data-path="kovarianz-und-korrelation.html"><a href="kovarianz-und-korrelation.html#kurze-wiederholung-1"><i class="fa fa-check"></i><b>6.1</b> Kurze Wiederholung</a></li>
@@ -225,154 +224,550 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Deskriptive Statistik mit R</h1>
-<p class="author"><em>Katja Suckow <br> <a href="mailto:katja.suckow@gmail.com">katja.suckow@gmail.com</a> <br> <a href="mailto:katja.suckow@phil.uni-goettingen.de">katja.suckow@phil.uni-goettingen.de</a></em></p>
-<p class="date"><em>2020-05-12</em></p>
-</div>
-<div id="willkommen-und-einleitung" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Willkommen und Einleitung</h1>
-<p>Die Gesundheitskrise hat uns gezwungen umzudenken und umzustrukturieren. Das bedeutet auch, einige Inhalte zu digitalisieren. Die Inhalte des Kurses “Deskriptive Statistik”&quot; lassen sich sehr gut digitalisieren und mit einem GitBook lassen sich die Inhalte zusammen mit der Programmierung von R gut darstellen.</p>
-<p>Wir werden jede Woche ein neues Kapitel hochladen, dass dann von Ihnen durchgearbeitet wird. Jede Woche Montag um 14h werden wir erst einen LiveCall machen, indem ich einen Überblick über die zu besprechenden Themen geben werde. Anschliessend werden die gesammelten Fragen beantwortet. Bitte nutzen Sie diesen LiveCall und die online Funktionen auf Studip, um Fragen, Anregungen und gerne auch Verbesserungsvorschläge zu stellen.</p>
-<div id="was-braucht-man-für-diesen-kurs" class="section level2">
-<h2><span class="header-section-number">1.1</span> Was braucht man für diesen Kurs?</h2>
-<p>Wir werden in diesem Kurs viele zentrale Themen zur Datenverarbeitung besprechen. Zentral ist es nötig, R und Rstudio zu installieren.</p>
-<ol style="list-style-type: decimal">
-<li><strong>R</strong> frei verfügbare Software <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></li>
-</ol>
+<div id="central" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Maße der zentralen Tendenz</h1>
+<p><strong>Histogramme: hist()</strong></p>
+<p>Aus der Übung von letzter Woche! Hier ist ein Beispiel für ein Historgramm mit einer neuen Überschrift.</p>
 <div class="figure">
-<img src="img/Rdownload.png" />
+<img src="img/hist.png" />
 
 </div>
-<p>R besteht aus 3 Hauptfenstern: (1) <strong>Konsole</strong>, um direkt Befehle einzugeben, (2) <strong>Editor</strong>, um eine Abfolge an Befehlen zu speichern und auszuführen, (3) <strong>Grafikfenster</strong></p>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>RStudio</strong> <a href="https://www.rstudio.com/products/rstudio/download" class="uri">https://www.rstudio.com/products/rstudio/download</a> Es gibt verschiedene Möglichkeiten mit R zu arbeiten. Wir werden die grafische Oberfläche, die <strong>RStudio</strong> bietet nutzen. Dieses Programm bietet eine eine gut handhabe Oberfläche, viel Unterstützung und integriert viele Apps (Shiny, Markdown, Bookdown …), die R nutzen. Unterschiedliche Editoren zur Bearbeitung von R Dateie sind:</li>
-</ol>
-<ul>
-<li>RStudio (empfohlen und in diesem Kurs benutzt)</li>
-<li>Notepad++ (Windows)</li>
-<li>Textwrangler</li>
-<li><span class="math inline">\(\dots\)</span></li>
-</ul>
-<div class="figure">
-<img src="img/download.jpg" alt="RStudio Logo" />
-<p class="caption">RStudio Logo</p>
-</div>
-<p><img src="img/RStudio-look1.png" alt="Wenn man RStudio öffnet - ohne Inhalt" /> So sieht RStudio ohne Inhalt oder Date aus.</p>
-<div class="figure">
-<img src="img/RStudio-look.png" alt="Die 4 Hauptfenster von RStudio" />
-<p class="caption">Die 4 Hauptfenster von RStudio</p>
-</div>
-<p>In der Standarddarstellung befindet sich oben links der <strong>Code Editor</strong>, oben rechts können sie <strong>Workspace und History</strong> ansehen, unten links befindet sich die <strong>R Console</strong>, in der Sie den Code direkt eingeben können und unten rechts lassen sich unter anderem <strong>Plots und Files</strong> anzeigen. Schauen Sie sich die verschiedenen Möglichkeiten an, die die verschiedenen Tabs in den Ecken bieten.</p>
-<p>So sieht Rstudio mit ein bischen mehr Inhalt aus.</p>
-<div class="figure">
-<img src="img/ScreenGrafik.png" alt="RStudio mit Datensatz und grafischer Darstellung eines Datensatzes" />
-<p class="caption">RStudio mit Datensatz und grafischer Darstellung eines Datensatzes</p>
-</div>
-<ul>
-<li><strong>oben links</strong> steht der Code, der gespeichert und auch aus dem Editor ausgeführt werden kann. (Mac: Markierung des auszuführenden Codes und dann <strong>CMD + Enter</strong>)</li>
-<li><strong>unten links</strong> man kannn den auszuführenden Code auch direkt unten in das Konsolenfenster eingeben. Dann wird dieser allerdings nicht gespeichert. Es wird empfohlen, Code der erstmal nur ausprobiert wird, direkt in das Konsolenfenster einzutragen. Wenn der Code das korrekte Ergebnis liefert, sollte er im Editor in einem Skript gespeichert werden.</li>
-<li><strong>oben rechts</strong> lassen sich History der eingegebenen Befehle und auch die Inhalte des Workspace anzeigen</li>
-<li><strong>unten rechts</strong> kann man sich die geladenen Pakete für <strong>R</strong>, sowie die verschiedenen erstellten Grafiken anzeigen lassen</li>
-</ul>
-<p>Die Anordnung der Fenster lassen sich über <strong>RStudio</strong> &gt; <strong>Preferences</strong> und dann <strong>Pane Layout</strong> ändern. Über <strong>Preferences</strong> können Sie sich generell anzeigen lassen, welche Änderungen Sie u.a. bei der Anzeige vornehmen können bzw.~wollen.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Shiny App</strong></li>
-</ol>
-<p>Das ist eine App, die in RStudio integriert ist und die deskriptive Daten mit <strong>R</strong> bildlich und interaktiv veranschaulichen kann und auch veröffentlicht. Shiny wird zwar nicht Teil des Lernstoffes, wir werden uns diese Möglichkeit der Datendarstellung aber einmal anschauen.</p>
-<div class="figure">
-<img src="img/Shiny-Example.png" alt="Beispiel des Screenshots einer Shiny App, die interaktiv die Normalverteilung einer übergebenen Anzahl beobachteter Werte anzeigt." />
-<p class="caption">Beispiel des Screenshots einer Shiny App, die interaktiv die Normalverteilung einer übergebenen Anzahl beobachteter Werte anzeigt.</p>
-</div>
-</div>
-<div id="anforderungen-und-zeitplan-für-das-semester" class="section level2">
-<h2><span class="header-section-number">1.2</span> Anforderungen und Zeitplan für das Semester</h2>
-<p>Dieser Plan ist natürlich flexibel und wird sich auch an dem Fortschritt der Studierenden richten. Wenn Sie Fragen haben, wenn etwas nicht funktioniert, wenn etwas unklar ist, bitte nutzen Sie alle Möglichkeiten (LiveCall, Blubber, E-Mail) um uns dies wissen zu lassen. Dann können wir auch gern den Plan anpassen. Diese Seite wird immer weiter ausgebaut und angepasst.</p>
-<ul>
-<li>regelmäßige Teilnahme (Durcharbeiten des Gitbooks) und Abgabe von Übungen</li>
-<li>Klausur (wird wahrscheinlich eine E-Klausur)</li>
-</ul>
+<div id="maße-der-zentralen-tendenz" class="section level2">
+<h2><span class="header-section-number">5.1</span> Maße der zentralen Tendenz</h2>
+<p>Gebräuchliche Maße der zentralen Tendenz bei Datenbeschreibungen sind:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Willkommen, Einleitung, R Umgebung</strong> 20.04.</p></li>
-<li><p><strong>Datenbeschreibungen in R</strong> 27.04.</p></li>
+<li><strong>Modus</strong></li>
+<li><strong>Median</strong></li>
+<li><strong>Mittelwert</strong></li>
 </ol>
+</div>
+<div id="modus" class="section level2">
+<h2><span class="header-section-number">5.2</span> Modus</h2>
+<p><strong>Modus:</strong> ist der häufigste Wert in einer Reihe von Beobachtungswerten. In einer Stichprobe kann es mehr als einen Modus geben.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="left">Punkte im Sprachtest</th>
+<th align="left">Häufigkeit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">1</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">2</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">3</td>
+<td align="left">0</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">4</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">5</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">6</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">7</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">8</td>
+<td align="left">2</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">9</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">10</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">11</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">12</td>
+<td align="left">7</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">13</td>
+<td align="left">7</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">14</td>
+<td align="left">7</td>
+</tr>
+<tr class="even">
+<td align="right"><strong>Modus</strong> <span class="math inline">\(\rightarrow\)</span></td>
+<td align="left">15</td>
+<td align="left">8</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">16</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="right"></td>
+<td align="left">17</td>
+<td align="left">5</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="left">18</td>
+<td align="left">4</td>
+</tr>
+</tbody>
+</table>
+<!-- \begin{scriptsize} -->
+<!-- \begin{tabular}{rll} -->
+<!-- \hline -->
+<!-- & Punkte im Sprachtest & Häufigkeit \\ -->
+<!-- \hline -->
+<!-- & 0 & 0 \\ -->
+<!-- & 1 & 0 \\ -->
+<!-- & 2 & 0 \\ -->
+<!-- & 3 & 0 \\ -->
+<!-- & 4 & 0 \\ -->
+<!-- & 5 & 1 \\ -->
+<!-- & 6 & 1 \\ -->
+<!-- & 7 & 2 \\ -->
+<!-- & 8 & 2 \\ -->
+<!-- & 9 & 3 \\ -->
+<!-- & 10 & 1 \\ -->
+<!-- & 11 & 5 \\ -->
+<!-- & 12 & 7 \\ -->
+<!-- & 13 & 7 \\ -->
+<!-- & 14 & 7 \\ -->
+<!-- Modus $\rightarrow$ & 15 & 8 \\ -->
+<!-- & 16 & 5 \\ -->
+<!-- & 17 & 5 \\  -->
+<!-- & 18 & 4 \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{scriptsize} -->
+</div>
+<div id="median" class="section level2">
+<h2><span class="header-section-number">5.3</span> Median</h2>
+<p>Wenn alle Werte nach Größe aufsteigend angeordnet werden, ist der Median der Wert, der in der Mitte liegt.</p>
+<ol style="list-style-type: decimal">
+<li>Werte <span class="math inline">\(x_1,x_2,x_3,~\dots,~x_n\)</span> der Größe nach aufsteigend sortieren, ergibt folgende Ordnungsstatistik: <span class="math inline">\(x_1~&lt;~x_2~&lt;~x_3~&lt;~\dots~&lt;~x_n\)</span></li>
+<li><strong>Median</strong> teilt Daten in zwei gleich große Teile.</li>
+</ol>
+<p>Man unterscheidet bei der Berechnung des Medians zwischen 2 unterschiedlichen Vorgehensweisen: <br></p>
+<p><strong>Median (bei n = ungerader Zahl)</strong> wenn die Anzahl der Werte ungerade ist, dann ist die Ermittlung des Medians recht einfach zu ermitteln.</p>
+<p>Nehmen wir ein Beispiel <span class="math inline">\((n = 7)\)</span>. Die ungeordnete Folge könnte wie folgt aussehen: <br></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(x_1\)</span></th>
+<th align="center"><span class="math inline">\(x_2\)</span></th>
+<th align="center"><span class="math inline">\(x_3\)</span></th>
+<th align="center"><span class="math inline">\(x_4\)</span></th>
+<th align="center"><span class="math inline">\(x_5\)</span></th>
+<th align="center"><span class="math inline">\(x_6\)</span></th>
+<th align="center"><span class="math inline">\(x_7\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">5</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">8</td>
+<td align="center">6</td>
+<td align="center">7</td>
+</tr>
+</tbody>
+</table>
+<p>Diese Werte werden dann in aufsteigender Reihenfolge geordnet: <br></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(x_{(1)}\)</span></th>
+<th align="center"><span class="math inline">\(x_{(2)}\)</span></th>
+<th align="center"><span class="math inline">\(x_{(3)}\)</span></th>
+<th align="center"><span class="math inline">\(x_{(4)}\)</span></th>
+<th align="center"><span class="math inline">\(x_{(5)}\)</span></th>
+<th align="center"><span class="math inline">\(x_{(6)}\)</span></th>
+<th align="center"><span class="math inline">\(x_{(7)}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="center">7</td>
+<td align="center">7</td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">9</td>
+</tr>
+</tbody>
+</table>
+<p>Die sortierten Daten werden gleich große Teile geteilt.<br></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center"></th>
+<th align="center">7</th>
+<th align="center"></th>
+<th align="center">8</th>
+<th align="center">8</th>
+<th align="center">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\uparrow\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">Median</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="median-bei-n-gerade-zahl" class="section level2">
+<h2><span class="header-section-number">5.4</span> Median (bei n = gerade Zahl)</h2>
+<p>Beispiel <span class="math inline">\((n = 8)\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">7</th>
+<th align="center"></th>
+<th align="center">8</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(x_{(4)}\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(x_{(5)}\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<span class="math display">\[\begin{equation}
+Median~\tilde{x} = \frac{1}{2}(x_{(4)} + x_{(5)}) = \frac{1}{2}(7 + 8) = 7.5
+\end{equation}\]</span>
+</div>
+<div id="median-1" class="section level2">
+<h2><span class="header-section-number">5.5</span> Median</h2>
+<strong>Fall 1</strong>: Ungerade Anzahl an Werten in der Stichprobe (n ist eine ungerade Zahl)
+<span class="math display">\[\begin{equation}
+\tilde{x}~=~x_{(\frac{n+1}{2})}
+\end{equation}\]</span>
+<p><strong>Fall 2</strong>: Gerade Anzahl an Werten in der Stichprobe (<span class="math inline">\(n\)</span> ist gerade Zahl)</p>
+<span class="math display">\[\begin{equation}
+\tilde{x} = \frac{1}{x}_(x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)})
+\end{equation}\]</span>
+</div>
+<div id="r-befehle" class="section level2">
+<h2><span class="header-section-number">5.6</span> R-Befehle</h2>
+<p>Der Median wird mit folgendem R-Befehl ermittelt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Zur Berechnung des Medians </span>
+<span class="kw">median</span>()
+
+<span class="co"># Um die Daten in einem Boxplott darzustellen</span>
+<span class="kw">boxplot</span>(x)</code></pre></div>
+<div class="figure">
+<img src="img/Boxplot.png" />
+
+</div>
+<ol style="list-style-type: decimal">
+<li>Rohdaten werden nach Größe sortiert und Median <span class="math inline">\(x_{(m)}\)</span> bestimmt <br></li>
+<li>Unterer Angelpunkt: Es wird ein neuer Datensatz gebaut, der die Hälfte der sortierten Daten umfasst: <span class="math inline">\(x_1,x_2,\dots,x_m\)</span>. <br> Das untere Quartil ist der Median dieses Datensatzes <br></li>
+<li>Oberer Angelpunkt: Datensatz <span class="math inline">\(x_{(m)},~x_{(m+1)},~\dots,~x_{(n)}\)</span> wird gebildet. Der obere Angelpunkt ist der Median dieses Datensatzes.</li>
+</ol>
+</div>
+<div id="quantile" class="section level2">
+<h2><span class="header-section-number">5.7</span> Quantile</h2>
+<p><strong>p Quantile</strong></p>
+<p>Empirische Quantile teilen die Daten einer Messreihe prozentual in zwei Teil, sodass mindestens $ p<sub></sub>100%$ der kleiner oder gleich dem Quantil sind und mindestens <span class="math inline">\((1-p)~\times~100\%\)</span> größer oder gleich.</p>
+<p>Eine Möglichkeit p-Quantile zu berechnen:</p>
+<p>wenn n <span class="math inline">\(\cdot\)</span> p ganzzahlig ist:</p>
+<span class="math display">\[\begin{equation}
+\tilde{x}_p = \frac{1}{2}(x_{n \cdot p} + x_{n \cdot p + 1})
+\end{equation}\]</span>
+<p>wenn <span class="math inline">\(n~\cdot~p\)</span> nicht ganzzahlig ist:</p>
+<span class="math display">\[\begin{equation}
+\tilde{x}_p = x_{(\lceil n \cdot p \rceil)}
+\end{equation}\]</span>
+<p>Spezielle Quantile</p>
+<p><strong>Quartile</strong>: Teilen die Daten in vier (ungefähr) gleich große Teile <br> <strong>Dezile</strong>: Teilen die Daten in zehn (ungefähr) gleich große Teile <br> <strong>Perzentile</strong>: Teilen die Daten in hundert (ungefähr) gleich große Teile - <span class="math inline">\(\dots\)</span></p>
+<p>Quartile unterteilen die aufsteigend sortierten Daten in vier (ungefähr) gleich große Teile:</p>
+<p><span class="math inline">\(Q_{0.25}\)</span>: mindestens <span class="math inline">\(25\%\)</span> der Daten sind kleiner oder gleich dem <span class="math inline">\(Q_{0.25}\)</span> und mindestens <span class="math inline">\(75\%\)</span> der Daten sind größer oder gleich dem <span class="math inline">\(Q_{0.25}\)</span> <br> <span class="math inline">\(Q_{0.5}\)</span>: Median <br> <span class="math inline">\(Q_{0.75}\)</span>: mindestens <span class="math inline">\(75\%\)</span> der Daten sind kleiner oder gleich <span class="math inline">\(Q_{0.75}\)</span> und mindestens <span class="math inline">\(25\%\)</span> der Daten sind größer oder gleich dem <span class="math inline">\(Q_{0.75}\)</span> <br></p>
+<p>Beispiel <span class="math inline">\((n = 10)\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">1</th>
+<th align="center">3</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center"></th>
+<th align="center">6</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\uparrow\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\uparrow\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\uparrow\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(Q_{0.25}\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(Q_{0.5}\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(Q_{0.75}\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mittelwert" class="section level2">
+<h2><span class="header-section-number">5.8</span> Mittelwert</h2>
+<p><strong>Mittelwert</strong></p>
+<span class="math display">\[\begin{equation}
+\bar{x} = \frac{x_1 + x_2 + \dots + x_n}{n} = \frac{1}{n}\sum_{i= 1}^{n} x_i
+\end{equation}\]</span>
+<p>Das Summenzeichen <span class="math inline">\(\sum_{i=1}^{n}x_i\)</span> ist eine alternative Schreibweise für Summen</p>
+<p>Beispiel:</p>
+<p>Reihe von fünf Beobachtungswerten: 5 6 7 7 8</p>
+<span class="math display">\[\begin{equation}
+\sum_{i=1}^{5} x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 5 + 6 + 7 + 7 + 8
+\end{equation}\]</span>
+</div>
+<div id="beispiel" class="section level2">
+<h2><span class="header-section-number">5.9</span> Beispiel</h2>
+<p><strong>list-Datei</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Gruppe</th>
+<th align="center">Mittelwert</th>
+<th align="center">Median</th>
+<th align="center"><span class="math inline">\(Q_{0.25}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{0.75}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">3450.693</td>
+<td align="center">2649.00</td>
+<td align="center">1129.25</td>
+<td align="center">4943.50</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">3781.403</td>
+<td align="center">3128</td>
+<td align="center">1222.0</td>
+<td align="center">5539.5</td>
+</tr>
+</tbody>
+</table>
+<div class="figure">
+<img src="img/boxplot2.png" />
+
+</div>
+</div>
+<div id="r-befehle-1" class="section level2">
+<h2><span class="header-section-number">5.10</span> R Befehle</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mittelwert der Werte des Vektors x</span>
+<span class="kw">mean</span>(x) 
+
+<span class="co"># Median der Werte des Vektors x</span>
+<span class="kw">median</span>(x) 
+
+<span class="co">#  Quartile der Werte des Vektors x</span>
+<span class="kw">quantile</span>(x, <span class="dt">probs =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.25</span>)) 
+
+<span class="co"># x = ein Vektor,</span>
+<span class="co"># INDEX = Liste von einem oder mehreren Faktoren,</span>
+<span class="co">#  FUN = Funktion, die auf die Daten angewendet </span>
+<span class="co"># werden soll (z.B. mean)</span>
+
+<span class="kw">tapply</span>(x, INDEX, FUN)
+
+<span class="co"># Sortiert die Werte eines Vektors der Größe nach.</span>
+<span class="kw">sort</span>(x) 
+
+<span class="co">#Aufsteigende Sortierung (default). </span>
+<span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">FALSE</span>, ...)
+
+<span class="co"># Absteigende Sortierung.</span>
+<span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>, ...) </code></pre></div>
+</div>
+<div id="normalverteilung" class="section level2">
+<h2><span class="header-section-number">5.11</span> Normalverteilung</h2>
 <ul>
-<li>Scripts und Editor</li>
-<li>Datenformate (int, dbl,chr,dttm, …)</li>
-<li>Datentransformation:</li>
+<li><strong>Annahme</strong> bei vielen erhobenen Daten <span class="math inline">\(\leftrightarrow\)</span> Daten der erhobenen Stichprobe sind normalverteilt: Was heißt das?</li>
+<li>Das Histogramm der erhobenen Daten hat die Form einer symmetrischen Glockenkurve oder Gauß’schen Kurve.</li>
+<li>Bei einem vertikalem Schnitt durch den Mittelwert sollen beide Seiten möglichst deckungsgleich sein.</li>
+<li><strong>Annahme</strong>: man geht davon aus, dass die meisten Daten ungefähr um den Mittelpunkt liegen.</li>
+<li>Das würde auch bedeuten, dass die Länge der Balken kleiner werden, je weiter diese vom Mittelpunkt abweichen.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr
-<span class="kw">filter</span>()
-<span class="kw">arrange</span>()
-<span class="kw">select</span>()
-<span class="kw">mutate</span>()</code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Häufigkeitsverteilungen</strong> 4.05.</li>
-</ol>
+<p>Die Daten einer großen Stichprobe sind wahrscheinlicher normalverteilt. Mithilfe von Histogrammen gibt es die Möglichkeit einer visuellen Inspektion, ob die Daten einer Stichprobe normalverteilt sind.</p>
+</div>
+<div id="normalverteilung-mit-histogram-hist" class="section level2">
+<h2><span class="header-section-number">5.12</span> Normalverteilung mit Histogram <strong>hist()</strong></h2>
+<div class="figure">
+<img src="img/NormalDistribution.png" alt="Plot, der auf x-Achse Werte der Daten anzeigt und auf y-Achse, wie oft diese Daten auftauchen" />
+<p class="caption">Plot, der auf x-Achse Werte der Daten anzeigt und auf y-Achse, wie oft diese Daten auftauchen</p>
+</div>
+<!-- **Schiefe und Symmetrie** -->
+<!-- ![](./img/Verteilung.png) -->
+</div>
+<div id="normalverteilung-schiefe" class="section level2">
+<h2><span class="header-section-number">5.13</span> Normalverteilung: Schiefe</h2>
+<p>Schiefe Verteilungen sind nicht symmetrische Verteilungen. Deren häufigste Werte liegen am rechten Rand oder am linken Rand des Spektrums. Es gibt rechts- und linksschiefe Verteilungen besprochen.</p>
+<div class="figure">
+<img src="img/Verteilung.png" />
+
+</div>
+<div class="figure">
+<img src="img/Schiefe1.png" />
+
+</div>
+</div>
+<div id="normalverteilung-kurtosis" class="section level2">
+<h2><span class="header-section-number">5.14</span> Normalverteilung: Kurtosis</h2>
 <ul>
-<li>Normalverteilung</li>
-<li>Histogramme, Boxplots</li>
+<li>Beschreibung Kurvigkeit der Verteilung</li>
+<li><ol style="list-style-type: decimal">
+<li>Wie spitz ist die Kurve?</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>Wie sehr verteilen sich die Werte an den äußeren Enden der Kurve?</li>
+</ol></li>
 </ul>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Maße der zentralen Tendenz</strong> 11.05.</li>
-</ol>
+<p><strong>leptokurtic</strong> <em>positive Kurtosis</em> spitze Kurve, viele Werte verteilen sich auch an den Enden <br> <strong>platykurtic</strong> <em>negative Kurtosis</em> flache Kurve, relativ wenige Werte an den Enden <br></p>
+<div class="figure">
+<img src="img/kurtosis.png" />
+
+</div>
 <ul>
-<li>mean, mode, modus</li>
-<li>Streuungsmaße</li>
+<li>Schiefe und Kurtosis in einer Normalverteilung sollten 0 sein</li>
+<li>positive Kurtosis ist hier +4 und negative -1</li>
 </ul>
-<ol start="5" style="list-style-type: decimal">
-<li><strong>Kovarianz und Korrelation</strong> 18.05.</li>
+<!-- ## Shiny App -->
+<!-- - Darstellung größere Stichprobe -> Visualisierung der Daten nähert sich der Gaußschen Glockenkurve an -->
+</div>
+<div id="hausaufgabe" class="section level2">
+<h2><span class="header-section-number">5.15</span> Hausaufgabe</h2>
+<p>Schreiben Sie wie immer die Lösungen in ein R-Skript und laden Sie das bei studip hoch.</p>
+<ol style="list-style-type: decimal">
+<li>Rufen Sie die Hilfe für die Funktion <strong>tapply()</strong> auf!</li>
+<li><p>Lassen Sie sich den Median für alle 4 Bedingungen der FFD ausgeben! Falls Sie andere Lösungsansätze finden, dann schreiben Sie diese gerne auf! ## Übung</p></li>
+<li>Berechne mithilfe der Funktion <strong>quantile()</strong> die Quantile <span class="math inline">\(x_{0.25}\)</span>, <span class="math inline">\(x_{0.5}\)</span>, <span class="math inline">\(x_{0.75}\)</span> der <strong>DWELL</strong> von <strong>list</strong>! <br></li>
+<li>Generiere einen Boxplot dieser Daten mit <strong>boxplot()</strong> und fülle diesen Plot entweder mit einer Farber Deiner Wahl oder mit <strong>cyan</strong> aus!</li>
+<li><p>Laden Sie die Datei <strong>DownloadFestival1.dat</strong> von studip herunter und lesen Sie den Datensatz bei R ein! <br></p></li>
 </ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)</code></pre></div>
 <ul>
-<li>Beschreibungen <strong>describe()</strong></li>
+<li>Der Datensatz zeigt die Ergebnisse einer Umfrage zur persönlichen Hygiene von Festivalteilnehmern über den Zeitraum von 3 Tagen.</li>
+<li>Die Spanne ist von 0-4</li>
+<li>0 = sehr schlecht (Geruch vergleichbar mit verwesender Leiche und einem Stinktier)</li>
+<li>4 = sehr gut (Geruch vergleichbar süßer Rosen an einem frischen Frühlingstag)</li>
 </ul>
 <ol start="6" style="list-style-type: decimal">
-<li><p><strong>Datenvisualisierungen 1</strong> 25.05.</p></li>
-<li><p><strong>Datenvisualisierungen 2</strong> 8.06.</p></li>
+<li>Um einige deskriptive Daten des Datensatzes zusammenfassen zu können, benutzen Sie die <strong>describe()</strong> Funktion. Um diese Funktion benutzen zu können, müssen Sie das <strong>psych</strong> Paket herunterladen</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>()</code></pre></div>
-<ol start="8" style="list-style-type: decimal">
-<li><strong>Datenvisualisierungen 3</strong> 15.06.</li>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;psych&quot;</span>)
+<span class="kw">library</span>(psych)</code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>Beschreiben Sie bitte die Ergebnisse, die die folgenden Befehle liefern.</li>
 </ol>
-<ul>
-<li>Summary</li>
-<li>Korrelation – Datendarstellung</li>
-</ul>
-<ol start="9" style="list-style-type: decimal">
-<li><p><strong>Explorative Datenanalyse</strong> 22.06.</p></li>
-<li><p><strong>Modelle</strong> 29.06.</p></li>
-<li><strong>Wiederholung und Fragerunde</strong> 6.07.</li>
-</ol>
-<ul>
-<li>eventuell live</li>
-</ul>
-<ol start="12" style="list-style-type: decimal">
-<li><strong>Klausur</strong> 13.07.</li>
-</ol>
-<ul>
-<li>Das Format der Klausur muss noch entschieden werden und hängt auch von der weiteren Entwicklung ab.</li>
-</ul>
-</div>
-<div id="tutorium" class="section level2">
-<h2><span class="header-section-number">1.3</span> Tutorium</h2>
-<p>Wir sind in der glücklichen Lage, ein Tutorium zu diesem Kurs anbieten zu können. Das Tutorium wird von <strong>Peter Hofmann</strong> geleitet.</p>
-<p><a href="mailto:peter.hofmann@uni-goettingen.de">peter.hofmann@uni-goettingen.de</a></p>
-<p>Viele Dinge, die Sie eventuell nicht im Live Call direkt ansprechen wollen, können Sie etwas niederschwelliger mit ihm besprechen. Er wird viele zusätzliche Übungen und Beispiele zur Verfügung stellen.</p>
-<!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$. -->
-<!-- The **bookdown** package can be installed from CRAN or Github: -->
-<!-- ```{r eval=FALSE} -->
-<!-- install.packages("bookdown") -->
-<!-- # or the development version -->
-<!-- # devtools::install_github("rstudio/bookdown") -->
-<!-- ``` -->
-<!-- Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`. -->
-<!-- To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>. -->
-<!-- ```{r include=FALSE} -->
-<!-- # automatically create a bib database for R packages -->
-<!-- knitr::write_bib(c( -->
-<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
-<!-- ), 'packages.bib') -->
-<!-- ``` -->
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># für Tag 1</span>
+<span class="kw">describe</span>(df<span class="op">$</span>day1)
+<span class="co"># für alle Tage</span>
+<span class="kw">describe</span>(<span class="kw">cbind</span>(df<span class="op">$</span>day1,df<span class="op">$</span>day2,df<span class="op">$</span>day3))
+<span class="co"># alternative Darstellung für alle 3 Tage</span>
+<span class="kw">describe</span>(df[,<span class="kw">c</span>(<span class="st">&quot;day1&quot;</span>,<span class="st">&quot;day2&quot;</span>,<span class="st">&quot;day3&quot;</span>)])</code></pre></div>
+<p>Wie würden Sie diese Ergebnisse interpretieren? Sind die Verteilungen normalverteilt? Wie ist Schiefe und Kurtosis der Verteilungen an den unterschiedlichen Tagen. Beschreiben Sie Ihre Interpretation mit der Kommentarmöglichkeit im R-Skript.</p>
 
 </div>
 </div>
@@ -381,8 +776,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kovarianz-und-korrelation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
