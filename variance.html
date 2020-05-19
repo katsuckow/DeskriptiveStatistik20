@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Datenbeschreibungen in R | Deskriptive Statistik mit R</title>
+  <title>Chapter 6 Kovarianz und Korrelation | Deskriptive Statistik mit R</title>
   <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Datenbeschreibungen in R | Deskriptive Statistik mit R" />
+  <meta property="og:title" content="Chapter 6 Kovarianz und Korrelation | Deskriptive Statistik mit R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="katsuckow/DeskriptiveStatistik20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Datenbeschreibungen in R | Deskriptive Statistik mit R" />
+  <meta name="twitter:title" content="Chapter 6 Kovarianz und Korrelation | Deskriptive Statistik mit R" />
   
   <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="distribution.html"/>
+<link rel="prev" href="central.html"/>
+<link rel="next" href="ZKD.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -230,242 +230,276 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="description" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Datenbeschreibungen in R</h1>
-<!-- ```{r setup, include=FALSE} -->
-<!-- knitr::opts_chunk$set(echo = TRUE) -->
-<!-- ``` -->
-<div id="kurze-wiederholung" class="section level2">
-<h2><span class="header-section-number">3.1</span> Kurze Wiederholung</h2>
-<ul>
-<li>Qualitative und quantitative Daten</li>
-<li>Deskriptive Statistik <span class="math inline">\(\leftrightarrow\)</span> Inferenzstatistik</li>
-</ul>
-<p><strong>Variablen</strong> <br> <strong>Workspace</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Daten einlesen</span>
-<span class="kw">getwd</span>()
-<span class="co"># Der Pfad zu Eurem Workspace ist auf jedem Rechner anders</span>
-<span class="co"># Deshalb läßt sich das nicht vorgeben und Ihr könnt diesen nicht einfach</span>
-<span class="co"># von jemand kopieren.</span>
-<span class="kw">setwd</span>(<span class="st">&quot;&lt;Setzt bitte hier den Pfad zum Workspace auf Eurem Rechner ein&gt;&quot;</span>)
-<span class="co"># Der Datensatz sollte 10VP.dat sollte im Pfad Eures Workspace gespeichert sein</span>
-list =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;10VP.dat&quot;</span>,<span class="dt">header =</span> T)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Inhalt des Workspace</span>
-<span class="co"># welche Variablen wurden eingelesen oder selbst erstellt</span>
-<span class="kw">ls</span>()
-
-<span class="co"># listet die ersten 6 Zeilen auf</span>
-<span class="kw">head</span>(list)
-
-<span class="co"># Berechne die Summe aller Lesezeiten</span>
-<span class="kw">sum</span>(list<span class="op">$</span>time)</code></pre></div>
-</div>
-<div id="r-vektoren" class="section level2">
-<h2><span class="header-section-number">3.2</span> R-Vektoren</h2>
-<p>Vektoren sind eine Datenstruktur, die Elemente desselben Datentyps in Form einer Liste enhält. Diese Datentypen können <em>logisch</em>, <em>integer</em>, <em>double</em>, <em>character</em> oder <em>komplex</em> sein.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
-<span class="co">#typeof() gibt den Datentyp einer Variable wieder </span>
-<span class="kw">typeof</span>(x)</code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#str() listet den Datentyp und die verschiedenen Ausprägungen einer Variable auf</span>
-<span class="kw">str</span>(x)</code></pre></div>
-<pre><code>##  int [1:30] 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#length() gibt die Länge einer Liste wieder</span>
-<span class="kw">length</span>(x)</code></pre></div>
-<pre><code>## [1] 30</code></pre>
-</div>
-<div id="r-datentypen" class="section level2">
-<h2><span class="header-section-number">3.3</span> R-Datentypen</h2>
-<p>R weist die Datentypen automatisch zu - Variablentyp muss nicht explizit festgelegt werden. Manchmal kann man den Variablentyp ändern, wenn bestimmte Funktionen durchgeführt werden sollen.</p>
-<p><strong>integer</strong> sind ganzzahlige Werte im endlichen Bereich \ - standardisierter Bereich ist normalerweise von -32768 bis +32768 - wenn der Wert größer als 32768 ist, dann gibt es eine Art Überlauf</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
-<span class="kw">typeof</span>(x)</code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(x)</code></pre></div>
-<pre><code>##  int [1:30] 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
-<p><strong>double</strong> bezeichnet Fliesskommazahlen, wird in R auch manchmal als <strong>numeric</strong> wiedergegeben.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="fl">3.232</span>
-<span class="kw">str</span>(x)</code></pre></div>
-<pre><code>##  num 3.23</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(x)</code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<p><strong>Character</strong> enthält Buchstabenfolgen. Diese müssen in &quot; &quot; stehen, um sie von den Variablen zu unterscheiden.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> &quot;Langeweile&quot;</span>
-x</code></pre></div>
-<pre><code>## [1] &quot;Langeweile&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(x)</code></pre></div>
-<pre><code>##  chr &quot;Langeweile&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(x)</code></pre></div>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<p><strong>Factor</strong> sind Variablen, die bestimmte endliche Werte annehmen können. Sie bezeichnen kategorische Werte. <strong>Factor</strong> können als Zahlen oder Buchstaben dargestellt werden.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">c</span>(<span class="st">&quot;apfel&quot;</span>,<span class="st">&quot;birne&quot;</span>,<span class="st">&quot;erdbeere&quot;</span>,<span class="st">&quot;erdbeere&quot;</span>))
-y =<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">8</span>))
-<span class="kw">str</span>(x)</code></pre></div>
-<pre><code>##  Factor w/ 3 levels &quot;apfel&quot;,&quot;birne&quot;,..: 1 2 3 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(y)</code></pre></div>
-<pre><code>##  Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;8&quot;: 1 2 2 1 1 1 3</code></pre>
-<p><strong>logical</strong> Evaluation einer logischen Frage: Darstellung als <strong>TRUE</strong> oder <strong>FALSE</strong>; kann nur zwei Werte annehmen.</p>
-<ul>
-<li>Siehe hierzu die Inhalte von letzter Woche und die Folien und Übungen im</li>
-</ul>
-<p><strong>complex</strong> Daten, die nicht in traditioneller Weise dargestellt werden.</p>
-<p>Die <strong>str()</strong> Funktion stellt die Datentypen der Werte in einer Tabelle dar:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># listet Datentypen aller Spalten auf</span>
-list =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;10VP.dat&quot;</span>,<span class="dt">header =</span> T)
-<span class="kw">str</span>(list)</code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    3448 obs. of  8 variables:
-##  $ VP      : int  21 21 21 21 21 21 21 21 21 21 ...
-##  $ type    : Factor w/ 1 level &quot;colin&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ item    : int  14 14 14 14 14 14 14 14 14 14 ...
-##  $ cond    : Factor w/ 3 levels &quot;a&quot;,&quot;b&quot;,&quot;c&quot;: 3 3 3 3 3 3 3 3 3 3 ...
-##  $ nr      : Factor w/ 22 levels &quot;?&quot;,&quot;0&quot;,&quot;1&quot;,&quot;10&quot;,..: 2 3 14 16 17 18 19 20 21 22 ...
-##  $ word    : Factor w/ 182 levels &quot;access&quot;,&quot;advertised&quot;,..: 109 126 162 163 8 36 86 53 52 72 ...
-##  $ feedback: Factor w/ 3 levels &quot;-&quot;,&quot;0&quot;,&quot;1&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ time    : int  646 958 565 454 566 701 469 973 613 525 ...</code></pre>
-<p><strong>str()</strong> listet die Tabelle nach den Spalten auf:</p>
+<div id="variance" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Kovarianz und Korrelation</h1>
+<div id="kurze-wiederholung-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Kurze Wiederholung</h2>
 <ol style="list-style-type: decimal">
-<li>zuerst erscheint der Spaltennahme</li>
-<li>dann der Datentype: <strong>int</strong> = integer, ganzzahliger Datentyp in einem bestimmten Bereich <strong>Factor</strong>, Daten können nur einen bestimmten Wert annehmen</li>
-<li>danach erscheinen die verschiedenen Beobachtungen der jeweiligen Spalte</li>
+<li><p><strong>Datenstruktur in R</strong> <br> Vektoren, Data frames, Matritzen</p></li>
+<li><strong>Testdesigns</strong> <br></li>
+</ol>
+<ul>
+<li>experimentelle <span class="math inline">\(\leftrightarrow\)</span> nicht-experimentelle Forschung</li>
+<li>unabhängige Variable (UV), abhängige Variable (AV), Moderatorvariable, Störvariable</li>
+<li>Kontrolle von Störvariable: Randomisierung, Filler</li>
+<li>Latin Square Designs</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Skalenniveaus</strong> <br></li>
+</ol>
+<ul>
+<li>diskret <span class="math inline">\(\leftrightarrow\)</span> stetig</li>
+<li>kategorisch <span class="math inline">\(\leftrightarrow\)</span> binär</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Masse zentraler Tendenz</strong> <br></li>
+</ol>
+<ul>
+<li>Median, Modus, Mittelwert</li>
+<li>Median: bei gerade n-Anzahl, bei ungerade n-Anzahl</li>
+<li>Quantile: teilt Daten in gleich gro{}e Teile <br> unterschieden nach Quartile, Dezile, Perzentile</li>
+</ul>
+</div>
+<div id="streuungsmaße" class="section level2">
+<h2><span class="header-section-number">6.2</span> Streuungsmaße</h2>
+<ul>
+<li>Modelle zur Beschreibung der Daten</li>
+<li>bisher: Mittelwert, Median, Modus, Quantile</li>
+<li>Was ist das Problem bei der Beschreibung dieser Daten?</li>
+<li>Maße zentraler Tendenz liefern Information über “Zentrum” der Verteilung – ohne Information, wie die meisten Beobachtungswerte verteilt sind</li>
+<li>Abweichungen der Beobachtungswerte vom “Zentrum” durch sogenannte Streuungsmaße beschrieben</li>
+<li>je kleiner Streuungsmaß, umso besser Häufigkeitsverteilung durch Maß der zentralen Tendenz (“Zentrum”) beschrieben</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Spannweite</li>
+<li>Quartils- und Quantilsabstände</li>
+<li>Quadratsummen, Varianz, Standardabweichung</li>
+<li>Median der absoluten Abweichungen</li>
 </ol>
 </div>
-<div id="r-data-frames" class="section level2">
-<h2><span class="header-section-number">3.4</span> R-Data frames</h2>
-<p><strong>Data Frames</strong> ist die Datenstruktur in Form einer Tabelle (zweidimensional) mit <strong>Zeilen</strong> und <strong>Spalten</strong>. Deren Werte kann eine Mischung aus Zahlen und Buchstaben enthalten.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ein Data Frame hat folgende Form</span>
-<span class="co"># diese Information wird später noch einmal wichtig</span>
-name[<span class="op">&lt;</span>zeile<span class="op">&gt;</span>, <span class="op">&lt;</span>spalte<span class="op">&gt;</span>]</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># so kann man eine Liste generieren</span>
-<span class="co"># c() steht für &quot;concatenate&quot;&quot;, verbinden oder aneinanderreihen </span>
-y =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Unsinn&quot;</span>,<span class="st">&quot;Quatsch&quot;</span>,<span class="st">&quot;rot&quot;</span>)
-y</code></pre></div>
-<pre><code>## [1] &quot;Unsinn&quot;  &quot;Quatsch&quot; &quot;rot&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#so kann man einen Data Frame generieren </span>
-a =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">7</span>,y,<span class="dv">8</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)
-a</code></pre></div>
-<pre><code>##   5:7       y 8:10
-## 1   5  Unsinn    8
-## 2   6 Quatsch    9
-## 3   7     rot   10</code></pre>
-<p>So sieht der Inhalt des erstellten Data Frame schlußendlich aus; wie eine Tabelle ohne Überschrift und ohne Spalten und Zeilennamen</p>
+<div id="spannweite-range" class="section level2">
+<h2><span class="header-section-number">6.3</span> Spannweite (“range”)</h2>
+<p><strong>Spannweite</strong> Die Spannweite ist der Abstand vom größten zu kleinstem Beobachtungswert.</p>
+<span class="math display">\[\begin{equation}
+R = x_{max} - x_{min}
+\end{equation}\]</span>
+<p>Die Spannweite umfaßt gesamten Streubereich der Beobachtungen. Die Spannweite ist sehr empfindlich gegenüber Extremwerten (Ausreißer), da sie vom kleinsten und größten Beobachtungswert abhängt.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">range</span>(x)</code></pre></div>
+<ul>
+<li>finde die Spannweite für die Opfer von Lungenkrankheiten in der UK zwischen 1974 und 1979 heraus</li>
+<li>die Datei gehört zu R und heisst <strong>ldeaths</strong></li>
+</ul>
 </div>
-<div id="r-matritzen" class="section level2">
-<h2><span class="header-section-number">3.5</span> R-Matritzen</h2>
-<p>Matritzen in <strong>R</strong> haben ähnlich wie Dataframes die Form einer Tabelle, nur bestehen Matritzen nur aus Zahlen und enthalten keine Buchstaben.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># so kann man eine Matrix von 1 bis 30 aufsteigend erstellen </span>
-<span class="co">#und diese auf 10 Spalten und 3 Zeilen verteilen</span>
-a =<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">30</span>, <span class="dt">ncol =</span> <span class="dv">10</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
-
-<span class="co"># so sieht der Inhalt dann aus</span>
-a</code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-## [1,]    1    2    3    4    5    6    7    8    9    10
-## [2,]   11   12   13   14   15   16   17   18   19    20
-## [3,]   21   22   23   24   25   26   27   28   29    30</code></pre>
-<p>Mit der Funktion <strong>dim()</strong> lässt sich die Größe eines Dataframes oder einer Matritze anzeigen. Nehmen wir mal die selbsterstellte Matrix mit dem Namen <strong>a</strong>: <strong>dim(a)</strong> gibt die Anzahl der Zeilen und die Anzahl der Spalten der jeweiligen Tabelle wieder.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(a)</code></pre></div>
-<pre><code>## [1]  3 10</code></pre>
-<p>Hier zeigt sich die schon angedeutete Anordnung in den eckigen Klammern: zuerst die links die <strong>Zeile</strong> dann rechts die <strong>Spalte</strong>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># folgender Code zeigt, wie man auf einzelne Spalten zugreifen kann</span>
-<span class="co"># so kann man sich die 1. Spalte der Tabelle anzeigen lassen</span>
-a[,<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1]  1 11 21</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hier zeigt sich, wie man sich die 1. Zeile der Tabelle anzeigen lassen kann</span>
-a[<span class="dv">1</span>,]</code></pre></div>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>Die <strong>mean()</strong> Funktion gibt den Mittelwert von einer Reihe von Zahlen wieder</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hier wird der Mittelwert der 1. Zeile der Tabelle a ermittelt und ausgegeben</span>
-<span class="kw">mean</span>(a[<span class="dv">1</span>,])</code></pre></div>
-<pre><code>## [1] 5.5</code></pre>
-<p>Man kann in der Tabelle den einzelnen Spalten und Zeilen Namen geben. Falls dies im originalen eingelesenen Datensatz nicht schon geschehen ist, gibt es hierfür die Funktionen <strong>colnames()</strong> und <strong>rownames()</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># die einzelnen Spalten werden alphabetisch angeordnet</span>
-<span class="kw">colnames</span>(a) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;e&quot;</span>,<span class="st">&quot;f&quot;</span>,<span class="st">&quot;g&quot;</span>,<span class="st">&quot;h&quot;</span>,<span class="st">&quot;i&quot;</span>,<span class="st">&quot;j&quot;</span>)
-
-<span class="co"># die einzelnen Zeilen bekommen so einen eigenen Farbnamen</span>
-<span class="co"># wenn die Zuweisungen Buchstaben enthalten, müssen diese in Hochkommata geschrieben werden</span>
-<span class="co"># bei der Zuweisung von Zahlen, müssen diese nicht in Hochkommata stehen</span>
-<span class="kw">rownames</span>(a) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;rot&quot;</span>,<span class="st">&quot;blau&quot;</span>,<span class="st">&quot;weiss&quot;</span>)
-
-<span class="co"># gib den Inhalt der Tabelle a aus</span>
-a</code></pre></div>
-<pre><code>##        a  b  c  d  e  f  g  h  i  j
-## rot    1  2  3  4  5  6  7  8  9 10
-## blau  11 12 13 14 15 16 17 18 19 20
-## weiss 21 22 23 24 25 26 27 28 29 30</code></pre>
+<div id="quartilsabstände" class="section level2">
+<h2><span class="header-section-number">6.4</span> Quartilsabstände</h2>
+<p>Der Quartilsabstand (interquartile range - IQR) wird als Differenz der Quartile Q.25 und Q.75 berechnet:</p>
+<span class="math display">\[\begin{equation}
+IQR = \tilde{x}_{0.75} - \tilde{x}_{0.25}
+\end{equation}\]</span>
+<p>IQR ist die Länge des Bereichs, in dem 50% aller Messwerte liegen</p>
+<p>Quartilabstand nicht empfindlich gegenüber Ausreißern</p>
+<div id="quartilsabstände-beispiel" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Quartilsabstände: Beispiel</h3>
+<p>Körpergröße von 15 Personen:</p>
+<p>155, 157, 160, 163, 166, 169, 172, 175, 179, 182, 186, 190, 194, 199, 204</p>
+<p><strong>Quartile:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(Q_0\)</span></th>
+<th align="center"><span class="math inline">\(Q_{0.25}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{0.5}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{0.75}\)</span></th>
+<th align="center"><span class="math inline">\(Q_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">155</td>
+<td align="center">163</td>
+<td align="center">175</td>
+<td align="center">190</td>
+<td align="center">204</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quartilsabstände IQR</strong></p>
+<span class="math display">\[\begin{equation}
+IQR = Q_{.75} - Q_{.25} = 190 - 163 = 27
+\end{equation}\]</span>
 </div>
-<div id="r---nützliche-funktionen" class="section level2">
-<h2><span class="header-section-number">3.6</span> R - nützliche Funktionen</h2>
-<p><strong>as.factor()</strong> Mit dieser Funktion lässt sich ein Vector als Faktor kodieren. Ein als Faktor kodierter Vektor kann nur Werte aus bestimmten vordefiniertem Bereich enthalten.</p>
-<p>Kopieren Sie jeweils den Code und lassen Sie sich die Ergebnisse anzeigen.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
-<span class="kw">str</span>(x)</code></pre></div>
-<pre><code>##  int [1:30] 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">as.factor</span>(x)
-<span class="kw">str</span>(x)</code></pre></div>
-<pre><code>##  Factor w/ 30 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
-<p><strong>levels()</strong> Zeigt die Levels eines Factors an.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
-x =<span class="st"> </span><span class="kw">as.factor</span>(x)
-<span class="kw">levels</span>(x)</code></pre></div>
-<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; &quot;15&quot;
-## [16] &quot;16&quot; &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot; &quot;21&quot; &quot;22&quot; &quot;23&quot; &quot;24&quot; &quot;25&quot; &quot;26&quot; &quot;27&quot; &quot;28&quot; &quot;29&quot; &quot;30&quot;</code></pre>
-<p><strong>table()</strong> erstellt eine Übersicht über die Werte einer Spalte.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
-x =<span class="st"> </span><span class="kw">as.factor</span>(x)
-<span class="kw">table</span>(x)</code></pre></div>
-<pre><code>## x
-##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 
-##  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1 
-## 27 28 29 30 
-##  1  1  1  1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Hilfefunktionen in R</span>
-<span class="kw">help</span>(<span class="st">&quot;paketname&quot;</span>)
-?Paketname</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)
-<span class="kw">library</span>(dplyr)
-
-<span class="co"># zeige nur Zeilen, die bestimmte Bedingung erfüllen</span>
-<span class="kw">filter</span>()
-<span class="kw">filter</span>(list,time <span class="op">&lt;</span><span class="st"> </span><span class="dv">150</span>)
-
-<span class="co"># ordne Zeilen nach einer bestimmten Spalte</span>
-<span class="kw">arrange</span>()
-<span class="kw">arrange</span>(list,time)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># zusammenfassen der Daten</span>
-<span class="co"># min, max, mean, median, var, sd - anwendbar</span>
-<span class="kw">summarise</span>()
-<span class="kw">summarise</span>(list,<span class="dt">avg =</span> <span class="kw">mean</span>(time))
-
-<span class="co"># wähle Spalten nach Namen aus</span>
-<span class="kw">select</span>()
-<span class="kw">select</span>(list, VP, time)
-
-<span class="co"># mache Berechnungen und hänge Spalten an</span>
-<span class="kw">mutate</span>()
-<span class="kw">mutate</span>(list, <span class="dt">time2 =</span> time<span class="op">/</span><span class="dv">100</span>)</code></pre></div>
-<p>Eine <strong>Funktion</strong> ist die Aneinanderreihung auszuführender Befehle. Man kann sie selbst definieren, schnell wiederholen und schnell anwenden.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&lt;</span>Name<span class="op">&gt;</span><span class="st"> </span><span class="er">=</span><span class="st"> </span><span class="cf">function</span>(<span class="op">&lt;</span>Liste von übergebenen Argumenten<span class="op">&gt;</span>){
-  <span class="op">&lt;</span>Befehle, die ausgeführt werden sollen<span class="op">&gt;</span>
-}</code></pre></div>
-<p>Beispiel einer Funktion. Probiert diese doch einmal aus!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># &quot;percent&quot; berechnet Prozent a von b in Variable d</span>
-percent =<span class="st"> </span><span class="cf">function</span>(a,b){ 
-    d =<span class="st"> </span><span class="dv">100</span><span class="op">/</span>b <span class="op">*</span><span class="st"> </span>a
-    d
-}
-<span class="kw">percent</span>(<span class="dv">34</span>,<span class="dv">78</span>)</code></pre></div>
-<pre><code>## [1] 43.58974</code></pre>
 </div>
-<div id="aufgabe" class="section level2">
-<h2><span class="header-section-number">3.7</span> Aufgabe</h2>
-<p>Bitte löst die folgenden Aufgaben und schreibt den Lösungsverlauf in ein R-Skript. Dieses bitte wieder auf Studip hochladen und zwar im Ordner von der Session 2. Bitte wendet Euch bei Fragen und Unklarheiten an mich oder an Peter. Gutes Gelingen!</p>
-<ol style="list-style-type: decimal">
-<li>Bestimmen Sie den Datentyp der Spalte <strong>time</strong> im eingelesenen Datensatz <strong>list</strong>. <br></li>
-<li>Bestimmen Sie die längste gemessene Lesezeit und die kürzeste gemessene Lesezeit in der Spalte <strong>time</strong>. <br></li>
-<li>Bestimmen Sie die Anzahl der Zeilen und Spalten des eingelesenen Dataframes <strong>liste</strong>. <br></li>
-<li>Bestimmen Sie wieviele Versuchspersonen (VP) in diesem Datensatz teilgenommen haben. <br></li>
-<li>Bestimmen Sie den Mittelwert der Spalte <strong>time</strong> und hängen Sie eine Spalte an den Dataframe **liste*, die jeden Lesewert durch den Mittelwert teilt.</li>
-</ol>
+<div id="quantilsabstand" class="section level2">
+<h2><span class="header-section-number">6.5</span> Quantilsabstand</h2>
+<p><strong>Der Quantilsabstand</strong> ist die Differenz zwischen dem <span class="math inline">\(p-\)</span> und dem <span class="math inline">\((1-p)\)</span>-Quantil:</p>
+<p><span class="math inline">\(0 &lt; p &lt; 0.5\)</span> <br></p>
+<ul>
+<li>beschreibt die Länge des Bereichs, in dem annähernd <span class="math inline">\(100 \cdot (1-2p) \%\)</span> der Beobachtungswerte liegen</li>
+</ul>
+<span class="math display">\[\begin{equation}
+QA_p = \tilde{x}_{1-p} - \tilde{x}_p
+\end{equation}\]</span>
+<p><strong>Quantilsabstand: Beispiel</strong></p>
+<p>Körpergröße von 15 Personen: <br></p>
+<p>155, 157, 160, 163, 166, 169, 172, 175, 179, 182, 186, 190, 194, 199, 204</p>
+<p><strong><span class="math inline">\(5\%\)</span> Quantile</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(Q_0\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.05}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.1}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.15}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.2}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.25}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.3}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.35}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.4}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.45}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.5}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">155.0</td>
+<td align="center">156.4</td>
+<td align="center">158.2</td>
+<td align="center">160.3</td>
+<td align="center">162.4</td>
+<td align="center">164.5</td>
+<td align="center">166.6</td>
+<td align="center">168.7</td>
+<td align="center">170.8</td>
+<td align="center">172.9</td>
+<td align="center">175.0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(Q_{.55}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.6}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.65}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.7}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.75}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.8}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.85}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.9}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{.95}\)</span></th>
+<th align="center"><span class="math inline">\(Q_{1}\)</span></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">177.8</td>
+<td align="center">180.2</td>
+<td align="center">182.4</td>
+<td align="center">185.2</td>
+<td align="center">188.0</td>
+<td align="center">190.8</td>
+<td align="center">193.6</td>
+<td align="center">197.0</td>
+<td align="center">200.5</td>
+<td align="center">204.0</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="beispiel-1" class="section level2">
+<h2><span class="header-section-number">6.6</span> Beispiel</h2>
+<p>Was ist der Interqartilsabstand bei der Datei <strong>ldeaths</strong>?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IQR</span>(x)</code></pre></div>
+</div>
+<div id="abweichungen-vom-mittelwert" class="section level2">
+<h2><span class="header-section-number">6.7</span> Abweichungen vom Mittelwert</h2>
+<p><img src="NewBook_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="NewBook_files/figure-html/unnamed-chunk-4-1.png" width="110%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>Die Summe der Abweichungen vom arithmetischen Mittel ergibt immer Null.</p>
+<span class="math display">\[\begin{equation*}
+\sum_{i=1}^n (x_i - \bar{x}) = 0
+\end{equation*}\]</span>
+</div>
+<div id="quadratsumme-sum-of-squares" class="section level2">
+<h2><span class="header-section-number">6.8</span> Quadratsumme: <em>sum of squares</em></h2>
+<span class="math display">\[\begin{equation}
+QS = \sum_{i = 1}^n (x_i - \bar{x})^2
+\end{equation}\]</span>
+</div>
+<div id="durchschnitt-der-quadratischen-abweichungen" class="section level2">
+<h2><span class="header-section-number">6.9</span> Durchschnitt der quadratischen Abweichungen</h2>
+<p><span class="math inline">\(\rightarrow\)</span> beschreibt Variabilität innerhalb einer Stichprobe</p>
+<span class="math display">\[\begin{equation}
+\frac{QS}{n} = \frac{\sum_{i = 1}^n (x_i - \bar{x})^2}{n}
+\end{equation}\]</span>
+</div>
+<div id="varianz" class="section level2">
+<h2><span class="header-section-number">6.10</span> Varianz</h2>
+<span class="math display">\[\begin{equation}
+s^2 = \frac{\sum_{i = 1}^n (x_i - \bar{x})^2}{n - 1}
+\end{equation}\]</span>
+<p><strong>Erwartungstreue</strong> Eine Schätzfunktion ist erwartungstreu, wenn bei großer Stichprobe mittlerer Schätzfehler gegen Null geht. Einzelne Schätzwerte können vom Parameterwert abweichen, positive und negative Schätzfehler werden sich gegenseitig aufheben <span class="math inline">\(\rightarrow\)</span> Durchschnitt genaue Schätzung des Parameters <strong>Zufallsvariable</strong> Funktion, die Ergebnissen eines Zufallsexperiments reelle Zahlen zuordnet zB. Würfeln: Zuordnung einer Zahl von 1-6 bei jedem Wurf</p>
+</div>
+<div id="varianz-warum-teilt-man-durch-n---1" class="section level2">
+<h2><span class="header-section-number">6.11</span> Varianz: warum teilt man durch n - 1?</h2>
+<p>Man will unbekannte Varianz einer Zufallsvariable durch Varianz geeigneter Beobachtungsreihe schätzen. Bei Division durch n-1 ist Schätzung von Varianz erwartungstreu, d.h. dass bei gro{}er Anzahl von Stichproben mittlerer Schätzfehler bei Schätzung der Varianz durch gemittelte Varianz der Stichproben in Nähe von Null liegt. (Division durch n unterschätzt systematisch Populationsvarianz) <br> Der Unterschied (ob durch n oder n-1 teilen) vor allem für kleine Stichprobenumfänge relevant. (je größer Stichprobenumfang, desto weniger fällt Unterschied bei praktischer Berechnung ins Gewicht)</p>
+</div>
+<div id="standardabweichung" class="section level2">
+<h2><span class="header-section-number">6.12</span> Standardabweichung</h2>
+<strong>Standardabweichung: s</strong>
+<span class="math display">\[\begin{equation}
+s=\sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \tilde{x})^2}{n-1}}
+\end{equation}\]</span>
+<p>Gib die Standardabweichung für die Opfer von Lungenkrankheiten aus</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(x)</code></pre></div>
+</div>
+<div id="standardabweichung-und-varianz" class="section level2">
+<h2><span class="header-section-number">6.13</span> Standardabweichung und Varianz</h2>
+<p>Die Standardabweichung und Varianz gehören zu den am häufigsten benutzten Streuungsmaßen.</p>
+<!-- ## Standardisierung: Z-Transformation -->
+<!-- Der z-Wert gibt an, wieviele Standardabweichungen ein Rohwert unter bzw. über dem Mittelwert liegt. -->
+<!-- \begin{equation} -->
+<!-- z_i = \frac{x_i - \bar{x}}{s} -->
+<!-- \end{equation} -->
+<!-- - z-transformierte Werte haben einen Mittelwert von 0 und eine Standardabweichung von 1. -->
+<!-- ## Z Transformation -->
+<!-- - Bitte führe eine Z-Transformation für die Datei \texttt{ldeaths} durch! -->
+</div>
+<div id="median-absolute-deviation-mad" class="section level2">
+<h2><span class="header-section-number">6.14</span> Median absolute deviation (MAD)</h2>
+<p>Das MAD-Maß ist der Median der absoluten Abweichungen vom Median <br> <span class="math inline">\(\tilde{x} = median\)</span></p>
+<span class="math display">\[\begin{equation}
+MAD = median |x_i - \tilde{x}|
+\end{equation}\]</span>
+<p>Wie würden Sie den <strong>MAD</strong> der absoluten Abweichungen berechnen? <br> Wie wird der Median berechnet und welche Schrittabfolge berechnet den MAD?</p>
+</div>
+<div id="r-befehle-2" class="section level2">
+<h2><span class="header-section-number">6.15</span> R Befehle</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Kleinster und größter Wert des Vektors x</span>
+<span class="kw">range</span>(x)
+
+<span class="co">#Quartilsabstand der Werte des Vektors x</span>
+<span class="kw">IQR</span>(x) 
+
+<span class="co">#Varianz der Werte des Vektors x</span>
+<span class="kw">var</span>(x)
+
+<span class="co">#Standardabweichung der Werte des Vektors x</span>
+<span class="kw">sd</span>(x)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#z-Transformation Werte des Vektors x</span>
+<span class="kw">scale</span>(x)
+
+<span class="co"># Paket für deskriptive Statistiken</span>
+<span class="kw">library</span>(psych)
+
+<span class="co"># Deskriptive Statistiken Werte des Vektors x</span>
+<span class="kw">describe</span>(x)
+
+<span class="co"># Deskriptive Statistiken Werte des Vektors x </span>
+<span class="co"># für Gruppierung nach Vektor y</span>
+<span class="kw">describeBy</span>(x,y)</code></pre></div>
 
 </div>
 </div>
@@ -474,8 +508,8 @@ percent =<span class="st"> </span><span class="cf">function</span>(a,b){
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="central.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ZKD.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

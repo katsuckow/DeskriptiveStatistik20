@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Kovarianz + Datenvisualisierungen | Deskriptive Statistik mit R</title>
+  <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Kovarianz + Datenvisualisierungen | Deskriptive Statistik mit R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
+  <meta name="github-repo" content="katsuckow/DeskriptiveStatistik20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Kovarianz + Datenvisualisierungen | Deskriptive Statistik mit R" />
+  
+  <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
+  
+
+<meta name="author" content="Katja Suckow   katja.suckow@gmail.com   katja.suckow@phil.uni-goettingen.de" />
+
+
+<meta name="date" content="2020-05-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="variance.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Deskriptive Statistik mit R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Willkommen und Einleitung</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#was-braucht-man-für-diesen-kurs"><i class="fa fa-check"></i><b>1.1</b> Was braucht man für diesen Kurs?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#anforderungen-und-zeitplan-für-das-semester"><i class="fa fa-check"></i><b>1.2</b> Anforderungen und Zeitplan für das Semester</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tutorium"><i class="fa fa-check"></i><b>1.3</b> Tutorium</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Einführung und einige Übungen</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#psycholinguistische-experimente"><i class="fa fa-check"></i><b>2.1</b> Psycholinguistische Experimente</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#einleitung-datentypen-in-der-linguistik"><i class="fa fa-check"></i><b>2.2</b> Einleitung: Datentypen in der Linguistik</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#population-und-stichprobe"><i class="fa fa-check"></i><b>2.3</b> Population und Stichprobe</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#deskriptive-statistik-und-inferenzstatistik"><i class="fa fa-check"></i><b>2.4</b> Deskriptive Statistik und Inferenzstatistik</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#kurze-einführung-in-r"><i class="fa fa-check"></i><b>2.5</b> Kurze Einführung in R</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#drei-hauptfenster"><i class="fa fa-check"></i><b>2.5.1</b> drei Hauptfenster:</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#editoren"><i class="fa fa-check"></i><b>2.5.2</b> Editoren:</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#skript"><i class="fa fa-check"></i><b>2.5.3</b> Skript</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#workspace"><i class="fa fa-check"></i><b>2.5.4</b> Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#r-als-taschenrechner-beispiele"><i class="fa fa-check"></i><b>2.6</b> R als Taschenrechner: Beispiele</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#einige-vordefinierte-beispielfunktionen"><i class="fa fa-check"></i><b>2.7</b> Einige vordefinierte Beispielfunktionen</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#hilfefunktionen"><i class="fa fa-check"></i><b>2.8</b> Hilfefunktionen</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#pakete-laden"><i class="fa fa-check"></i><b>2.9</b> Pakete Laden</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#vergleichsoperatoren"><i class="fa fa-check"></i><b>2.10</b> Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#logische-vergleichsoperatoren"><i class="fa fa-check"></i><b>2.11</b> Logische Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#variablen-in-r"><i class="fa fa-check"></i><b>2.12</b> Variablen in R</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#bis-nächste-woche"><i class="fa fa-check"></i><b>2.13</b> Bis nächste Woche</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="description.html"><a href="description.html"><i class="fa fa-check"></i><b>3</b> Datenbeschreibungen in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="description.html"><a href="description.html#kurze-wiederholung"><i class="fa fa-check"></i><b>3.1</b> Kurze Wiederholung</a></li>
+<li class="chapter" data-level="3.2" data-path="description.html"><a href="description.html#r-vektoren"><i class="fa fa-check"></i><b>3.2</b> R-Vektoren</a></li>
+<li class="chapter" data-level="3.3" data-path="description.html"><a href="description.html#r-datentypen"><i class="fa fa-check"></i><b>3.3</b> R-Datentypen</a></li>
+<li class="chapter" data-level="3.4" data-path="description.html"><a href="description.html#r-data-frames"><i class="fa fa-check"></i><b>3.4</b> R-Data frames</a></li>
+<li class="chapter" data-level="3.5" data-path="description.html"><a href="description.html#r-matritzen"><i class="fa fa-check"></i><b>3.5</b> R-Matritzen</a></li>
+<li class="chapter" data-level="3.6" data-path="description.html"><a href="description.html#r---nützliche-funktionen"><i class="fa fa-check"></i><b>3.6</b> R - nützliche Funktionen</a></li>
+<li class="chapter" data-level="3.7" data-path="description.html"><a href="description.html#aufgabe"><i class="fa fa-check"></i><b>3.7</b> Aufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="distribution.html"><a href="distribution.html"><i class="fa fa-check"></i><b>4</b> Haufigkeitsverteilungen</a><ul>
+<li class="chapter" data-level="4.1" data-path="distribution.html"><a href="distribution.html#wiederholung-r"><i class="fa fa-check"></i><b>4.1</b> Wiederholung R</a></li>
+<li class="chapter" data-level="4.2" data-path="distribution.html"><a href="distribution.html#skalenniveaus"><i class="fa fa-check"></i><b>4.2</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="4.3" data-path="distribution.html"><a href="distribution.html#formate-verschiedener-variablen"><i class="fa fa-check"></i><b>4.3</b> Formate verschiedener Variablen</a></li>
+<li class="chapter" data-level="4.4" data-path="distribution.html"><a href="distribution.html#skalenniveaus-1"><i class="fa fa-check"></i><b>4.4</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="4.5" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen"><i class="fa fa-check"></i><b>4.5</b> Häufigkeitsverteilungen</a></li>
+<li class="chapter" data-level="4.6" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen-darstellungen"><i class="fa fa-check"></i><b>4.6</b> Häufigkeitsverteilungen: Darstellungen</a></li>
+<li class="chapter" data-level="4.7" data-path="distribution.html"><a href="distribution.html#klasseneinteilung"><i class="fa fa-check"></i><b>4.7</b> Klasseneinteilung</a></li>
+<li class="chapter" data-level="4.8" data-path="distribution.html"><a href="distribution.html#histogramme"><i class="fa fa-check"></i><b>4.8</b> Histogramme</a></li>
+<li class="chapter" data-level="4.9" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experiment"><i class="fa fa-check"></i><b>4.9</b> Psycholinguistisches Experiment</a></li>
+<li class="chapter" data-level="4.10" data-path="distribution.html"><a href="distribution.html#hypothese"><i class="fa fa-check"></i><b>4.10</b> Hypothese</a></li>
+<li class="chapter" data-level="4.11" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experimnet"><i class="fa fa-check"></i><b>4.11</b> Psycholinguistisches Experimnet</a></li>
+<li class="chapter" data-level="4.12" data-path="distribution.html"><a href="distribution.html#hypothesenbeispiele"><i class="fa fa-check"></i><b>4.12</b> Hypothesenbeispiele?</a></li>
+<li class="chapter" data-level="4.13" data-path="distribution.html"><a href="distribution.html#experimentelle-und-nicht-experimentelle-forschung"><i class="fa fa-check"></i><b>4.13</b> Experimentelle und nicht-experimentelle Forschung</a></li>
+<li class="chapter" data-level="4.14" data-path="distribution.html"><a href="distribution.html#variablen"><i class="fa fa-check"></i><b>4.14</b> Variablen</a></li>
+<li class="chapter" data-level="4.15" data-path="distribution.html"><a href="distribution.html#kontrolle-von-störvariablen"><i class="fa fa-check"></i><b>4.15</b> Kontrolle von Störvariablen</a></li>
+<li class="chapter" data-level="4.16" data-path="distribution.html"><a href="distribution.html#versuchsdesigns"><i class="fa fa-check"></i><b>4.16</b> Versuchsdesigns</a></li>
+<li class="chapter" data-level="4.17" data-path="distribution.html"><a href="distribution.html#latin-square-design"><i class="fa fa-check"></i><b>4.17</b> Latin Square Design</a></li>
+<li class="chapter" data-level="4.18" data-path="distribution.html"><a href="distribution.html#latin-square-design-beispiel-2-times-2-design"><i class="fa fa-check"></i><b>4.18</b> Latin Square Design: Beispiel 2 <span class="math inline">\(\times\)</span> 2 Design</a></li>
+<li class="chapter" data-level="4.19" data-path="distribution.html"><a href="distribution.html#aufgabe-1"><i class="fa fa-check"></i><b>4.19</b> Aufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>5</b> Maße der zentralen Tendenz</a><ul>
+<li class="chapter" data-level="5.1" data-path="central.html"><a href="central.html#maße-der-zentralen-tendenz"><i class="fa fa-check"></i><b>5.1</b> Maße der zentralen Tendenz</a></li>
+<li class="chapter" data-level="5.2" data-path="central.html"><a href="central.html#modus"><i class="fa fa-check"></i><b>5.2</b> Modus</a></li>
+<li class="chapter" data-level="5.3" data-path="central.html"><a href="central.html#median"><i class="fa fa-check"></i><b>5.3</b> Median</a></li>
+<li class="chapter" data-level="5.4" data-path="central.html"><a href="central.html#median-bei-n-gerade-zahl"><i class="fa fa-check"></i><b>5.4</b> Median (bei n = gerade Zahl)</a></li>
+<li class="chapter" data-level="5.5" data-path="central.html"><a href="central.html#median-1"><i class="fa fa-check"></i><b>5.5</b> Median</a></li>
+<li class="chapter" data-level="5.6" data-path="central.html"><a href="central.html#r-befehle"><i class="fa fa-check"></i><b>5.6</b> R-Befehle</a></li>
+<li class="chapter" data-level="5.7" data-path="central.html"><a href="central.html#quantile"><i class="fa fa-check"></i><b>5.7</b> Quantile</a></li>
+<li class="chapter" data-level="5.8" data-path="central.html"><a href="central.html#mittelwert"><i class="fa fa-check"></i><b>5.8</b> Mittelwert</a></li>
+<li class="chapter" data-level="5.9" data-path="central.html"><a href="central.html#beispiel"><i class="fa fa-check"></i><b>5.9</b> Beispiel</a></li>
+<li class="chapter" data-level="5.10" data-path="central.html"><a href="central.html#r-befehle-1"><i class="fa fa-check"></i><b>5.10</b> R Befehle</a></li>
+<li class="chapter" data-level="5.11" data-path="central.html"><a href="central.html#normalverteilung"><i class="fa fa-check"></i><b>5.11</b> Normalverteilung</a></li>
+<li class="chapter" data-level="5.12" data-path="central.html"><a href="central.html#normalverteilung-mit-histogram-hist"><i class="fa fa-check"></i><b>5.12</b> Normalverteilung mit Histogram <strong>hist()</strong></a></li>
+<li class="chapter" data-level="5.13" data-path="central.html"><a href="central.html#normalverteilung-schiefe"><i class="fa fa-check"></i><b>5.13</b> Normalverteilung: Schiefe</a></li>
+<li class="chapter" data-level="5.14" data-path="central.html"><a href="central.html#normalverteilung-kurtosis"><i class="fa fa-check"></i><b>5.14</b> Normalverteilung: Kurtosis</a></li>
+<li class="chapter" data-level="5.15" data-path="central.html"><a href="central.html#hausaufgabe"><i class="fa fa-check"></i><b>5.15</b> Hausaufgabe</a></li>
+<li class="chapter" data-level="5.16" data-path="central.html"><a href="central.html#übung"><i class="fa fa-check"></i><b>5.16</b> Übung</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="variance.html"><a href="variance.html"><i class="fa fa-check"></i><b>6</b> Kovarianz und Korrelation</a><ul>
+<li class="chapter" data-level="6.1" data-path="variance.html"><a href="variance.html#kurze-wiederholung-1"><i class="fa fa-check"></i><b>6.1</b> Kurze Wiederholung</a></li>
+<li class="chapter" data-level="6.2" data-path="variance.html"><a href="variance.html#streuungsmaße"><i class="fa fa-check"></i><b>6.2</b> Streuungsmaße</a></li>
+<li class="chapter" data-level="6.3" data-path="variance.html"><a href="variance.html#spannweite-range"><i class="fa fa-check"></i><b>6.3</b> Spannweite (“range”)</a></li>
+<li class="chapter" data-level="6.4" data-path="variance.html"><a href="variance.html#quartilsabstände"><i class="fa fa-check"></i><b>6.4</b> Quartilsabstände</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="variance.html"><a href="variance.html#quartilsabstände-beispiel"><i class="fa fa-check"></i><b>6.4.1</b> Quartilsabstände: Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="variance.html"><a href="variance.html#quantilsabstand"><i class="fa fa-check"></i><b>6.5</b> Quantilsabstand</a></li>
+<li class="chapter" data-level="6.6" data-path="variance.html"><a href="variance.html#beispiel-1"><i class="fa fa-check"></i><b>6.6</b> Beispiel</a></li>
+<li class="chapter" data-level="6.7" data-path="variance.html"><a href="variance.html#abweichungen-vom-mittelwert"><i class="fa fa-check"></i><b>6.7</b> Abweichungen vom Mittelwert</a></li>
+<li class="chapter" data-level="6.8" data-path="variance.html"><a href="variance.html#quadratsumme-sum-of-squares"><i class="fa fa-check"></i><b>6.8</b> Quadratsumme: <em>sum of squares</em></a></li>
+<li class="chapter" data-level="6.9" data-path="variance.html"><a href="variance.html#durchschnitt-der-quadratischen-abweichungen"><i class="fa fa-check"></i><b>6.9</b> Durchschnitt der quadratischen Abweichungen</a></li>
+<li class="chapter" data-level="6.10" data-path="variance.html"><a href="variance.html#varianz"><i class="fa fa-check"></i><b>6.10</b> Varianz</a></li>
+<li class="chapter" data-level="6.11" data-path="variance.html"><a href="variance.html#varianz-warum-teilt-man-durch-n---1"><i class="fa fa-check"></i><b>6.11</b> Varianz: warum teilt man durch n - 1?</a></li>
+<li class="chapter" data-level="6.12" data-path="variance.html"><a href="variance.html#standardabweichung"><i class="fa fa-check"></i><b>6.12</b> Standardabweichung</a></li>
+<li class="chapter" data-level="6.13" data-path="variance.html"><a href="variance.html#standardabweichung-und-varianz"><i class="fa fa-check"></i><b>6.13</b> Standardabweichung und Varianz</a></li>
+<li class="chapter" data-level="6.14" data-path="variance.html"><a href="variance.html#median-absolute-deviation-mad"><i class="fa fa-check"></i><b>6.14</b> Median absolute deviation (MAD)</a></li>
+<li class="chapter" data-level="6.15" data-path="variance.html"><a href="variance.html#r-befehle-2"><i class="fa fa-check"></i><b>6.15</b> R Befehle</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ZKD.html"><a href="ZKD.html"><i class="fa fa-check"></i><b>7</b> Kovarianz + Datenvisualisierungen</a><ul>
+<li class="chapter" data-level="7.1" data-path="ZKD.html"><a href="ZKD.html#wiederholung"><i class="fa fa-check"></i><b>7.1</b> Wiederholung</a></li>
+<li class="chapter" data-level="7.2" data-path="ZKD.html"><a href="ZKD.html#beziehungen-zwischen-beobachtungen"><i class="fa fa-check"></i><b>7.2</b> Beziehungen zwischen Beobachtungen</a></li>
+<li class="chapter" data-level="7.3" data-path="ZKD.html"><a href="ZKD.html#streudiagramm-scatterplot"><i class="fa fa-check"></i><b>7.3</b> Streudiagramm <strong>scatterplot</strong></a></li>
+<li class="chapter" data-level="7.4" data-path="ZKD.html"><a href="ZKD.html#scatterplot-mit-mittelwert"><i class="fa fa-check"></i><b>7.4</b> Scatterplot mit Mittelwert</a></li>
+<li class="chapter" data-level="7.5" data-path="ZKD.html"><a href="ZKD.html#kovarianz"><i class="fa fa-check"></i><b>7.5</b> Kovarianz</a></li>
+<li class="chapter" data-level="7.6" data-path="ZKD.html"><a href="ZKD.html#r-befehle-korrelation"><i class="fa fa-check"></i><b>7.6</b> R-Befehle Korrelation</a></li>
+<li class="chapter" data-level="7.7" data-path="ZKD.html"><a href="ZKD.html#korrelation"><i class="fa fa-check"></i><b>7.7</b> Korrelation</a></li>
+<li class="chapter" data-level="7.8" data-path="ZKD.html"><a href="ZKD.html#produkt-moment-korrelation-bravais-pearson-korrelation"><i class="fa fa-check"></i><b>7.8</b> Produkt Moment Korrelation (Bravais-Pearson Korrelation)</a></li>
+<li class="chapter" data-level="7.9" data-path="ZKD.html"><a href="ZKD.html#korrelation-beispiel"><i class="fa fa-check"></i><b>7.9</b> Korrelation: Beispiel</a></li>
+<li class="chapter" data-level="7.10" data-path="ZKD.html"><a href="ZKD.html#hausaufgabe-1"><i class="fa fa-check"></i><b>7.10</b> Hausaufgabe</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deskriptive Statistik mit R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ZKD" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Kovarianz + Datenvisualisierungen</h1>
+<div id="wiederholung" class="section level2">
+<h2><span class="header-section-number">7.1</span> Wiederholung</h2>
+<ol style="list-style-type: decimal">
+<li>Warum brauchen wir Streuungsmaße?</li>
+<li>Wie berechnet man die empirische Stichprobenvarianz?</li>
+<li>Wie berechnet man die Standardabweichung?</li>
+</ol>
+</div>
+<div id="beziehungen-zwischen-beobachtungen" class="section level2">
+<h2><span class="header-section-number">7.2</span> Beziehungen zwischen Beobachtungen</h2>
+<p><strong>Beispiel</strong> Hat das Lernen Einfluß auf den Examenserfolg? <br> Zur Beantwortung dieser Frage gibt es drei Möglichkeiten von Beobachtungen:</p>
+<ol style="list-style-type: decimal">
+<li>Je größer die Anzahl der Lernstunden, desto besser ist die Note. <br></li>
+<li>Es gibt keinen Zusammenhang zwischen der Anzahl der Lernstunden und der Examensnote. <br></li>
+<li><p>Je größer die Anzahl der Lernstunden, desto niedriger ist die Note. <br></p></li>
+<li><strong>positive Beziehung</strong>: <span class="math inline">\(\uparrow\)</span> <span class="math inline">\(\uparrow\)</span>; <span class="math inline">\(\downarrow\)</span> <span class="math inline">\(\downarrow\)</span></li>
+<li><strong>keine Beziehung</strong>: nix</li>
+<li><p><strong>negative Beziehung</strong>: <span class="math inline">\(\uparrow\)</span> <span class="math inline">\(\downarrow\)</span>; <span class="math inline">\(\downarrow\)</span> <span class="math inline">\(\uparrow\)</span></p></li>
+</ol>
+</div>
+<div id="streudiagramm-scatterplot" class="section level2">
+<h2><span class="header-section-number">7.3</span> Streudiagramm <strong>scatterplot</strong></h2>
+<p>Die folgende Tabelle beschreibt 2 Beobachtungen: (1) die Frequenz eines Wortes in einem Text und (2) die Länge dieses Wortes.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Frequenz</th>
+<th align="center">Wortlänge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">14</td>
+<td align="center">4</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">23</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">25</td>
+<td align="center">7</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">10</td>
+<td align="center">5</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">18</td>
+<td align="center">6</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">27</td>
+<td align="center">10</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">5</td>
+<td align="center">3</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">29</td>
+<td align="center">9</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">30</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">18</td>
+<td align="center">5</td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="center">17</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="center">28</td>
+<td align="center">7</td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="center">8</td>
+<td align="center">4</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="center">9</td>
+<td align="center">4</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">10</td>
+<td align="center">7</td>
+</tr>
+</tbody>
+</table>
+<p>Ein möglicher Zusammenhang zwischen den beiden Variablen kann man in einem Streudiagramm visuell darstellen. Ein Streudiagramm dient der graphischen Veranschaulichung eines Variablenzusammenhangs:</p>
+<div class="figure">
+<img src="img/scatter.png" alt="Scatterplot" />
+<p class="caption">Scatterplot</p>
+</div>
+</div>
+<div id="scatterplot-mit-mittelwert" class="section level2">
+<h2><span class="header-section-number">7.4</span> Scatterplot mit Mittelwert</h2>
+<div class="figure">
+<img src="img/scatter2.png" alt="Scatterplot mit Mittelwert" />
+<p class="caption">Scatterplot mit Mittelwert</p>
+</div>
+<p>Scatterplot mit gerader Linie, die den geringsten Abstand zu den einzelnen Werte beschreibt. Das wird später noch einmal wichtig, wenn wir uns mit Modellen beschäftigen.</p>
+<div class="figure">
+<img src="img/scatter3.png" />
+
+</div>
+<p>Die verschiedenen R-Befehle zum scatterplot werden im kommenden Kapitel beschrieben.</p>
+</div>
+<div id="kovarianz" class="section level2">
+<h2><span class="header-section-number">7.5</span> Kovarianz</h2>
+<p><strong>Zusammenhangmaße</strong><br> Es ist häufig relevant oder interessant, ob eine paarweise Beziehung zwischen zwei Beobachtungen besteht und wie stark dieser Zusammenhang ist.</p>
+<p>Die Varianz einer einzelnen Variable gibt an, wie weit diese vom Mittelwert abweicht. Um eine Beziehung zwischen Variablen zu etablieren (positiv, negativ oder keine), muss man herausfinden, ob eine Änderung in einer Variablen mit einer vorhersehbaren Änderung in einer anderen Variablen einhergeht. Wenn eine Beziehung vorliegt, dann sollte die Änderung einer Variable mit einer entsprechender Änderung in der anderen Variablen einhergehen: entweder in dieselbe oder in die entgegengesetzte Richtung. <br></p>
+<p><br></p>
+<p><strong>Die Kovarianz</strong> ist ein nicht-standardisiertes Zusammenhangsmaß zur Beschreibung linearer Zusammenhänge (Zusammenhang zweier Variablen linear, wenn durch Gerade repräsentierbar). Je höher die Kovarianz (positiv oder negativ), desto enger der (lineare) Zusammenhang zwischen Variablen bzw. desto höher ist (positive oder negative) Abhängigkeit. <br></p>
+<p><br></p>
+<p>Die Kovarianz zweier Variablen wird durch folgende Formel berechnet:</p>
+<span class="math display">\[\begin{equation}
+cov(x,y) = \frac{\sum_{i-1}^n(x_i - \bar{x}) \cdot (y_i - \bar{y})}{n-y}
+\end{equation}\]</span>
+<p><strong>positive Kovarianz</strong> cov(x,y), x<span class="math inline">\(\uparrow\)</span> y<span class="math inline">\(\uparrow\)</span>, x<span class="math inline">\(\downarrow\)</span> y<span class="math inline">\(\downarrow\)</span> <strong>negative Kovarianz</strong> cov(x,y), x<span class="math inline">\(\uparrow\)</span> y<span class="math inline">\(\downarrow\)</span>, x<span class="math inline">\(\downarrow\)</span> y<span class="math inline">\(\uparrow\)</span> <strong>keine Kovarianz</strong> cov(x,y) gegen Null, x<span class="math inline">\(\uparrow\)</span> y?</p>
+<p><strong>Nachteil Kovarianz</strong> Die Kovarianz ist abhängig vom Maßstab der zugrundeliegenden Variablen. <br> Ein Maß zur Kennzeichnung von Zusammenhängen, das gegenüber Maßstabsveränderungen der untersuchten Merkmale invariant ist, ist der <strong>Korrelationskoeffizient</strong>.<br></p>
+<p><br></p>
+<p><strong>Beispiele</strong> <br></p>
+<div class="figure">
+<img src="img/Rplot_bsp1.png" alt="Hohe Positive Kovarianz" />
+<p class="caption">Hohe Positive Kovarianz</p>
+</div>
+<p><br></p>
+<div class="figure">
+<img src="img/Rplot_bsp2.png" alt="Hohe Negative Kovarianz" />
+<p class="caption">Hohe Negative Kovarianz</p>
+</div>
+<p><br></p>
+<div class="figure">
+<img src="img/Rplot_bsp3.png" alt="Geringe Kovarianz" />
+<p class="caption">Geringe Kovarianz</p>
+</div>
+<p><strong>Hohe positive Kovarianz</strong> <br> Ein überdurchschnittlicher Wert der Variablen x entspricht häufig einem überdurchschnittlichen Wert in y bzw. ein unterdurchschnittlichen Wert in x entspricht einem unterdurchschnittlicher Wert in y.</p>
+<div class="figure">
+<img src="img/bortz_kov_pos.png" alt="Positive Kovarianz" />
+<p class="caption">Positive Kovarianz</p>
+</div>
+<p><strong>Hohe negative Kovarianz</strong> <br> ein überdurchschnittlicher Wert der Variablen x entspricht häufig einem unterdurchschnittlichen Wert in y bzw. ein unterdurchschnittlichen Wert in x entspricht einem überdurchschnittlicher Wert in y.</p>
+<div class="figure">
+<img src="img/bortz_kov_neg.png" alt="Negative Kovarianz" />
+<p class="caption">Negative Kovarianz</p>
+</div>
+<p><strong>Keine Kovarianz</strong> <br> bei überdurchschnittlichen Abweichungen in x werden sowohl überdurchschnittliche Abweichungen in y als auch unterdurchschnittliche Abweichungen in y beobachtet und umgekehrt.</p>
+<p><img src="img/bortz_kov_null.png" alt="Keine Kovarianz" /> <br></p>
+</div>
+<div id="r-befehle-korrelation" class="section level2">
+<h2><span class="header-section-number">7.6</span> R-Befehle Korrelation</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Korrelation zwischen Werten des Vektors x </span>
+<span class="co"># und Werten des Vektors y</span>
+<span class="kw">cor</span>(x,y)
+
+<span class="co"># Produkt-Moment-Korrelation zwischen Werten des </span>
+<span class="co"># Vektors x und Werten des Vektors </span>
+<span class="co"># y (default Einstellung)</span>
+<span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)
+
+<span class="co"># Spearmans phi (Rangkorrelationskoeffizient nach Spearman)</span>
+<span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Kendalls tau (Rangkorrelationskoeffizient nach Kendall)</span>
+<span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</code></pre></div>
+<!-- # Phi-Koeffizient über Häufigkeitstabelle t  -->
+<!-- # berechnen (Funktion aus dem Paket psych) -->
+<!-- phi(t, digits = 2) -->
+<p><strong>Korrelation</strong> <br> Die Kovarianz ist abhängig vom Maßstab der zugrunde liegenden Variablen. Ein Maß zur Kennzeichnung von Zusammenhängen, das gegenüber Maßstabsveränderungen der untersuchten Merkmale invariant ist, ist der <strong>Korrelationskoeffizient</strong>.</p>
+<p><strong>Kovarianz</strong> <br> - abhängig von verwendeten Skalenniveaus - Kovarianz keine standardisierte Massangabe - Wert hängt vom verwendeter Masseinheit ab - Beispiel: Wert von Kovarianz bei km als Masseinheit unterscheidet sich von Kovarianz, wenn Meilen als Masseinheit angenommen werden</p>
+<p><strong>Kovarianz und Korrelation</strong> <br> - um Kovarianz zu standardisieren <span class="math inline">\(\rightarrow\)</span> Standardabweichung</p>
+<span class="math display">\[\begin{equation}
+r = \frac{cov = {xy}}{s_x s_y} = \frac{\sum(x_i - \bar{x})(y_i-\bar{y})}{(N-1)s_x s_y}
+\end{equation}\]</span>
+<p><strong>Korrelationskoeffizient</strong> <br> - Der Korrelationskoeffizient beschreibt die Enge des linearen Zusammenhangs zweier Merkmale durch eine Zahl r, die zwischen +1 und -1 liegt. - Bei r = +1 spricht man von einem perfekt positiven Zusammenhang - Bei r = -1 von einem perfekt negativen Zusammenhang. - Ist r = 0, besteht kein linearer Zusammenhang.</p>
+</div>
+<div id="korrelation" class="section level2">
+<h2><span class="header-section-number">7.7</span> Korrelation</h2>
+<p>In der Realität: <br> - bei einer positiven Korrelation geht r gegen 1 <br> - bei einer negative Korreltation geht r gegen -1 <br> - wenn keine Korrelation besteht, geht r gegen 0 <br></p>
+<p><strong>Interpretation der Ergebnisse</strong> <br> Hat man zwischen zwei Variablen x und y eine Korrelation gefunden, kann das verschiedene Ursachen haben: <br></p>
+<ul>
+<li>x beeinflusst y kausal <br></li>
+<li>y beeinflusst x kausal <br></li>
+<li>x und y werden von einer weiteren dritten Variable kausal beeinflusst <br></li>
+<li>x und y beeinflussen sich gegenseitig kausal <br></li>
+</ul>
+<p>Der Korrelationskoeffizient liefert keine Informationen darüber, welche dieser Interpretationen richtig ist.</p>
+<p><strong>Korrelationen dürfen ohne Zusatzinformationen nicht kausal interpretiert werden! <em>Correlation does not imply causation!</em> </strong></p>
+<div class="figure">
+<img src="img/correlation.png" alt="Korrelation" />
+<p class="caption">Korrelation</p>
+</div>
+</div>
+<div id="produkt-moment-korrelation-bravais-pearson-korrelation" class="section level2">
+<h2><span class="header-section-number">7.8</span> Produkt Moment Korrelation (Bravais-Pearson Korrelation)</h2>
+<p>Für den Fall, dass beide Merkmale <span class="math inline">\(x\)</span> und <span class="math inline">\(y\)</span> intervallskaliert sind.</p>
+<span class="math display">\[\begin{equation}
+r = \frac{cov(x,y)}{s_x \cdot s_y}
+\end{equation}\]</span>
+<p><br> <br></p>
+<span class="math display">\[\begin{equation}
+r = \frac{\frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\frac{1}{n-1}\sum_{i=1}^n (x_i - \bar{x})^2} \cdot \sqrt{\frac{1}{n-1}\sum_{i=1}^n (y_i - \bar{y})^2} } 
+\end{equation}\]</span>
+<p><br> <br></p>
+<span class="math display">\[\begin{equation}
+r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}
+\end{equation}\]</span>
+<p>Der Korrelationskoeffizient ist im Vergleich zur Kovarianz invariant gegenüber Maßstabsveränderungen.</p>
+</div>
+<div id="korrelation-beispiel" class="section level2">
+<h2><span class="header-section-number">7.9</span> Korrelation: Beispiel</h2>
+<p>Schuhgröße und Körpergröße</p>
+<p>| Merkmal x | Merkmal y | | Schuhgröße | Körpergröße (cm) | |:-:|:-:| | 39 | 170 | | 39 | 165 | | 42 | 175 | | 44 | 178 | | 45 | 182 | | 43 | 174 |</p>
+<p><span class="math inline">\(\bar{x} = \frac{39 + 39 + 42 + 44+ 45 + 43}{6} = 42\)</span> <span class="math inline">\(\bar{y} = \frac{170+165+175+178+182+174}{6} = 174\)</span></p>
+<p><span class="math inline">\(S_x = 2.53\)</span> <span class="math inline">\(s_y = 5.97\)</span></p>
+<p>cov(x,y) = 14.2</p>
+<p><span class="math inline">\(r = \frac{14.2}{2.53 \cdot 5.97} = 0.94\)</span></p>
+<p><strong>Beispiel</strong> <br></p>
+<p>berechnet die Kovarianz und die Korrelation in R</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cov</span>(x,y)
+<span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</code></pre></div>
+<p>Merkmal X dichotom mit den Werten 0 und 1, Merkmal Y intervallskaliert:</p>
+<p><strong>Punktbiseriale Korrelation</strong> <br> <br></p>
+<span class="math display">\[\begin{equation}
+r_{pb} = \frac{(\bar{y_1}- \bar{y_0})}{s_y} \cdot \sqrt{\frac{n_0 \cdot n_1}{n \cdot (n - 1)} }
+\end{equation}\]</span>
+<p><span class="math inline">\(n_0\)</span>: Anzahl der Werte mit x = 0 \ <span class="math inline">\(n_1\)</span>: Anzahl der Werte mit x = 1 \ <span class="math inline">\(\bar{y}_0\)</span>: Durchschnittliche Ausprägung des Merkmals y in der Gruppe mit x = 0 \ <span class="math inline">\(\bar{y}_1\)</span>: Durchschnittliche Ausprägung des Merkmals y in der Gruppe mit x = 1</p>
+<p><strong>Korrelation: Punktbiseriale Korrelation</strong> <br> punktbiseriale Korrelation wenn in Gleichung für Produkt-Moment-Korrelation dichotomes Merkmal Werte 0 und 1 eingesetzt werden</p>
+<p>Wird ursprünglich metrische Variable dichotomisiert (z.B. wenn Variable Einkommen in zwei Gruppen “hoch” und “niedrig” eingeteilt) berechnet man biseriale Korrelation:</p>
+<span class="math display">\[\begin{equation}
+r_{bis} = \frac{(\bar{y_1}-\bar{y_0})}{s_0} \cdot \sqrt{\frac{n_0 \cdot n_1}{n^2 \cdot \vartheta}}; s_y = \sqrt{\frac{QS_y}{n}}
+\end{equation}\]</span>
+<!-- \begin{scriptsize} -->
+<!-- Die Grö{\ss}e $\vartheta$ bezeichnet die Ordinate (Dichte) desjenigen z-Wertes der Standardnormalverteilung, der die Grenze zwischen den Teilflächen $\frac{n_0}{n}$ und $\frac{n_1}{n}$ markiert. -->
+<!-- \end{scriptsize} -->
+<p><strong>Punktbiseriale Korrelation: Beispiel</strong></p>
+<p>| Merkmal x | Merkmal y | (Geschlecht) | (Körpergröße in cm) | |:-:|:-:| | 0 | 170 | | 0 | 165 | | 0 | 175 | | 1 | 178 | | 1 | 182 | | 1 | 174 |</p>
+<p><span class="math inline">\(n_0 = 3\)</span> <span class="math inline">\(n_1 = 3\)</span></p>
+<p><span class="math inline">\(\bar{y}_0 = \frac{170 + 165 + 175}{3} = 170\)</span> <span class="math inline">\(\bar{y}_1 = \frac{178 + 182 + 174}{3} = 178\)</span> <span class="math inline">\(s_y = 5.97\)</span></p>
+<p><span class="math inline">\(r_{pb} = \frac{(178 - 170)}{5.97} \cdot \sqrt{\frac{3 \cdot 3}{6 \cdot 5}}=0.73\)</span></p>
+<p><br></p>
+<!-- **Korrelation: Beispiel** -->
+<!-- Berechnet auch hier die Kovarianz und die Korelation in R mit Variable: **gender.txt** -->
+<p><strong>Korrelation: Merkmale ordinalskaliert</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Spearman rho Koeffizient</span>
+<span class="kw">cor</span>(x,y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>)
+
+<span class="co"># Kendalls tau Koeffizient</span>
+<span class="kw">cor</span>(x,y,<span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>)</code></pre></div>
+<p><strong>Spearman rho</strong> bei ordinalskalierte Daten - geordnet <strong>Kendall tau</strong> wenn ein kleines Datenset vorliegt, bei dem viele Werte an derselben Stelle.</p>
+</div>
+<div id="hausaufgabe-1" class="section level2">
+<h2><span class="header-section-number">7.10</span> Hausaufgabe</h2>
+<p>Bitte ladet Eure Ergebnisse als R-Skript bei studip hoch! Vergesst nicht, Euren Namen in den Dateinamen zu schreiben, damit ich das besser zuordnen kann. Viel Spaß!</p>
+<ol style="list-style-type: decimal">
+<li><p>Rechnet bitte die Kovarianz der beiden Variablen <strong>frequenz</strong> und <strong>wortlänge</strong> der Datei <strong>frequenz.txt</strong> aus!</p></li>
+<li><p>Wie würdet Ihr die Ergebnisse interpretieren?</p></li>
+<li><p>Ladet Euch <strong>traurig.txt</strong> herunter und schaut Euch das Datenset an! <br> Dieser Datensatz beschreibt einige Beobachtungen von Kindern.</p></li>
+<li>Wieviele Anzeichen von Traurigkeit sie zeigen, <br></li>
+<li>wieviele traurige Tv-Geschichten sie sehen <br></li>
+<li>Gender <br></li>
+<li>Ordnung der Körpergröße <br></li>
+<li><p>welchen Platz sie in einem Sprachtest belegt haben.</p></li>
+</ol>
+<p>Beschreibt in den Kommentaren Eures R-Skriptes, ob es eine Beziehung zwischen der Anzahl der traurigen Geschichten gibt, die Kinder im Fernsehen sehen und ihrer allgemeinen Stimmung!</p>
+<!-- ## Beispiele -->
+<!-- ## nis weiter -->
+<!-- Beide Merkmale sind ordinalskaliert: -->
+<!-- \begin{itemize} -->
+<!-- \item Für beide Merkmale x und y werden zunächst die Rangzahlen bestimmt.\\ -->
+<!-- Bestimmung von Rangzahlen: -->
+<!-- \begin{itemize} -->
+<!-- \item Die Werte werden in aufsteigender Reihenfolge geordnet -->
+<!-- $z_{(1)} \leq z_{(2)} \leq \dots \leq z_{(n)}.$ -->
+<!-- \item Jedem Beobachtungswert $z_i$ wird als Rang $R_i = R (z_i)$ die Platznummer zugewiesen, die $z_i$ in der geordneten Reihe annimmt. -->
+<!-- \item Treten sog.~Bindungen auf, erhalten die Werte mit gleichem Rang gemittelte Rangzahlen. -->
+<!-- \end{itemize} -->
+<!-- \end{itemize} -->
+<!-- ## Korrelation -->
+<!-- Bestimmung von Rangzahlen: -->
+<!-- \begin{itemize} -->
+<!--   \item Beispiel ohne Bindungen:\\ -->
+<!--   Beobachtungsreihe z = (8; 5; 4; 3; 9; 2; 7; 1) -->
+<!--   \end{itemize} -->
+<!--   \begin{center} -->
+<!--   \begin{tabular}{lcccccccc} -->
+<!--   geht über die geordnete Reihe & 1 & 2 & 3 & 4 & 5 & 7 & 8 & 9 \\ -->
+<!--   mit den Platznummern & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ -->
+<!--   \end{tabular} -->
+<!--   Rangzahlen: $R_1 = R(8) = 7;R_2 = R(5) = 5; R_3 = R(4) = 4;$  -->
+<!--   $R_4 = R(3) = 3; R_5 = R(9)=8; R_6 =R(2)=2;R_7 =R(7)=6;R_8 =R(1)=1$ -->
+<!--   \end{center} -->
+<!-- ## Korrelation -->
+<!-- Bestimmung von Rangzahlen: -->
+<!-- \begin{itemize} -->
+<!--   \item Beispiel mit Bindungen: \\ -->
+<!--   Beobachtungsreihe z = (2; 4; 1; 2; 1; 5) -->
+<!--   \end{itemize} -->
+<!--   \begin{tabular}{lcccccc} -->
+<!--   geht über die geordnete Reihe & 1 & 1 & 2 & 2 & 4 & 5\\ -->
+<!--   mit den Platzziffern & 1 & 2 & 3 &  4 & 5 & 6 \\ -->
+<!--   mit den gemittelten Rangzahlen & 1.5 & 1.5 & 3.5 & 3.5 & 5 & 6 \\ -->
+<!--   \end{tabular} -->
+<!--   Rangzahlen: $R_1 = R(2) = 3.5;R_2 = R(4) = 5;R_3 = R(1) = 1.5;$  -->
+<!--   $R_4 =R(2)=3.5; R_5=R(1)=1.5; R_6=R(5)=6$ -->
+<!-- ## Korrelation -->
+<!-- Beide Merkmale sind ordinalskaliert -->
+<!-- \begin{itemize} -->
+<!--   \item Für beide Merkmale zuerst die Merkmale x und y bestimmen -->
+<!--   \item Spearmans rho entspricht Produkt-Moment-Korrelationskoeffizienten (Bravais-Pearson) der Rangzahlen -->
+<!-- \end{itemize} -->
+<!-- \begin{block}{Spearmans rho $\rho$} -->
+<!-- \begin{equation} -->
+<!-- \rho = \frac{Cov(rg_x,rg_y)}{s_{rg_x}\cdot s_{rg_y}} = \frac{\sum_i (rg(x_i) - \bar{rg}_x) (rg()y_i) - \bar{rg}_y}{\sqrt{\sum_i(rg(x_i)- \bar{rg}_x)^2} \sqrt{\sum_i(rg(y_i)- \bar{rg}_y)^2}} -->
+<!-- \end{equation} -->
+<!-- \end{block} -->
+<!-- ## Korrelation -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{cccc} -->
+<!-- Merkmal x & R(x) & Merkmal y & R(y) \\ -->
+<!-- (Schuhgröße) & (Rangzahl von x) & (Körpergröße) & (Rangzahl von y) \\ -->
+<!-- \hline -->
+<!-- 39 & 1.5 & 170 & 2 \\ -->
+<!-- 39 & 1.5 & 165 & 1 \\ -->
+<!-- 42 & 3 & 175 & 4 \\ -->
+<!-- 44 & 5 & 178 & 5 \\ -->
+<!-- 45 & 6 & 182 & 6 \\ -->
+<!-- 43 & 4 & 174 & 3 \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- \begin{equation} -->
+<!-- \rho = \frac{Cov(rg_x,Rg_y)}{s_{rg_x} \cdot s_{rg_y}} = \frac{3.2}{1.84 \cdot 1.87} = 0.93 -->
+<!-- \end{equation} -->
+<!-- ## Korrelation -->
+<!-- Beide Merkmale sind ordinalskaliert: -->
+<!-- \begin{itemize} -->
+<!--   \item Für beide Merkmale x und y werden zunächst die Rangzahlen bestimmt. -->
+<!--   \item \textbf{Kendalls tau} $\tau$: Um $\tau$ zu berechnen, werden die Beobachtungspaare ($x_i$,$y_i$) nach steigenden x-Werten, also nach Rangzahlen der x-Werte sortiert. -->
+<!-- \end{itemize} -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{|c|cccccccccc|} -->
+<!-- \hline -->
+<!-- x & 90 & 92 & 95 & 100 & 110 & 118 & 120 & 125 & 130 & 136 \\ -->
+<!-- \hline -->
+<!-- y & 13 & 14 & 15 & 12 & 10 & 18 & 19 & 16 & 17 & 20 \\ -->
+<!-- \hline -->
+<!-- Rang von x & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ -->
+<!-- \hline -->
+<!-- Rang von y & 3 & 4 & 5 & 2 & 1 & 8 & 9 & 6 & 7 & 10 \\ -->
+<!-- \hline -->
+<!-- $P_i$ & 7 & 6 & 5 & 5 & 5 & 2 & 1 & 2 & 1 & 0 \\ -->
+<!-- \hline -->
+<!-- $Q_i$ & 2 & 2 & 2 & 1 & 0 & 2 & 2 & 0 & 0 & 0\\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- - $P_i$ ist die Anzhal der y-Werte, deren Rangzahlen größer als $R(y_i)$ sind. -->
+<!-- - $Q_i$ ist die Anzahl der y-Werte, deren Rangzahlen kleiner als $R(y_i)$ sind.  -->
+<!-- ## Korrelation -->
+<!-- Beide Merkmale sind ordinalskaliert: -->
+<!-- \begin{itemize} -->
+<!--   \item Für beide Merkmale x und y werden zunächst die Rangzahlen bestimmt. -->
+<!--   \item \textbf{Kendalls tau} $\tau$: Um $\tau$ zu berechnen, werden die Beobachtungspaare ($x_i$,$y_i$) nach steigenden x-Werten, also nach Rangzahlen der x-Werte sortiert. -->
+<!-- \end{itemize} -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{|c|cccccccccc|} -->
+<!-- \hline -->
+<!-- x & 90 & 92 & 95 & 100 & 110 & 118 & 120 & 125 & 130 & 136 \\ -->
+<!-- \hline -->
+<!-- y & 13 & 14 & 15 & 12 & 10 & 18 & 19 & 16 & 17 & 20 \\ -->
+<!-- \hline -->
+<!-- Rang von x & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ -->
+<!-- \hline -->
+<!-- Rang von y & \textbf{3} & \color{green}{4} & \color{green}{5} & \color{red}{2} & \color{red}{1} & \color{green}{8} & \color{green}{9} & \color{green}{6} & \color{green}{7} & \color{green}{10} \\ -->
+<!-- \hline -->
+<!-- $P_i$ & \color{green}{7} & 6 & 5 & 5 & 5 & 2 & 1 & 2 & 1 & 0 \\ -->
+<!-- \hline -->
+<!-- $Q_i$ & \color{red}{2} & 2 & 2 & 1 & 0 & 2 & 2 & 0 & 0 & 0\\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- - $P_i$ ist die Anzhal der y-Werte, deren Rangzahlen größer als $R(y_i)$ sind. -->
+<!-- - $Q_i$ ist die Anzahl der y-Werte, deren Rangzahlen kleiner als $R(y_i)$ sind.  -->
+<!-- ## Korrelation -->
+<!-- - \textbf{Kendalls tau ($\tau$)} -->
+<!-- Fall 1: Keine Bindungen (d.h. sowohl die Rangzahlen der x-Werte innerhalb der Variablen x sind voneinander verschieden als auch die Rangzahlen der y-Werte innerhalb der Variablen y) -->
+<!-- \begin{equation} -->
+<!-- \tau = \frac{P - Q}{\frac{1}{2} \cdot n(n - 1)} -->
+<!-- \end{equation} -->
+<!-- $P = \sum_{i = 1}^{n}P_i$ \hspace{1cm} (P = Anzahl der sogenannten Proversionen) -->
+<!-- $Q = \sum_{i = 1}^{n} Q_i$ \hspace{1cm}  (Q = Anzahl der sogenannten Inversionen) -->
+<!-- $\frac{1}{2} \cdot n(n-1)$ \hspace{1cm} Gesamtanzahl der Paarvergleich -->
+<!-- ## Korrelation -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{|c|cccccccccc|} -->
+<!-- \hline -->
+<!-- x & 90 & 92 & 95 & 100 & 110 & 118 & 120 & 125 & 130 & 136 \\ -->
+<!-- \hline -->
+<!-- y & 13 & 14 & 15 & 12 & 10 & 18 & 19 & 16 & 17 & 20 \\ -->
+<!-- \hline -->
+<!-- Rang von x & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ -->
+<!-- \hline -->
+<!-- Rang von y & \textbf{3} & \color{green}{4} & \color{green}{5} & \color{red}{2} & \color{red}{1} & \color{green}{8} & \color{green}{9} & \color{green}{6} & \color{green}{7} & \color{green}{10} \\ -->
+<!-- \hline -->
+<!-- $P_i$ & \color{green}{7} & 6 & 5 & 5 & 5 & 2 & 1 & 2 & 1 & 0 \\ -->
+<!-- \hline -->
+<!-- $Q_i$ & \color{red}{2} & 2 & 2 & 1 & 0 & 2 & 2 & 0 & 0 & 0\\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- $P = \sum_{i = 1}{n}P_i = 34$ -->
+<!-- $Q = \sum_{i = 1}{n}Q_i =11$ -->
+<!-- \begin{center} -->
+<!-- \begin{equation} -->
+<!-- \tau = \frac{P - Q}{P + Q}= \frac{34 - 11}{\frac{1}{2}(10 \cdot 9)}= \frac{23}{45}=0.51 -->
+<!-- \end{equation} -->
+<!-- \end{center} -->
+<!-- ## Korrelation -->
+<!-- \begin{scriptsize} -->
+<!-- \begin{itemize} -->
+<!--   \item \textbf{Kendalls tau $\tau$:} -->
+<!-- Fall 2: Im Fall von Bindungen ändert sich die Formel zur Berechnung des Korrelationskoeffizienten $\tau$ nach Kendall  -->
+<!--   \begin{itemize} -->
+<!--     \item Bindungen an einer Variable (y-Reihe) -->
+<!--     \begin{center} -->
+<!--     \begin{equation} -->
+<!--     \tau = \frac{P - Q}{\sqrt{(\frac{1}{2}n(n-1)) \cdot (\frac{1}{2}n(n - 1) - A(y))}} -->
+<!--     \end{equation} -->
+<!--   \end{center} -->
+<!--   \end{itemize} -->
+<!-- \end{itemize} -->
+<!-- A(y) = Anzahl der sog.~Ambiversionen in der y-Reihe -->
+<!-- Beispiel -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{ccccccccccc} -->
+<!-- Rang x & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ -->
+<!-- Rang y & 2 & 4 & 8.5 & 8.5 & 5 & 8.5 & 2 & 6 & 8.5 & 2 \\ -->
+<!-- $P_i$ & 7 & 6 & 0 & 0 & 3 & 0 & 2 & 1 & 0 & 0 \\ -->
+<!-- $Q_i$ & 0 & 2 & 4 & 4 & 2 & 3 & 0 & 1 & 1 & 0 \\ -->
+<!-- $A_{y,i}$ & 2 & 0 & 3 & 2 & 1 & 0 & 0 & 0 & 1 & 0 \\ -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- A(y) = 9 \hspace{1cm} $\tau = \frac{19-17}{\sqrt{45 \cdot (45-9)}}= 0.05$ -->
+<!-- \end{scriptsize} -->
+<!-- ## Kendalls Tau $\tau$ -->
+<!-- \begin{scriptsize} -->
+<!-- Fall 2: Im Fall von Bindungen ändert sich die Formel zur Berechnung des Korrelationskoeffizienten $\tau$ nach Kendall -->
+<!-- Bindungen in beiden Variablen -->
+<!-- \vspace{-0.5cm} -->
+<!-- \begin{equation} -->
+<!-- \tau = \frac{\frac{1}{2}((P_+ - Q_+) + (P_- Q_-))}{\sqrt{(\frac{1}{2}n(n-1) - A(x)) \cdot (\frac{1}{2}n(n-1) - A(y))}} -->
+<!-- \end{equation} -->
+<!-- A(y) = Anzahl Ambiversionen in y-Reihe; A(x) = Anzahl Ambiversionen in x-Reihe -->
+<!-- \begin{tabular}{lcccccccccc} -->
+<!-- Rang von x & 2 & 2 & 2 & 7 & 7 & 7 & 7 & 7 & 7 & 7 \\ -->
+<!-- Rang von y ($P_+$ und $Q_+$) & 1 & 3 & 3 & 3 & 6 & 6 & 6 & 9 & 9 & 9 \\ -->
+<!-- $P_{+,i}$ & 9 & 6 & 6 & 6 & 3 & 3 & 3 & 0 & 0 & 0 \\ -->
+<!-- $Q_{+,i}$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ -->
+<!-- $A_{y,i}$ & 0 & 2 & 1 & 0 & 2 & 1 & 0 & 2 & 1 & 0 \\ -->
+<!-- $A_{x,i}$ & 2 & 1 & 0 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\ -->
+<!-- Rang von y ($P_-$ und $Q_-$) & 3 & 3 & 1 & 9 & 9 & 9 & 6 & 6 & 6 & 3 \\ -->
+<!-- $P_{-,i}$ & 6 & 6 & 7 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ -->
+<!-- $Q_{-,i}$ & 1 & 1 & 0 & 4 & 4 & 4 & 1 & 1 & 1 & 0 \\ -->
+<!-- \end{tabular} -->
+<!-- $A_x = 24;$ \hspace{0.5cm} $A_y = 9$ \hspace{0.5cm} $P_+=36$ \hspace{0.5cm} $Q_+ = 0$ \hspace{0.5cm} $P_- = 19$ \hspace{0.5cm} $Q_- = 17$ -->
+<!-- $\tau = \frac{\frac{1}{2}((25-0)+(19-17))}{\sqrt{((45-24) \cdot (45-9))}}=0.69$ -->
+<!-- \end{scriptsize} -->
+<!-- ## Korrelation -->
+<!-- \begin{scriptsize} -->
+<!-- Beide Merkmale dichotom: -->
+<!-- \bigskip -->
+<!-- \begin{columns}[c] -->
+<!-- \column{2.7in} -->
+<!-- \begin{scriptsize} -->
+<!-- \textbf{Tabelle:} Schemat.~Darstellung der gemeinsamen Häufigkeitstabelle von Variable 1 und 2 -->
+<!-- \end{scriptsize} -->
+<!-- \medskip -->
+<!-- \begin{tabular}{c|c} -->
+<!-- Variable 1 & Variable 2 \\ -->
+<!-- & - +\\ -->
+<!-- \hline -->
+<!-- + & A B \\ -->
+<!-- - & C D \\ -->
+<!-- \end{tabular} -->
+<!-- \column{1.4in} -->
+<!-- A = Häufigkeit von - + \\ -->
+<!-- B = Häufigkeit von + + \\ -->
+<!-- C = Häufigkeit von - - \\ -->
+<!-- D = Häufigkeit von + - -->
+<!-- \end{columns} -->
+<!-- \begin{block}{Phi-Koeffizient} -->
+<!-- \begin{equation} -->
+<!-- \phi = \frac{BC - AD}{\sqrt{(A + B) \cdot (C + D) \cdot (A + C) \cdot (B + D)}} -->
+<!-- \end{equation} -->
+<!-- \end{block} -->
+<!-- \begin{itemize} -->
+<!-- \item Kodiert man die beiden Merkmalsausprägungen der Variablen jeweils mit 0 und 1 (zwei Messwertreihen, die nur aus 1 und 0 bestehen) so entspricht die Produkt-Moment-Korrelation über diese Messwertreihen dem $\phi$-Koeffizienten. -->
+<!-- \end{itemize} -->
+<!-- \end{scriptsize} -->
+<!-- ## Korrelation -->
+<!-- Beispiel: -->
+<!-- \begin{scriptsize} -->
+<!-- \begin{tabular}{cccc} -->
+<!-- Test 2 & & Test 1 & \\ -->
+<!--  & durchgefallen & bestanden & Total\\ -->
+<!-- bestanden & 49 & 21 & 70 \\ -->
+<!-- durchgefallen & 14 & 16 & 30 \\ -->
+<!-- Total & 63 & 37 & 100 \\ -->
+<!-- \end{tabular} -->
+<!-- \begin{equation} -->
+<!-- \tau = \frac{(21 \cdot 14) - (49 \cdot 16)}{\sqrt{70 \cdot 30 \cdot 63 \cdot 37}} = -0.22 -->
+<!-- \end{equation} -->
+<!-- \end{scriptsize} -->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="variance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["NewBook.pdf", "NewBook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
