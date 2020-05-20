@@ -418,7 +418,13 @@ QA_p = \tilde{x}_{1-p} - \tilde{x}_p
 </div>
 <div id="abweichungen-vom-mittelwert" class="section level2">
 <h2><span class="header-section-number">6.7</span> Abweichungen vom Mittelwert</h2>
-<p><img src="NewBook_files/figure-html/unnamed-chunk-3-1.png" width="110%" style="display: block; margin: auto auto auto 0;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">155</span>, <span class="dv">157</span>, <span class="dv">160</span>, <span class="dv">163</span>, <span class="dv">166</span>, <span class="dv">169</span>, <span class="dv">172</span>, <span class="dv">175</span>, <span class="dv">179</span>, <span class="dv">182</span>, <span class="dv">186</span>, <span class="dv">190</span>, <span class="dv">194</span>, <span class="dv">199</span>, <span class="dv">204</span>))
+<span class="kw">plot</span>(x)
+<span class="kw">abline</span>(<span class="dt">h =</span> <span class="kw">mean</span>(x), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="img/DistMean.png" />
+
+</div>
 <p>Die Summe der Abweichungen vom arithmetischen Mittel ergibt immer Null.</p>
 <span class="math display">\[\begin{equation*}
 \sum_{i=1}^n (x_i - \bar{x}) = 0
