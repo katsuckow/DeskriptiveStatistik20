@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Kovarianz und Korrelation | Deskriptive Statistik mit R</title>
+  <title>Chapter 9 Datenvisualisierungen II | Deskriptive Statistik mit R</title>
   <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Kovarianz und Korrelation | Deskriptive Statistik mit R" />
+  <meta property="og:title" content="Chapter 9 Datenvisualisierungen II | Deskriptive Statistik mit R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="katsuckow/DeskriptiveStatistik20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Kovarianz und Korrelation | Deskriptive Statistik mit R" />
+  <meta name="twitter:title" content="Chapter 9 Datenvisualisierungen II | Deskriptive Statistik mit R" />
   
   <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="central.html"/>
-<link rel="next" href="ZKD.html"/>
+<link rel="prev" href="visual.html"/>
+<link rel="next" href="visual3.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -294,282 +294,540 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="variance" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Kovarianz und Korrelation</h1>
-<div id="kurze-wiederholung-1" class="section level2">
-<h2><span class="header-section-number">6.1</span> Kurze Wiederholung</h2>
-<ol style="list-style-type: decimal">
-<li><p><strong>Datenstruktur in R</strong> <br> Vektoren, Data frames, Matritzen</p></li>
-<li><strong>Testdesigns</strong> <br></li>
-</ol>
-<ul>
-<li>experimentelle <span class="math inline">\(\leftrightarrow\)</span> nicht-experimentelle Forschung</li>
-<li>unabhängige Variable (UV), abhängige Variable (AV), Moderatorvariable, Störvariable</li>
-<li>Kontrolle von Störvariable: Randomisierung, Filler</li>
-<li>Latin Square Designs</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Skalenniveaus</strong> <br></li>
-</ol>
-<ul>
-<li>diskret <span class="math inline">\(\leftrightarrow\)</span> stetig</li>
-<li>kategorisch <span class="math inline">\(\leftrightarrow\)</span> binär</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Masse zentraler Tendenz</strong> <br></li>
-</ol>
-<ul>
-<li>Median, Modus, Mittelwert</li>
-<li>Median: bei gerade n-Anzahl, bei ungerade n-Anzahl</li>
-<li>Quantile: teilt Daten in gleich gro{}e Teile <br> unterschieden nach Quartile, Dezile, Perzentile</li>
-</ul>
+<div id="visual2" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Datenvisualisierungen II</h1>
+<div id="details-der-hausaufgabe" class="section level2">
+<h2><span class="header-section-number">9.1</span> Details der Hausaufgabe</h2>
+<p><strong>Beispiellösung</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Datei in die Variable vp einlesen</span>
+vp =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>, <span class="dt">header =</span> T)
+
+<span class="co"># kurzer Überblick über die Daten </span>
+<span class="kw">head</span>(vp)
+
+<span class="co">#Aufgabe: Mittelwerte der beiden Bedingungen (cond) auf Interest Area (pos) 6 anzeigen lassen</span>
+<span class="co"># verschiedene Bedingungen anschauen</span>
+<span class="kw">table</span>(vp<span class="op">$</span>cond)
+
+<span class="co"># unterschiedliche Interest Areas anschauen</span>
+<span class="kw">table</span>(vp<span class="op">$</span>pos)
+
+<span class="co"># Mittelwert der Lesezeiten auf Interest Area 6 für die Bedingung a</span>
+vp[vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>,]
+vp[(vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(vp<span class="op">$</span>cond <span class="op">==</span><span class="st"> &quot;a&quot;</span>), ]
+<span class="kw">mean</span>(vp[(vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(vp<span class="op">$</span>cond <span class="op">==</span><span class="st">&quot;a&quot;</span>),<span class="dv">8</span>])
+
+<span class="co"># Mittelwert der Lesezeiten auf Interest Area 6 für die Bedingung b</span>
+vp[(vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(vp<span class="op">$</span>cond <span class="op">==</span><span class="st">&quot;b&quot;</span>),]
+vp[(vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(vp<span class="op">$</span>cond <span class="op">==</span><span class="st"> &quot;b&quot;</span>),<span class="dv">8</span>]
+<span class="kw">mean</span>(vp[(vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(vp<span class="op">$</span>cond <span class="op">==</span><span class="st"> &quot;b&quot;</span>),<span class="dv">8</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># folgender Befehl nicht Teil der Aufgabe. Was kann man noch weiter darstellen</span>
+vp =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">barplot</span>(<span class="kw">c</span>(<span class="kw">mean</span>(vp[(vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(vp<span class="op">$</span>cond <span class="op">==</span><span class="st">&quot;a&quot;</span>),<span class="dv">8</span>]), <span class="kw">mean</span>(vp[(vp<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">6</span>) <span class="op">&amp;</span><span class="st"> </span>(vp<span class="op">$</span>cond <span class="op">==</span><span class="st"> &quot;b&quot;</span>),<span class="dv">8</span>])), <span class="dt">names.arg =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>))</code></pre></div>
+<p><img src="NewBook_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Erklärung von c(): der barplot() Befehl benötigt eine Liste von Werten, </span>
+<span class="co"># um diese nebeneinander plotten zu können.</span>
+<span class="co"># Der c() Befehl, erstellt eine Liste Werten, </span>
+<span class="co"># die übergeben werden können: </span>
+
+<span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">20</span>)</code></pre></div>
+<pre><code>## [1] 15 20</code></pre>
 </div>
-<div id="streuungsmaße" class="section level2">
-<h2><span class="header-section-number">6.2</span> Streuungsmaße</h2>
+<div id="datenvisualisierungen-mit-ggplot" class="section level2">
+<h2><span class="header-section-number">9.2</span> Datenvisualisierungen mit ggplot()</h2>
+<p><strong>Grafiken</strong> <br> Graphiken können bei der <strong>Auswertung</strong> erhobener Daten hilfreich sein:</p>
 <ul>
-<li>Modelle zur Beschreibung der Daten</li>
-<li>bisher: Mittelwert, Median, Modus, Quantile</li>
-<li>Was ist das Problem bei der Beschreibung dieser Daten?</li>
-<li>Maße zentraler Tendenz liefern Information über “Zentrum” der Verteilung – ohne Information, wie die meisten Beobachtungswerte verteilt sind</li>
-<li>Abweichungen der Beobachtungswerte vom “Zentrum” durch sogenannte Streuungsmaße beschrieben</li>
-<li>je kleiner Streuungsmaß, umso besser Häufigkeitsverteilung durch Maß der zentralen Tendenz (“Zentrum”) beschrieben</li>
+<li>für die Datenexploration (<em>eye-balling</em> der Daten)</li>
+<li>sie erleichtern das Auffinden von Strukturen in den Daten</li>
+<li>zum Prüfen von Voraussetzung für Verfahren der Inferenzstatistik</li>
+<li>zur leicht verständlichen Kommunikation der Ergebnisse</li>
 </ul>
-<ol style="list-style-type: decimal">
-<li>Spannweite</li>
-<li>Quartils- und Quantilsabstände</li>
-<li>Quadratsummen, Varianz, Standardabweichung</li>
-<li>Median der absoluten Abweichungen</li>
-</ol>
-</div>
-<div id="spannweite-range" class="section level2">
-<h2><span class="header-section-number">6.3</span> Spannweite (“range”)</h2>
-<p><strong>Spannweite</strong> Die Spannweite ist der Abstand vom größten zu kleinstem Beobachtungswert.</p>
-<span class="math display">\[\begin{equation}
-R = x_{max} - x_{min}
-\end{equation}\]</span>
-<p>Die Spannweite umfaßt gesamten Streubereich der Beobachtungen. Die Spannweite ist sehr empfindlich gegenüber Extremwerten (Ausreißer), da sie vom kleinsten und größten Beobachtungswert abhängt.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">range</span>(x)</code></pre></div>
+<p>Es gibt viele unterschiedliche <strong>Möglichkeiten</strong> bei der Datenvisualisierung, zB.:</p>
 <ul>
-<li>finde die Spannweite für die Opfer von Lungenkrankheiten in der UK zwischen 1974 und 1979 heraus</li>
-<li>die Datei gehört zu R und heisst <strong>ldeaths</strong></li>
+<li>die Zuordnung von “ästhetischen Eigenschaften”&quot; (z.B. Farben, Formen, Größen) zu den Daten</li>
+<li>geometrische Objekte (Punkte, Linien, Balken)</li>
+<li>statistische Transformationen der Daten (z.B. Darstellung von Mittelwerten, Standardabweichungen)</li>
+<li>der Darstellung getrennt nach verschiedenen Gruppen/Facetten (verschiedene Untergruppen, welche in den Daten vorhanden sind)</li>
+<li>einem Koordinatensystem</li>
 </ul>
 </div>
-<div id="quartilsabstände" class="section level2">
-<h2><span class="header-section-number">6.4</span> Quartilsabstände</h2>
-<p>Der Quartilsabstand (interquartile range - IQR) wird als Differenz der Quartile Q.25 und Q.75 berechnet:</p>
-<span class="math display">\[\begin{equation}
-IQR = \tilde{x}_{0.75} - \tilde{x}_{0.25}
-\end{equation}\]</span>
-<p>IQR ist die Länge des Bereichs, in dem 50% aller Messwerte liegen</p>
-<p>Quartilabstand nicht empfindlich gegenüber Ausreißern</p>
-<div id="quartilsabstände-beispiel" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> Quartilsabstände: Beispiel</h3>
-<p>Körpergröße von 15 Personen:</p>
-<p>155, 157, 160, 163, 166, 169, 172, 175, 179, 182, 186, 190, 194, 199, 204</p>
-<p><strong>Quartile:</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(Q_0\)</span></th>
-<th align="center"><span class="math inline">\(Q_{0.25}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{0.5}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{0.75}\)</span></th>
-<th align="center"><span class="math inline">\(Q_1\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">155</td>
-<td align="center">163</td>
-<td align="center">175</td>
-<td align="center">190</td>
-<td align="center">204</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Quartilsabstände IQR</strong></p>
-<span class="math display">\[\begin{equation}
-IQR = Q_{.75} - Q_{.25} = 190 - 163 = 27
-\end{equation}\]</span>
-</div>
-</div>
-<div id="quantilsabstand" class="section level2">
-<h2><span class="header-section-number">6.5</span> Quantilsabstand</h2>
-<p><strong>Der Quantilsabstand</strong> ist die Differenz zwischen dem <span class="math inline">\(p-\)</span> und dem <span class="math inline">\((1-p)\)</span>-Quantil:</p>
-<p><span class="math inline">\(0 &lt; p &lt; 0.5\)</span> <br></p>
-<ul>
-<li>beschreibt die Länge des Bereichs, in dem annähernd <span class="math inline">\(100 \cdot (1-2p) \%\)</span> der Beobachtungswerte liegen</li>
-</ul>
-<span class="math display">\[\begin{equation}
-QA_p = \tilde{x}_{1-p} - \tilde{x}_p
-\end{equation}\]</span>
-<p><strong>Quantilsabstand: Beispiel</strong></p>
-<p>Körpergröße von 15 Personen: <br></p>
-<p>155, 157, 160, 163, 166, 169, 172, 175, 179, 182, 186, 190, 194, 199, 204</p>
-<p><strong><span class="math inline">\(5\%\)</span> Quantile</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(Q_0\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.05}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.1}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.15}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.2}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.25}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.3}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.35}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.4}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.45}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.5}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">155.0</td>
-<td align="center">156.4</td>
-<td align="center">158.2</td>
-<td align="center">160.3</td>
-<td align="center">162.4</td>
-<td align="center">164.5</td>
-<td align="center">166.6</td>
-<td align="center">168.7</td>
-<td align="center">170.8</td>
-<td align="center">172.9</td>
-<td align="center">175.0</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(Q_{.55}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.6}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.65}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.7}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.75}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.8}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.85}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.9}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{.95}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{1}\)</span></th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">177.8</td>
-<td align="center">180.2</td>
-<td align="center">182.4</td>
-<td align="center">185.2</td>
-<td align="center">188.0</td>
-<td align="center">190.8</td>
-<td align="center">193.6</td>
-<td align="center">197.0</td>
-<td align="center">200.5</td>
-<td align="center">204.0</td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="beispiel-1" class="section level2">
-<h2><span class="header-section-number">6.6</span> Beispiel</h2>
-<p>Was ist der Interqartilsabstand bei der Datei <strong>ldeaths</strong>?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IQR</span>(x)</code></pre></div>
-</div>
-<div id="abweichungen-vom-mittelwert" class="section level2">
-<h2><span class="header-section-number">6.7</span> Abweichungen vom Mittelwert</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">155</span>, <span class="dv">157</span>, <span class="dv">160</span>, <span class="dv">163</span>, <span class="dv">166</span>, <span class="dv">169</span>, <span class="dv">172</span>, <span class="dv">175</span>, <span class="dv">179</span>, <span class="dv">182</span>, <span class="dv">186</span>, <span class="dv">190</span>, <span class="dv">194</span>, <span class="dv">199</span>, <span class="dv">204</span>))
-<span class="kw">plot</span>(x)
-<span class="kw">abline</span>(<span class="dt">h =</span> <span class="kw">mean</span>(x), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<div id="grafiken-mit-ggplot" class="section level2">
+<h2><span class="header-section-number">9.3</span> Grafiken mit ggplot()</h2>
+<p><strong>Datensatz sus der Hausaufgabe</strong> <br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cond, <span class="dt">y =</span> time, <span class="dt">color =</span> cond))</code></pre></div>
 <div class="figure">
-<img src="img/DistMean.png" />
+<img src="img/ggplot1.png" />
 
 </div>
-<p>Die Summe der Abweichungen vom arithmetischen Mittel ergibt immer Null.</p>
-<span class="math display">\[\begin{equation*}
-\sum_{i=1}^n (x_i - \bar{x}) = 0
-\end{equation*}\]</span>
-</div>
-<div id="quadratsumme-sum-of-squares" class="section level2">
-<h2><span class="header-section-number">6.8</span> Quadratsumme: <em>sum of squares</em></h2>
-<span class="math display">\[\begin{equation}
-QS = \sum_{i = 1}^n (x_i - \bar{x})^2
-\end{equation}\]</span>
-</div>
-<div id="durchschnitt-der-quadratischen-abweichungen" class="section level2">
-<h2><span class="header-section-number">6.9</span> Durchschnitt der quadratischen Abweichungen</h2>
-<p><span class="math inline">\(\rightarrow\)</span> beschreibt Variabilität innerhalb einer Stichprobe</p>
-<span class="math display">\[\begin{equation}
-\frac{QS}{n} = \frac{\sum_{i = 1}^n (x_i - \bar{x})^2}{n}
-\end{equation}\]</span>
-</div>
-<div id="varianz" class="section level2">
-<h2><span class="header-section-number">6.10</span> Varianz</h2>
-<span class="math display">\[\begin{equation}
-s^2 = \frac{\sum_{i = 1}^n (x_i - \bar{x})^2}{n - 1}
-\end{equation}\]</span>
-<p><strong>Erwartungstreue</strong> Eine Schätzfunktion ist erwartungstreu, wenn bei großer Stichprobe mittlerer Schätzfehler gegen Null geht. Einzelne Schätzwerte können vom Parameterwert abweichen, positive und negative Schätzfehler werden sich gegenseitig aufheben <span class="math inline">\(\rightarrow\)</span> Durchschnitt genaue Schätzung des Parameters <strong>Zufallsvariable</strong> Funktion, die Ergebnissen eines Zufallsexperiments reelle Zahlen zuordnet zB. Würfeln: Zuordnung einer Zahl von 1-6 bei jedem Wurf</p>
-</div>
-<div id="varianz-warum-teilt-man-durch-n---1" class="section level2">
-<h2><span class="header-section-number">6.11</span> Varianz: warum teilt man durch n - 1?</h2>
-<p>Hintergrund ist, dass man die unbekannte Varianz einer Variable der Gesamtpopulation durch die Varianz einer geeignete Beobachtungsreihe schätzen möchte. Dabei möchte man erreichen, dass die Varianz der erhobenen Daten so nah wie möglich der unbekannten Varianz der Gesamtpopulation ist. Wenn die Differenz gering ist, dann spricht man von <em>Erwartungstreue</em> (mittlerer Schätzfehler so gering wie möglich). <br> Bei der Berechnung der Varianz bevorzugt R die oben beschriebene Notation, weil diese bei kleineren Stichproben eine größere Erwartungstreue hat.</p>
-<p>Man will unbekannte Varianz einer Zufallsvariable durch die Varianz geeigneter Beobachtungsreihe schätzen.<br> Der Unterschied ob durch <strong>n</strong> oder <strong>n-1</strong> geteilt wird ist vor allem für kleine Stichprobenumfänge relevant. (je größer Stichprobenumfang, desto weniger fällt Unterschied bei praktischer Berechnung ins Gewicht)</p>
-</div>
-<div id="standardabweichung" class="section level2">
-<h2><span class="header-section-number">6.12</span> Standardabweichung</h2>
-<strong>Standardabweichung: s</strong>
-<span class="math display">\[\begin{equation}
-s=\sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \tilde{x})^2}{n-1}}
-\end{equation}\]</span>
-<p>Gib die Standardabweichung aus.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(x)</code></pre></div>
-</div>
-<div id="standardabweichung-und-varianz" class="section level2">
-<h2><span class="header-section-number">6.13</span> Standardabweichung und Varianz</h2>
-<p>Die Standardabweichung und Varianz gehören zu den am häufigsten benutzten Streuungsmaßen.</p>
-<!-- ## Standardisierung: Z-Transformation -->
-<!-- Der z-Wert gibt an, wieviele Standardabweichungen ein Rohwert unter bzw. über dem Mittelwert liegt. -->
-<!-- \begin{equation} -->
-<!-- z_i = \frac{x_i - \bar{x}}{s} -->
-<!-- \end{equation} -->
-<!-- - z-transformierte Werte haben einen Mittelwert von 0 und eine Standardabweichung von 1. -->
-<!-- ## Z Transformation -->
-<!-- - Bitte führe eine Z-Transformation für die Datei \texttt{ldeaths} durch! -->
-</div>
-<div id="median-absolute-deviation-mad" class="section level2">
-<h2><span class="header-section-number">6.14</span> Median absolute deviation (MAD)</h2>
-<p>Das MAD-Maß ist der Median der absoluten Abweichungen vom Median <br> <span class="math inline">\(\tilde{x} = median\)</span></p>
-<span class="math display">\[\begin{equation}
-MAD = median |x_i - \tilde{x}|
-\end{equation}\]</span>
-<p>Wie würden Sie den <strong>MAD</strong> der absoluten Abweichungen berechnen? <br> Wie wird der Median berechnet und welche Schrittabfolge berechnet den MAD?</p>
-</div>
-<div id="r-befehle-2" class="section level2">
-<h2><span class="header-section-number">6.15</span> R Befehle</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Kleinster und größter Wert des Vektors x</span>
-<span class="kw">range</span>(x)
+<p>Viele Datenpunkte werden übereinander dargestellt. Dadurch kann man die Verteilung der Datenpunkte kaum einschätzen. Dieses <strong>Overplotting</strong> lässt sich reduzieren.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5) <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cond, <span class="dt">y =</span> time, <span class="dt">color =</span> cond))</code></pre></div>
+<div class="figure">
+<img src="img/ggplot2.png" />
 
-<span class="co">#Quartilsabstand der Werte des Vektors x</span>
-<span class="kw">IQR</span>(x) 
+</div>
+<p>Die Breite von <strong>geom_jitter()</strong> lässt sich auch festlegen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5) <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cond, <span class="dt">y =</span> time, <span class="dt">color =</span> cond), <span class="dt">width =</span> <span class="fl">0.1</span>)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot3.png" />
 
-<span class="co">#Varianz der Werte des Vektors x</span>
-<span class="kw">var</span>(x)
+</div>
+<p>Man kann den Unterschied zwischen den beiden Bedingungen auch für unterschiedliche Gruppen darstellen. Das kann, wie Ihr seht, auch schnell unübersichtlich werden. Im folgenden Code wird die Darstellung zwischen den beiden Bedingungen separat für jede Versuchsperson dargestellt.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5) <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cond, <span class="dt">y =</span> time, <span class="dt">color =</span> cond), <span class="dt">width =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>vp)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot4.png" />
 
-<span class="co">#Standardabweichung der Werte des Vektors x</span>
-<span class="kw">sd</span>(x)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#z-Transformation Werte des Vektors x</span>
-<span class="kw">scale</span>(x)
+</div>
+<p>Eine solche Darstellung, obwohl auf den 1. Blick unübersichtlich, kann hilfreich sein, um den Effekt bei jeder Versuchspersonen einzuschätzen. <br> <br></p>
+<p>Eine solche Unterteilung kann natürlich auch für die getesten <strong>items</strong> hilfreich sein. Besonders bei der Untersuchung der Frage, ob der Effekt bei einzelnen experimentellen Items von den anderen abweicht.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5) <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cond, <span class="dt">y =</span> time, <span class="dt">color =</span> cond), <span class="dt">width =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>item)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot5.png" />
 
-<span class="co"># Paket für deskriptive Statistiken</span>
-<span class="kw">library</span>(psych)
+</div>
+<p><strong>stat_summary()</strong> <br> Mit der <strong>stat_summary()</strong> Funktion lassen sich weitere Informationen (z.B. Mittelwerte, Standardabweichungen) zum besseren Vergleich zwischen Bedingungen einem Barplot zufügen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(Hmisc)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5, <span class="kw">aes</span>(cond,time,<span class="dt">fill =</span> cond)) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot6.png" />
 
-<span class="co"># Deskriptive Statistiken Werte des Vektors x</span>
-<span class="kw">describe</span>(x)
+</div>
+<p>Zu dem obigen Beispiel lassen sich auch die Standardabweichungen dazuplotten, um den Unterschied zwischen Mittelwerten besser einschätzen zu können. Dazu kann man auch die <strong>stat_summary</strong> Funktion benutzen und dann auch die Errorbars darstellen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5, <span class="kw">aes</span>(cond,time,<span class="dt">fill =</span> cond)) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>,<span class="dt">width =</span> <span class="fl">0.2</span>)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot7.png" />
 
-<span class="co"># Deskriptive Statistiken Werte des Vektors x </span>
-<span class="co"># für Gruppierung nach Vektor y</span>
-<span class="kw">describeBy</span>(x,y)</code></pre></div>
+</div>
+<p>Nachdem nun viele unterschiedliche Grafiken in R erstellt wurden, soll der folgende Code zeigen, wie man eine Grafik im aktuellen Verzeichnis des Workspaces exportieren und speichern kann.</p>
+<p><br> <br></p>
+<p>Die <strong>pdf()</strong> Funktion erstellt ein .pdf Dokument. Wenn eine plot Funktion aufgerufen wird (im unteren Beispiel <strong>ggplot()</strong>), wird das Ergebnis in eine .pdf Datei geschrieben. Mit dem <strong>dev.off()</strong> wird das Zeichnen der Grafik abgeschlossen. Bei dieser Form eine Grafik zu speichern oder exportieren, ist der <strong>dev.off()</strong> Befehl extrem wichtig, sonst wird die Grafik nicht erstellt.<br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dieser Code speichert die erstellte Grafik als pdf in Euren aktuellen Workspace</span>
+rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">pdf</span>(<span class="st">&quot;barplot_pos5.pdf&quot;</span>)
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5, <span class="kw">aes</span>(cond,time,<span class="dt">fill =</span> cond), <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>,<span class="dt">width =</span> <span class="fl">0.2</span>))
+<span class="kw">dev.off</span>()</code></pre></div>
+<!-- #```{r, eval = TRUE, echo = TRUE} -->
+<!-- #rt = read.table("vp.dat",header = T) -->
+<!-- #rt5 = rt[rt$pos == 5,] -->
+<!-- #ggplot(data = rt5, aes(cond,time,fill = cond)) + stat_summary(fun = mean, #geom = "bar") + stat_summary(fun.data = mean_cl_normal, geom = #"errorbar", position = position_dodge(width=0.9),width = 0.2) -->
+<!-- #``` -->
+<p>Der folgende Code zeigt den Lesezeitunterschied zwischen den Bedingungen an Position 5 für alle unterschiedlichen Items an.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+rt5 =<span class="st"> </span>rt[rt<span class="op">$</span>pos <span class="op">==</span><span class="st"> </span><span class="dv">5</span>,]
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt5, <span class="kw">aes</span>(cond,time,<span class="dt">fill =</span> cond)) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;bar&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>item)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot8.png" />
+
+</div>
+</div>
+<div id="ggplot-übersicht-über-parameter-und-funktionen" class="section level2">
+<h2><span class="header-section-number">9.4</span> ggplot() Übersicht über Parameter und Funktionen</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Zuordnung zu Variable</th>
+<th align="left">Zuweisung von spezifischem Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">x-Achse</td>
+<td align="left">x = Variable</td>
+<td align="left">Werte, die auf X-Achse abgebildet werden</td>
+</tr>
+<tr class="even">
+<td align="left">y-Achse</td>
+<td align="left">y = Variable</td>
+<td align="left">Werte, die auf Y-Achse abgebildet werden</td>
+</tr>
+<tr class="odd">
+<td align="left">colour</td>
+<td align="left">colour = variable</td>
+<td align="left">colour = “name”(z.B.“red”, “blue”)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">alternativ als hexadezimale Farbdefinition:</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">colour = “<span class="math inline">\(\#\)</span>RRGGBB”,“<span class="math inline">\(\#\)</span>FF00FF”</td>
+</tr>
+<tr class="even">
+<td align="left">shape</td>
+<td align="left">shape = variable</td>
+<td align="left">shape = Wert (Ganze Zahl, z.B. 3 für +)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">shape = “x”</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">(z.B. shape = “T” bewirkt, dass</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Datenpunkte als “T” dargestellt werden)</td>
+</tr>
+<tr class="even">
+<td align="left">size</td>
+<td align="left">size = variable</td>
+<td align="left">size = Wert (Größe in mm)</td>
+</tr>
+<tr class="odd">
+<td align="left">linetype</td>
+<td align="left">linetype = variable</td>
+<td align="left">linetype = Wert (Ganze Zahl,</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">z.B. 2 für gestrichelte Linie oder “dotted”)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="geom-übersicht" class="section level2">
+<h2><span class="header-section-number">9.5</span> geom-Übersicht</h2>
+<table>
+<tr>
+<th>
+Art der Grafik
+</th>
+<th>
+Geom
+</th>
+</tr>
+<tr>
+<td>
+Streudiagramm
+</td>
+<td>
+<strong>geom_point()</strong>
+</td>
+</tr>
+<tr>
+<td>
+Histogramm
+</td>
+<td>
+<strong>geom_histogram()</strong>
+</td>
+</tr>
+<tr>
+<td>
+Häufigkeitspolygon
+</td>
+<td>
+<strong>geom_freqpoly()</strong>
+</td>
+</tr>
+<tr>
+<td>
+Balkendiagramm
+</td>
+<td>
+<strong>geom_bar()</strong>
+</td>
+</tr>
+<tr>
+<td>
+Boxplot
+</td>
+<td>
+<strong>geom_boxplot()</strong>
+</td>
+</tr>
+<tr>
+<td>
+Matplot
+</td>
+<td>
+<strong>geom_line()</strong>
+</td>
+</tr>
+</table>
+</div>
+<div id="geom-spezifikationen-i" class="section level2">
+<h2><span class="header-section-number">9.6</span> geom-Spezifikationen I</h2>
+<table>
+<tr>
+<th>
+geom
+</th>
+<th>
+notwendige Spezifikationen
+</th>
+<th>
+optionale Spezifikation
+</th>
+</tr>
+<tr>
+<td>
+geom_point
+</td>
+<td>
+Variable auf x-Achse; <br> y: Variable auf y-Achse
+</td>
+<td>
+shape, colour, size, alpha <span class="math inline">\(\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+geom_line
+</td>
+<td>
+x: Variable auf der x-Achse; <br> y: Variable auf der y-Achse
+</td>
+<td>
+colour, size, linetype, alpha <span class="math inline">\(\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+geom_bar
+</td>
+<td>
+x: Variable auf der x-Achse
+</td>
+<td>
+colour, size, fill, linetype, alpha <span class="math inline">\(\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+geom_histogram
+</td>
+<td>
+x: Variable auf der x-Achse
+</td>
+<td>
+colour, size, fill, linetype, alpha <span class="math inline">\(\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+geom_boxplot
+</td>
+<td>
+x: Variable auf der x-Achse
+</td>
+<td>
+colour, size, fill, alpha <span class="math inline">\(\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+geom_text
+</td>
+<td>
+x: horizontale Koordinate; y: vertikale Koordinate; label: Text, der dargestellt werden soll
+</td>
+<td>
+colour, size, angel, hjust, vjust, alpha <span class="math inline">\(\dots\)</span>
+</td>
+</tr>
+</table>
+<!-- |:-:|:-:|:-:| -->
+<!-- | geom_point | x: Variable auf x-Achse | shape, colour, size, alpha $\dots$ | -->
+<!-- | | y: Variable auf y-Achse |  | -->
+<!-- | | | | -->
+<!-- | geom_line | x: Variable auf der x-Achse | colour, size, linetype, alpha $\dots$ | -->
+<!-- | | y: Variable auf der y-Achse | | -->
+<!-- | | | | -->
+<!-- | geom_bar | x: Variable auf der x-Achse | colour, size, fill, linetype, alpha $\dots$ | -->
+<!-- | | | | -->
+<!-- | geom_histogram | x: Variable auf der x-Achse | colour, size, fill, linetype, alpha $\dots$ | -->
+<!-- | | | | -->
+<!-- | geom_boxplot | x: Variable auf der x-Achse | colour, size, fill, alpha $\dots$ | -->
+<!-- | | | | -->
+<!-- | geom_text | x: horizontale Koordinate | colour, size, angel, hjust, vjust, alpha $\dots$  | -->
+<!-- | | y: vertikale Koordinate | | -->
+<!-- | | label: Text, der dargestellt  | | -->
+<!-- | | werden soll | | -->
+</div>
+<div id="stat-spezifikationen-ii" class="section level2">
+<h2><span class="header-section-number">9.7</span> stat-Spezifikationen II</h2>
+<table>
+<tr>
+<th>
+stat
+</th>
+<th>
+Spezifikationen
+</th>
+<th>
+optionale Spezifikationen
+</th>
+</tr>
+<tr>
+<td>
+stat_summary
+</td>
+<td>
+fun: legt Funktion fest, deren Ergebnis auf y-Achse abgetragen wird (z.B. mean, median, <span class="math inline">\(\dots\)</span>)
+</td>
+<td>
+shape, colour, size, alpha, <span class="math inline">\(\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+stat_identity
+</td>
+<td>
+Gibt einzelne Rohwerte zurück
+</td>
+<td>
+default bei geom_point()
+</td>
+</tr>
+<tr>
+<td>
+stat_bin
+</td>
+<td>
+Gibt aus: <br> - count: Anzahl der Datenpunkte innerhalb eines <em>bins</em> <br> - density: Häufigkeitsdichte <br>
+</td>
+<td>
+Nützliche Spezifikationen: binwidth (Breite der <em>bins</em>), bins (Anzahl der <em>bins</em>)
+</td>
+</tr>
+<tr>
+<td>
+stat_boxplot
+</td>
+<td>
+Gibt aus: ymin (unterer Whisker); lower (unterer Angelpunkt <em>hinge</em>), middle (Median), upper (oberer Angelpunkt <em>hinge</em>), ymax (oberer Whisker)
+</td>
+<td>
+default bei geom_boxplot
+</td>
+</tr>
+</table>
+</div>
+<div id="korrelation-und-korrelationskoeffizient" class="section level2">
+<h2><span class="header-section-number">9.8</span> Korrelation und Korrelationskoeffizient</h2>
+<p>Liest den Datensatz aus <strong>ResVP.txt</strong> in Variable <strong>Resvp</strong> ein.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Resvp =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;ResVP.txt&quot;</span>, <span class="dt">header =</span> T)</code></pre></div>
+<p>Erstellt einen Scatterplot</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> Resvp) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gemerkt, <span class="dt">y =</span> merr))</code></pre></div>
+<div class="figure">
+<img src="img/ggplot9.png" />
+
+</div>
+<p>Folgender Code vermeidet, dass identische Werte übereinander geplottet werden, damit man einen besseren Überblick über die Verteilung der Daten erhält.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> Resvp) <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gemerkt, <span class="dt">y =</span> merr, <span class="dt">color =</span> gemerkt), <span class="dt">width =</span> <span class="fl">0.1</span>)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot10.png" />
+
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> Resvp) <span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gemerkt, <span class="dt">y =</span> merr, <span class="dt">color =</span> gemerkt), <span class="dt">width =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gemerkt,<span class="dt">y =</span> merr), <span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="img/ggplot11.png" />
+
+</div>
+</div>
+<div id="darstellungsmöglichkeiten-barplot" class="section level2">
+<h2><span class="header-section-number">9.9</span> Darstellungsmöglichkeiten: Barplot</h2>
+<p>Der Unterschied zwischen den Mittelwerten lässt sich auch direkt als Barplot darstellen.</p>
+<p><img src="NewBook_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="figure">
+<img src="img/ggplot12.png" />
+
+</div>
+</div>
+<div id="explorative-datendarstellung" class="section level2">
+<h2><span class="header-section-number">9.10</span> Explorative Datendarstellung</h2>
+<p>Beide Gruppen sind nicht mal annähernd gleich groß! Interpretation des Ergebnisses muss durch Tests der Inferenzstatistik gestützt sein!</p>
+</div>
+<div id="matplot-darstellung" class="section level2">
+<h2><span class="header-section-number">9.11</span> Matplot() Darstellung</h2>
+<p>Weitere Möglichkeit Mittelwerte von Lesezeiten zwischen Bedingungen grafisch anschaulich darzustellen</p>
+<ul>
+<li>R stellt dafür auch die eigene <strong>matplot()</strong> Funktion ohne zusätzliches Paket zur Verfügung.</li>
+<li>Übergabe einer Matrix mit Mittelwerten und Matrix mit Standardabweichungen</li>
+</ul>
+</div>
+<div id="matplot" class="section level2">
+<h2><span class="header-section-number">9.12</span> Matplot()</h2>
+<p>Diese Funktion bietet die Möglichkeit die Lesezeiten der unterschiedlichen Bedingungen an den Positionen (Interest Areas) zu vergleichen.</p>
+<ul>
+<li>Voraussetzung: Matrix, die die Mittelwerte auf allen Interest Areas für Bedingung <em>a</em> und Bedingung <em>b</em> gegenüberstellt</li>
+<li>dafür kannst Du <strong>meansRT.dat</strong> in das Verzeichnis Deines aktuellen Workspaces herunterladen und dann in R einlesen</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">listmean =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;meansRT.dat&quot;</span>, <span class="dt">header =</span> T)
+
+<span class="co">#str(listmean)</span></code></pre></div>
+<p>Hier ist ein Beispielcode, für das Plotten des Datensatzes. Man kann die Linientypen leicht verändern und auch eine Legende dazuplotten, um die Linientypen auch den jeweiligen Bedingungen zuordnen zu können. Für die einzelnen Optionen in diesem Code, schaut Euch noch einmal die Hilfe der Funktion <strong>matplot()</strong> an.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">listmean =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;meansRT.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">matplot</span>(<span class="kw">t</span>(listmean), <span class="dt">main =</span> <span class="st">&quot;Titel&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>), <span class="dt">lwd=</span><span class="dv">8</span>,<span class="dt">xlab =</span> <span class="st">&quot;Interest Areas&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Lesezeiten in ms&quot;</span>,<span class="dt">lty =</span> <span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">9</span>))
+
+<span class="kw">legend</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>),
+        <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">1100</span>,<span class="dv">1500</span>),
+        <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>),
+        <span class="dt">lwd=</span><span class="dv">4</span>,
+        <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),
+        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>),
+        <span class="dt">xjust=</span><span class="dv">1</span>,
+        <span class="dt">yjust=</span><span class="dv">1</span>,
+        <span class="dt">cex =</span> <span class="dv">1</span>)</code></pre></div>
+<div class="figure">
+<img src="img/matplot13.png" />
+
+</div>
+<p>Der folgende Code plottet einen Matplot() mit ggplot() aus</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> rt, <span class="kw">aes</span>(pos,time, <span class="dt">colour =</span> cond)) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="kw">aes</span>(<span class="dt">group =</span> cond)) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="kw">aes</span>(<span class="dt">group =</span> cond), <span class="dt">colour =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="img/matplot14.png" />
+
+</div>
+<p>Und so wie unten lassen sich auch noch die Errorbars an jedem Punkt dazuplotten.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+rt =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;vp.dat&quot;</span>,<span class="dt">header =</span> T)
+<span class="kw">ggplot</span>(<span class="dt">data =</span> rt, <span class="kw">aes</span>(pos,time, <span class="dt">colour =</span> cond)) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="kw">aes</span>(<span class="dt">group =</span> cond), <span class="dt">colour =</span> <span class="st">&quot;Black&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_cl_normal,<span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">width =</span> <span class="fl">0.2</span>)</code></pre></div>
+<div class="figure">
+<img src="img/matplot15.png" />
+
+</div>
+<!-- ## Hausaufgabe -->
+<!-- Bitte lest das Dokument **ResVP.dat** in R ein! -->
+<!-- **Datensatz:**<br> -->
+<!-- Welche Beziehungen könnten in diesem Datensatz relevant und aussagekräftig sein? -->
+<!-- ## Befehle für Datenübersicht? -->
+<!-- **Kurze Wiederholung**: Welche Befehle könnten für eine schnelle Datenübersicht wichtig sein, um sich einen schnellen Überlick zu verschaffen über: -->
+<!-- - die Anzahl der Versuchspersonen (VPs)? -->
+<!-- - die Extremwerte? -->
+<!-- - den Mittelwerte, den Median und die Standardabweichungen? -->
+<!-- - Was könnten die abhängigen und was könnten die unabhängigen Variablen in diesem Experiment sein? -->
+<!-- - Wenn man eine Grafik mit den Ergebnissen plotten möchte, was soll auf x-Achse? Was soll auf y-Achse abgebildet werden? -->
+<!-- - (Welche Beziehung hat höchste Kovarianz / Korrelation?) -->
 
 </div>
 </div>
@@ -578,8 +836,8 @@ MAD = median |x_i - \tilde{x}|
           </div>
         </div>
       </div>
-<a href="central.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ZKD.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="visual.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visual3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
