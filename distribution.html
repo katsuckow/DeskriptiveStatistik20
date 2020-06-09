@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Haufigkeitsverteilungen | Deskriptive Statistik mit R</title>
+  <title>Chapter 3 Haufigkeitsverteilungen | Deskriptive Statistik mit R</title>
   <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Haufigkeitsverteilungen | Deskriptive Statistik mit R" />
+  <meta property="og:title" content="Chapter 3 Haufigkeitsverteilungen | Deskriptive Statistik mit R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="katsuckow/DeskriptiveStatistik20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Haufigkeitsverteilungen | Deskriptive Statistik mit R" />
+  <meta name="twitter:title" content="Chapter 3 Haufigkeitsverteilungen | Deskriptive Statistik mit R" />
   
   <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Katja Suckow   katja.suckow@gmail.com   katja.suckow@phil.uni-goettingen.de" />
 
 
-<meta name="date" content="2020-06-08" />
+<meta name="date" content="2020-06-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -110,169 +110,169 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#was-braucht-man-für-diesen-kurs"><i class="fa fa-check"></i><b>1.1</b> Was braucht man für diesen Kurs?</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#anforderungen-und-zeitplan-für-das-semester"><i class="fa fa-check"></i><b>1.2</b> Anforderungen und Zeitplan für das Semester</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tutorium"><i class="fa fa-check"></i><b>1.3</b> Tutorium</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#psycholinguistische-experimente"><i class="fa fa-check"></i><b>1.4</b> Psycholinguistische Experimente</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#einleitung-datentypen-in-der-linguistik"><i class="fa fa-check"></i><b>1.5</b> Einleitung: Datentypen in der Linguistik</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#population-und-stichprobe"><i class="fa fa-check"></i><b>1.6</b> Population und Stichprobe</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#deskriptive-statistik-und-inferenzstatistik"><i class="fa fa-check"></i><b>1.7</b> Deskriptive Statistik und Inferenzstatistik</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#kurze-einführung-in-r"><i class="fa fa-check"></i><b>1.8</b> Kurze Einführung in R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#drei-hauptfenster"><i class="fa fa-check"></i><b>1.8.1</b> drei Hauptfenster:</a></li>
+<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#editoren"><i class="fa fa-check"></i><b>1.8.2</b> Editoren:</a></li>
+<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#skript"><i class="fa fa-check"></i><b>1.8.3</b> Skript</a></li>
+<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#workspace"><i class="fa fa-check"></i><b>1.8.4</b> Workspace</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Einführung und einige Übungen</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#psycholinguistische-experimente"><i class="fa fa-check"></i><b>2.1</b> Psycholinguistische Experimente</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#einleitung-datentypen-in-der-linguistik"><i class="fa fa-check"></i><b>2.2</b> Einleitung: Datentypen in der Linguistik</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#population-und-stichprobe"><i class="fa fa-check"></i><b>2.3</b> Population und Stichprobe</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#deskriptive-statistik-und-inferenzstatistik"><i class="fa fa-check"></i><b>2.4</b> Deskriptive Statistik und Inferenzstatistik</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#kurze-einführung-in-r"><i class="fa fa-check"></i><b>2.5</b> Kurze Einführung in R</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#drei-hauptfenster"><i class="fa fa-check"></i><b>2.5.1</b> drei Hauptfenster:</a></li>
-<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#editoren"><i class="fa fa-check"></i><b>2.5.2</b> Editoren:</a></li>
-<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#skript"><i class="fa fa-check"></i><b>2.5.3</b> Skript</a></li>
-<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#workspace"><i class="fa fa-check"></i><b>2.5.4</b> Workspace</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#r-als-taschenrechner-beispiele"><i class="fa fa-check"></i><b>1.9</b> R als Taschenrechner: Beispiele</a></li>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#einige-vordefinierte-beispielfunktionen"><i class="fa fa-check"></i><b>1.10</b> Einige vordefinierte Beispielfunktionen</a></li>
+<li class="chapter" data-level="1.11" data-path="index.html"><a href="index.html#hilfefunktionen"><i class="fa fa-check"></i><b>1.11</b> Hilfefunktionen</a></li>
+<li class="chapter" data-level="1.12" data-path="index.html"><a href="index.html#pakete-laden"><i class="fa fa-check"></i><b>1.12</b> Pakete Laden</a></li>
+<li class="chapter" data-level="1.13" data-path="index.html"><a href="index.html#vergleichsoperatoren"><i class="fa fa-check"></i><b>1.13</b> Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="1.14" data-path="index.html"><a href="index.html#logische-vergleichsoperatoren"><i class="fa fa-check"></i><b>1.14</b> Logische Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="1.15" data-path="index.html"><a href="index.html#variablen-in-r"><i class="fa fa-check"></i><b>1.15</b> Variablen in R</a></li>
+<li class="chapter" data-level="1.16" data-path="index.html"><a href="index.html#bis-nächste-woche"><i class="fa fa-check"></i><b>1.16</b> Bis nächste Woche</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#r-als-taschenrechner-beispiele"><i class="fa fa-check"></i><b>2.6</b> R als Taschenrechner: Beispiele</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#einige-vordefinierte-beispielfunktionen"><i class="fa fa-check"></i><b>2.7</b> Einige vordefinierte Beispielfunktionen</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#hilfefunktionen"><i class="fa fa-check"></i><b>2.8</b> Hilfefunktionen</a></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#pakete-laden"><i class="fa fa-check"></i><b>2.9</b> Pakete Laden</a></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#vergleichsoperatoren"><i class="fa fa-check"></i><b>2.10</b> Vergleichsoperatoren</a></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#logische-vergleichsoperatoren"><i class="fa fa-check"></i><b>2.11</b> Logische Vergleichsoperatoren</a></li>
-<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#variablen-in-r"><i class="fa fa-check"></i><b>2.12</b> Variablen in R</a></li>
-<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#bis-nächste-woche"><i class="fa fa-check"></i><b>2.13</b> Bis nächste Woche</a></li>
+<li class="chapter" data-level="2" data-path="description.html"><a href="description.html"><i class="fa fa-check"></i><b>2</b> Datenbeschreibungen in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="description.html"><a href="description.html#kurze-wiederholung"><i class="fa fa-check"></i><b>2.1</b> Kurze Wiederholung</a></li>
+<li class="chapter" data-level="2.2" data-path="description.html"><a href="description.html#r-vektoren"><i class="fa fa-check"></i><b>2.2</b> R-Vektoren</a></li>
+<li class="chapter" data-level="2.3" data-path="description.html"><a href="description.html#r-datentypen"><i class="fa fa-check"></i><b>2.3</b> R-Datentypen</a></li>
+<li class="chapter" data-level="2.4" data-path="description.html"><a href="description.html#r-data-frames"><i class="fa fa-check"></i><b>2.4</b> R-Data frames</a></li>
+<li class="chapter" data-level="2.5" data-path="description.html"><a href="description.html#r-matritzen"><i class="fa fa-check"></i><b>2.5</b> R-Matritzen</a></li>
+<li class="chapter" data-level="2.6" data-path="description.html"><a href="description.html#r---nützliche-funktionen"><i class="fa fa-check"></i><b>2.6</b> R - nützliche Funktionen</a></li>
+<li class="chapter" data-level="2.7" data-path="description.html"><a href="description.html#aufgabe"><i class="fa fa-check"></i><b>2.7</b> Aufgabe</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="description.html"><a href="description.html"><i class="fa fa-check"></i><b>3</b> Datenbeschreibungen in R</a><ul>
-<li class="chapter" data-level="3.1" data-path="description.html"><a href="description.html#kurze-wiederholung"><i class="fa fa-check"></i><b>3.1</b> Kurze Wiederholung</a></li>
-<li class="chapter" data-level="3.2" data-path="description.html"><a href="description.html#r-vektoren"><i class="fa fa-check"></i><b>3.2</b> R-Vektoren</a></li>
-<li class="chapter" data-level="3.3" data-path="description.html"><a href="description.html#r-datentypen"><i class="fa fa-check"></i><b>3.3</b> R-Datentypen</a></li>
-<li class="chapter" data-level="3.4" data-path="description.html"><a href="description.html#r-data-frames"><i class="fa fa-check"></i><b>3.4</b> R-Data frames</a></li>
-<li class="chapter" data-level="3.5" data-path="description.html"><a href="description.html#r-matritzen"><i class="fa fa-check"></i><b>3.5</b> R-Matritzen</a></li>
-<li class="chapter" data-level="3.6" data-path="description.html"><a href="description.html#r---nützliche-funktionen"><i class="fa fa-check"></i><b>3.6</b> R - nützliche Funktionen</a></li>
-<li class="chapter" data-level="3.7" data-path="description.html"><a href="description.html#aufgabe"><i class="fa fa-check"></i><b>3.7</b> Aufgabe</a></li>
+<li class="chapter" data-level="3" data-path="distribution.html"><a href="distribution.html"><i class="fa fa-check"></i><b>3</b> Haufigkeitsverteilungen</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribution.html"><a href="distribution.html#wiederholung-r"><i class="fa fa-check"></i><b>3.1</b> Wiederholung R</a></li>
+<li class="chapter" data-level="3.2" data-path="distribution.html"><a href="distribution.html#skalenniveaus"><i class="fa fa-check"></i><b>3.2</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="3.3" data-path="distribution.html"><a href="distribution.html#formate-verschiedener-variablen"><i class="fa fa-check"></i><b>3.3</b> Formate verschiedener Variablen</a></li>
+<li class="chapter" data-level="3.4" data-path="distribution.html"><a href="distribution.html#skalenniveaus-1"><i class="fa fa-check"></i><b>3.4</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="3.5" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen"><i class="fa fa-check"></i><b>3.5</b> Häufigkeitsverteilungen</a></li>
+<li class="chapter" data-level="3.6" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen-darstellungen"><i class="fa fa-check"></i><b>3.6</b> Häufigkeitsverteilungen: Darstellungen</a></li>
+<li class="chapter" data-level="3.7" data-path="distribution.html"><a href="distribution.html#klasseneinteilung"><i class="fa fa-check"></i><b>3.7</b> Klasseneinteilung</a></li>
+<li class="chapter" data-level="3.8" data-path="distribution.html"><a href="distribution.html#histogramme"><i class="fa fa-check"></i><b>3.8</b> Histogramme</a></li>
+<li class="chapter" data-level="3.9" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experiment"><i class="fa fa-check"></i><b>3.9</b> Psycholinguistisches Experiment</a></li>
+<li class="chapter" data-level="3.10" data-path="distribution.html"><a href="distribution.html#hypothese"><i class="fa fa-check"></i><b>3.10</b> Hypothese</a></li>
+<li class="chapter" data-level="3.11" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experimnet"><i class="fa fa-check"></i><b>3.11</b> Psycholinguistisches Experimnet</a></li>
+<li class="chapter" data-level="3.12" data-path="distribution.html"><a href="distribution.html#hypothesenbeispiele"><i class="fa fa-check"></i><b>3.12</b> Hypothesenbeispiele?</a></li>
+<li class="chapter" data-level="3.13" data-path="distribution.html"><a href="distribution.html#experimentelle-und-nicht-experimentelle-forschung"><i class="fa fa-check"></i><b>3.13</b> Experimentelle und nicht-experimentelle Forschung</a></li>
+<li class="chapter" data-level="3.14" data-path="distribution.html"><a href="distribution.html#variablen"><i class="fa fa-check"></i><b>3.14</b> Variablen</a></li>
+<li class="chapter" data-level="3.15" data-path="distribution.html"><a href="distribution.html#kontrolle-von-störvariablen"><i class="fa fa-check"></i><b>3.15</b> Kontrolle von Störvariablen</a></li>
+<li class="chapter" data-level="3.16" data-path="distribution.html"><a href="distribution.html#versuchsdesigns"><i class="fa fa-check"></i><b>3.16</b> Versuchsdesigns</a></li>
+<li class="chapter" data-level="3.17" data-path="distribution.html"><a href="distribution.html#latin-square-design"><i class="fa fa-check"></i><b>3.17</b> Latin Square Design</a></li>
+<li class="chapter" data-level="3.18" data-path="distribution.html"><a href="distribution.html#latin-square-design-beispiel-2-times-2-design"><i class="fa fa-check"></i><b>3.18</b> Latin Square Design: Beispiel 2 <span class="math inline">\(\times\)</span> 2 Design</a></li>
+<li class="chapter" data-level="3.19" data-path="distribution.html"><a href="distribution.html#aufgabe-1"><i class="fa fa-check"></i><b>3.19</b> Aufgabe</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="distribution.html"><a href="distribution.html"><i class="fa fa-check"></i><b>4</b> Haufigkeitsverteilungen</a><ul>
-<li class="chapter" data-level="4.1" data-path="distribution.html"><a href="distribution.html#wiederholung-r"><i class="fa fa-check"></i><b>4.1</b> Wiederholung R</a></li>
-<li class="chapter" data-level="4.2" data-path="distribution.html"><a href="distribution.html#skalenniveaus"><i class="fa fa-check"></i><b>4.2</b> Skalenniveaus</a></li>
-<li class="chapter" data-level="4.3" data-path="distribution.html"><a href="distribution.html#formate-verschiedener-variablen"><i class="fa fa-check"></i><b>4.3</b> Formate verschiedener Variablen</a></li>
-<li class="chapter" data-level="4.4" data-path="distribution.html"><a href="distribution.html#skalenniveaus-1"><i class="fa fa-check"></i><b>4.4</b> Skalenniveaus</a></li>
-<li class="chapter" data-level="4.5" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen"><i class="fa fa-check"></i><b>4.5</b> Häufigkeitsverteilungen</a></li>
-<li class="chapter" data-level="4.6" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen-darstellungen"><i class="fa fa-check"></i><b>4.6</b> Häufigkeitsverteilungen: Darstellungen</a></li>
-<li class="chapter" data-level="4.7" data-path="distribution.html"><a href="distribution.html#klasseneinteilung"><i class="fa fa-check"></i><b>4.7</b> Klasseneinteilung</a></li>
-<li class="chapter" data-level="4.8" data-path="distribution.html"><a href="distribution.html#histogramme"><i class="fa fa-check"></i><b>4.8</b> Histogramme</a></li>
-<li class="chapter" data-level="4.9" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experiment"><i class="fa fa-check"></i><b>4.9</b> Psycholinguistisches Experiment</a></li>
-<li class="chapter" data-level="4.10" data-path="distribution.html"><a href="distribution.html#hypothese"><i class="fa fa-check"></i><b>4.10</b> Hypothese</a></li>
-<li class="chapter" data-level="4.11" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experimnet"><i class="fa fa-check"></i><b>4.11</b> Psycholinguistisches Experimnet</a></li>
-<li class="chapter" data-level="4.12" data-path="distribution.html"><a href="distribution.html#hypothesenbeispiele"><i class="fa fa-check"></i><b>4.12</b> Hypothesenbeispiele?</a></li>
-<li class="chapter" data-level="4.13" data-path="distribution.html"><a href="distribution.html#experimentelle-und-nicht-experimentelle-forschung"><i class="fa fa-check"></i><b>4.13</b> Experimentelle und nicht-experimentelle Forschung</a></li>
-<li class="chapter" data-level="4.14" data-path="distribution.html"><a href="distribution.html#variablen"><i class="fa fa-check"></i><b>4.14</b> Variablen</a></li>
-<li class="chapter" data-level="4.15" data-path="distribution.html"><a href="distribution.html#kontrolle-von-störvariablen"><i class="fa fa-check"></i><b>4.15</b> Kontrolle von Störvariablen</a></li>
-<li class="chapter" data-level="4.16" data-path="distribution.html"><a href="distribution.html#versuchsdesigns"><i class="fa fa-check"></i><b>4.16</b> Versuchsdesigns</a></li>
-<li class="chapter" data-level="4.17" data-path="distribution.html"><a href="distribution.html#latin-square-design"><i class="fa fa-check"></i><b>4.17</b> Latin Square Design</a></li>
-<li class="chapter" data-level="4.18" data-path="distribution.html"><a href="distribution.html#latin-square-design-beispiel-2-times-2-design"><i class="fa fa-check"></i><b>4.18</b> Latin Square Design: Beispiel 2 <span class="math inline">\(\times\)</span> 2 Design</a></li>
-<li class="chapter" data-level="4.19" data-path="distribution.html"><a href="distribution.html#aufgabe-1"><i class="fa fa-check"></i><b>4.19</b> Aufgabe</a></li>
+<li class="chapter" data-level="4" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>4</b> Maße der zentralen Tendenz</a><ul>
+<li class="chapter" data-level="4.1" data-path="central.html"><a href="central.html#maße-der-zentralen-tendenz"><i class="fa fa-check"></i><b>4.1</b> Maße der zentralen Tendenz</a></li>
+<li class="chapter" data-level="4.2" data-path="central.html"><a href="central.html#modus"><i class="fa fa-check"></i><b>4.2</b> Modus</a></li>
+<li class="chapter" data-level="4.3" data-path="central.html"><a href="central.html#median"><i class="fa fa-check"></i><b>4.3</b> Median</a></li>
+<li class="chapter" data-level="4.4" data-path="central.html"><a href="central.html#median-bei-n-gerade-zahl"><i class="fa fa-check"></i><b>4.4</b> Median (bei n = gerade Zahl)</a></li>
+<li class="chapter" data-level="4.5" data-path="central.html"><a href="central.html#median-1"><i class="fa fa-check"></i><b>4.5</b> Median</a></li>
+<li class="chapter" data-level="4.6" data-path="central.html"><a href="central.html#r-befehle"><i class="fa fa-check"></i><b>4.6</b> R-Befehle</a></li>
+<li class="chapter" data-level="4.7" data-path="central.html"><a href="central.html#quantile"><i class="fa fa-check"></i><b>4.7</b> Quantile</a></li>
+<li class="chapter" data-level="4.8" data-path="central.html"><a href="central.html#mittelwert"><i class="fa fa-check"></i><b>4.8</b> Mittelwert</a></li>
+<li class="chapter" data-level="4.9" data-path="central.html"><a href="central.html#beispiel"><i class="fa fa-check"></i><b>4.9</b> Beispiel</a></li>
+<li class="chapter" data-level="4.10" data-path="central.html"><a href="central.html#r-befehle-1"><i class="fa fa-check"></i><b>4.10</b> R Befehle</a></li>
+<li class="chapter" data-level="4.11" data-path="central.html"><a href="central.html#normalverteilung"><i class="fa fa-check"></i><b>4.11</b> Normalverteilung</a></li>
+<li class="chapter" data-level="4.12" data-path="central.html"><a href="central.html#normalverteilung-mit-histogram-hist"><i class="fa fa-check"></i><b>4.12</b> Normalverteilung mit Histogram <strong>hist()</strong></a></li>
+<li class="chapter" data-level="4.13" data-path="central.html"><a href="central.html#normalverteilung-schiefe"><i class="fa fa-check"></i><b>4.13</b> Normalverteilung: Schiefe</a></li>
+<li class="chapter" data-level="4.14" data-path="central.html"><a href="central.html#normalverteilung-kurtosis"><i class="fa fa-check"></i><b>4.14</b> Normalverteilung: Kurtosis</a></li>
+<li class="chapter" data-level="4.15" data-path="central.html"><a href="central.html#hausaufgabe"><i class="fa fa-check"></i><b>4.15</b> Hausaufgabe</a></li>
+<li class="chapter" data-level="4.16" data-path="central.html"><a href="central.html#übung"><i class="fa fa-check"></i><b>4.16</b> Übung</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>5</b> Maße der zentralen Tendenz</a><ul>
-<li class="chapter" data-level="5.1" data-path="central.html"><a href="central.html#maße-der-zentralen-tendenz"><i class="fa fa-check"></i><b>5.1</b> Maße der zentralen Tendenz</a></li>
-<li class="chapter" data-level="5.2" data-path="central.html"><a href="central.html#modus"><i class="fa fa-check"></i><b>5.2</b> Modus</a></li>
-<li class="chapter" data-level="5.3" data-path="central.html"><a href="central.html#median"><i class="fa fa-check"></i><b>5.3</b> Median</a></li>
-<li class="chapter" data-level="5.4" data-path="central.html"><a href="central.html#median-bei-n-gerade-zahl"><i class="fa fa-check"></i><b>5.4</b> Median (bei n = gerade Zahl)</a></li>
-<li class="chapter" data-level="5.5" data-path="central.html"><a href="central.html#median-1"><i class="fa fa-check"></i><b>5.5</b> Median</a></li>
-<li class="chapter" data-level="5.6" data-path="central.html"><a href="central.html#r-befehle"><i class="fa fa-check"></i><b>5.6</b> R-Befehle</a></li>
-<li class="chapter" data-level="5.7" data-path="central.html"><a href="central.html#quantile"><i class="fa fa-check"></i><b>5.7</b> Quantile</a></li>
-<li class="chapter" data-level="5.8" data-path="central.html"><a href="central.html#mittelwert"><i class="fa fa-check"></i><b>5.8</b> Mittelwert</a></li>
-<li class="chapter" data-level="5.9" data-path="central.html"><a href="central.html#beispiel"><i class="fa fa-check"></i><b>5.9</b> Beispiel</a></li>
-<li class="chapter" data-level="5.10" data-path="central.html"><a href="central.html#r-befehle-1"><i class="fa fa-check"></i><b>5.10</b> R Befehle</a></li>
-<li class="chapter" data-level="5.11" data-path="central.html"><a href="central.html#normalverteilung"><i class="fa fa-check"></i><b>5.11</b> Normalverteilung</a></li>
-<li class="chapter" data-level="5.12" data-path="central.html"><a href="central.html#normalverteilung-mit-histogram-hist"><i class="fa fa-check"></i><b>5.12</b> Normalverteilung mit Histogram <strong>hist()</strong></a></li>
-<li class="chapter" data-level="5.13" data-path="central.html"><a href="central.html#normalverteilung-schiefe"><i class="fa fa-check"></i><b>5.13</b> Normalverteilung: Schiefe</a></li>
-<li class="chapter" data-level="5.14" data-path="central.html"><a href="central.html#normalverteilung-kurtosis"><i class="fa fa-check"></i><b>5.14</b> Normalverteilung: Kurtosis</a></li>
-<li class="chapter" data-level="5.15" data-path="central.html"><a href="central.html#hausaufgabe"><i class="fa fa-check"></i><b>5.15</b> Hausaufgabe</a></li>
-<li class="chapter" data-level="5.16" data-path="central.html"><a href="central.html#übung"><i class="fa fa-check"></i><b>5.16</b> Übung</a></li>
+<li class="chapter" data-level="5" data-path="variance.html"><a href="variance.html"><i class="fa fa-check"></i><b>5</b> Kovarianz und Korrelation</a><ul>
+<li class="chapter" data-level="5.1" data-path="variance.html"><a href="variance.html#kurze-wiederholung-1"><i class="fa fa-check"></i><b>5.1</b> Kurze Wiederholung</a></li>
+<li class="chapter" data-level="5.2" data-path="variance.html"><a href="variance.html#streuungsmaße"><i class="fa fa-check"></i><b>5.2</b> Streuungsmaße</a></li>
+<li class="chapter" data-level="5.3" data-path="variance.html"><a href="variance.html#spannweite-range"><i class="fa fa-check"></i><b>5.3</b> Spannweite (“range”)</a></li>
+<li class="chapter" data-level="5.4" data-path="variance.html"><a href="variance.html#quartilsabstände"><i class="fa fa-check"></i><b>5.4</b> Quartilsabstände</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="variance.html"><a href="variance.html#quartilsabstände-beispiel"><i class="fa fa-check"></i><b>5.4.1</b> Quartilsabstände: Beispiel</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="variance.html"><a href="variance.html"><i class="fa fa-check"></i><b>6</b> Kovarianz und Korrelation</a><ul>
-<li class="chapter" data-level="6.1" data-path="variance.html"><a href="variance.html#kurze-wiederholung-1"><i class="fa fa-check"></i><b>6.1</b> Kurze Wiederholung</a></li>
-<li class="chapter" data-level="6.2" data-path="variance.html"><a href="variance.html#streuungsmaße"><i class="fa fa-check"></i><b>6.2</b> Streuungsmaße</a></li>
-<li class="chapter" data-level="6.3" data-path="variance.html"><a href="variance.html#spannweite-range"><i class="fa fa-check"></i><b>6.3</b> Spannweite (“range”)</a></li>
-<li class="chapter" data-level="6.4" data-path="variance.html"><a href="variance.html#quartilsabstände"><i class="fa fa-check"></i><b>6.4</b> Quartilsabstände</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="variance.html"><a href="variance.html#quartilsabstände-beispiel"><i class="fa fa-check"></i><b>6.4.1</b> Quartilsabstände: Beispiel</a></li>
+<li class="chapter" data-level="5.5" data-path="variance.html"><a href="variance.html#quantilsabstand"><i class="fa fa-check"></i><b>5.5</b> Quantilsabstand</a></li>
+<li class="chapter" data-level="5.6" data-path="variance.html"><a href="variance.html#beispiel-1"><i class="fa fa-check"></i><b>5.6</b> Beispiel</a></li>
+<li class="chapter" data-level="5.7" data-path="variance.html"><a href="variance.html#abweichungen-vom-mittelwert"><i class="fa fa-check"></i><b>5.7</b> Abweichungen vom Mittelwert</a></li>
+<li class="chapter" data-level="5.8" data-path="variance.html"><a href="variance.html#quadratsumme-sum-of-squares"><i class="fa fa-check"></i><b>5.8</b> Quadratsumme: <em>sum of squares</em></a></li>
+<li class="chapter" data-level="5.9" data-path="variance.html"><a href="variance.html#durchschnitt-der-quadratischen-abweichungen"><i class="fa fa-check"></i><b>5.9</b> Durchschnitt der quadratischen Abweichungen</a></li>
+<li class="chapter" data-level="5.10" data-path="variance.html"><a href="variance.html#varianz"><i class="fa fa-check"></i><b>5.10</b> Varianz</a></li>
+<li class="chapter" data-level="5.11" data-path="variance.html"><a href="variance.html#varianz-warum-teilt-man-durch-n---1"><i class="fa fa-check"></i><b>5.11</b> Varianz: warum teilt man durch n - 1?</a></li>
+<li class="chapter" data-level="5.12" data-path="variance.html"><a href="variance.html#standardabweichung"><i class="fa fa-check"></i><b>5.12</b> Standardabweichung</a></li>
+<li class="chapter" data-level="5.13" data-path="variance.html"><a href="variance.html#standardabweichung-und-varianz"><i class="fa fa-check"></i><b>5.13</b> Standardabweichung und Varianz</a></li>
+<li class="chapter" data-level="5.14" data-path="variance.html"><a href="variance.html#median-absolute-deviation-mad"><i class="fa fa-check"></i><b>5.14</b> Median absolute deviation (MAD)</a></li>
+<li class="chapter" data-level="5.15" data-path="variance.html"><a href="variance.html#r-befehle-2"><i class="fa fa-check"></i><b>5.15</b> R Befehle</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="variance.html"><a href="variance.html#quantilsabstand"><i class="fa fa-check"></i><b>6.5</b> Quantilsabstand</a></li>
-<li class="chapter" data-level="6.6" data-path="variance.html"><a href="variance.html#beispiel-1"><i class="fa fa-check"></i><b>6.6</b> Beispiel</a></li>
-<li class="chapter" data-level="6.7" data-path="variance.html"><a href="variance.html#abweichungen-vom-mittelwert"><i class="fa fa-check"></i><b>6.7</b> Abweichungen vom Mittelwert</a></li>
-<li class="chapter" data-level="6.8" data-path="variance.html"><a href="variance.html#quadratsumme-sum-of-squares"><i class="fa fa-check"></i><b>6.8</b> Quadratsumme: <em>sum of squares</em></a></li>
-<li class="chapter" data-level="6.9" data-path="variance.html"><a href="variance.html#durchschnitt-der-quadratischen-abweichungen"><i class="fa fa-check"></i><b>6.9</b> Durchschnitt der quadratischen Abweichungen</a></li>
-<li class="chapter" data-level="6.10" data-path="variance.html"><a href="variance.html#varianz"><i class="fa fa-check"></i><b>6.10</b> Varianz</a></li>
-<li class="chapter" data-level="6.11" data-path="variance.html"><a href="variance.html#varianz-warum-teilt-man-durch-n---1"><i class="fa fa-check"></i><b>6.11</b> Varianz: warum teilt man durch n - 1?</a></li>
-<li class="chapter" data-level="6.12" data-path="variance.html"><a href="variance.html#standardabweichung"><i class="fa fa-check"></i><b>6.12</b> Standardabweichung</a></li>
-<li class="chapter" data-level="6.13" data-path="variance.html"><a href="variance.html#standardabweichung-und-varianz"><i class="fa fa-check"></i><b>6.13</b> Standardabweichung und Varianz</a></li>
-<li class="chapter" data-level="6.14" data-path="variance.html"><a href="variance.html#median-absolute-deviation-mad"><i class="fa fa-check"></i><b>6.14</b> Median absolute deviation (MAD)</a></li>
-<li class="chapter" data-level="6.15" data-path="variance.html"><a href="variance.html#r-befehle-2"><i class="fa fa-check"></i><b>6.15</b> R Befehle</a></li>
+<li class="chapter" data-level="6" data-path="ZKD.html"><a href="ZKD.html"><i class="fa fa-check"></i><b>6</b> Kovarianz + Datenvisualisierungen</a><ul>
+<li class="chapter" data-level="6.1" data-path="ZKD.html"><a href="ZKD.html#wiederholung"><i class="fa fa-check"></i><b>6.1</b> Wiederholung</a></li>
+<li class="chapter" data-level="6.2" data-path="ZKD.html"><a href="ZKD.html#beziehungen-zwischen-beobachtungen"><i class="fa fa-check"></i><b>6.2</b> Beziehungen zwischen Beobachtungen</a></li>
+<li class="chapter" data-level="6.3" data-path="ZKD.html"><a href="ZKD.html#streudiagramm-scatterplot"><i class="fa fa-check"></i><b>6.3</b> Streudiagramm <strong>scatterplot</strong></a></li>
+<li class="chapter" data-level="6.4" data-path="ZKD.html"><a href="ZKD.html#scatterplot-mit-mittelwert"><i class="fa fa-check"></i><b>6.4</b> Scatterplot mit Mittelwert</a></li>
+<li class="chapter" data-level="6.5" data-path="ZKD.html"><a href="ZKD.html#kovarianz"><i class="fa fa-check"></i><b>6.5</b> Kovarianz</a></li>
+<li class="chapter" data-level="6.6" data-path="ZKD.html"><a href="ZKD.html#r-befehle-korrelation"><i class="fa fa-check"></i><b>6.6</b> R-Befehle Korrelation</a></li>
+<li class="chapter" data-level="6.7" data-path="ZKD.html"><a href="ZKD.html#korrelation"><i class="fa fa-check"></i><b>6.7</b> Korrelation</a></li>
+<li class="chapter" data-level="6.8" data-path="ZKD.html"><a href="ZKD.html#produkt-moment-korrelation-bravais-pearson-korrelation"><i class="fa fa-check"></i><b>6.8</b> Produkt Moment Korrelation (Bravais-Pearson Korrelation)</a></li>
+<li class="chapter" data-level="6.9" data-path="ZKD.html"><a href="ZKD.html#korrelation-beispiel"><i class="fa fa-check"></i><b>6.9</b> Korrelation: Beispiel</a></li>
+<li class="chapter" data-level="6.10" data-path="ZKD.html"><a href="ZKD.html#hausaufgabe-1"><i class="fa fa-check"></i><b>6.10</b> Hausaufgabe</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ZKD.html"><a href="ZKD.html"><i class="fa fa-check"></i><b>7</b> Kovarianz + Datenvisualisierungen</a><ul>
-<li class="chapter" data-level="7.1" data-path="ZKD.html"><a href="ZKD.html#wiederholung"><i class="fa fa-check"></i><b>7.1</b> Wiederholung</a></li>
-<li class="chapter" data-level="7.2" data-path="ZKD.html"><a href="ZKD.html#beziehungen-zwischen-beobachtungen"><i class="fa fa-check"></i><b>7.2</b> Beziehungen zwischen Beobachtungen</a></li>
-<li class="chapter" data-level="7.3" data-path="ZKD.html"><a href="ZKD.html#streudiagramm-scatterplot"><i class="fa fa-check"></i><b>7.3</b> Streudiagramm <strong>scatterplot</strong></a></li>
-<li class="chapter" data-level="7.4" data-path="ZKD.html"><a href="ZKD.html#scatterplot-mit-mittelwert"><i class="fa fa-check"></i><b>7.4</b> Scatterplot mit Mittelwert</a></li>
-<li class="chapter" data-level="7.5" data-path="ZKD.html"><a href="ZKD.html#kovarianz"><i class="fa fa-check"></i><b>7.5</b> Kovarianz</a></li>
-<li class="chapter" data-level="7.6" data-path="ZKD.html"><a href="ZKD.html#r-befehle-korrelation"><i class="fa fa-check"></i><b>7.6</b> R-Befehle Korrelation</a></li>
-<li class="chapter" data-level="7.7" data-path="ZKD.html"><a href="ZKD.html#korrelation"><i class="fa fa-check"></i><b>7.7</b> Korrelation</a></li>
-<li class="chapter" data-level="7.8" data-path="ZKD.html"><a href="ZKD.html#produkt-moment-korrelation-bravais-pearson-korrelation"><i class="fa fa-check"></i><b>7.8</b> Produkt Moment Korrelation (Bravais-Pearson Korrelation)</a></li>
-<li class="chapter" data-level="7.9" data-path="ZKD.html"><a href="ZKD.html#korrelation-beispiel"><i class="fa fa-check"></i><b>7.9</b> Korrelation: Beispiel</a></li>
-<li class="chapter" data-level="7.10" data-path="ZKD.html"><a href="ZKD.html#hausaufgabe-1"><i class="fa fa-check"></i><b>7.10</b> Hausaufgabe</a></li>
+<li class="chapter" data-level="7" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>7</b> Datenvisualisierungen I</a><ul>
+<li class="chapter" data-level="7.1" data-path="visual.html"><a href="visual.html#hausaufgabe-beispiellösung"><i class="fa fa-check"></i><b>7.1</b> Hausaufgabe: Beispiellösung</a></li>
+<li class="chapter" data-level="7.2" data-path="visual.html"><a href="visual.html#datenvisualisierung-generell"><i class="fa fa-check"></i><b>7.2</b> Datenvisualisierung: generell</a></li>
+<li class="chapter" data-level="7.3" data-path="visual.html"><a href="visual.html#scatterplot"><i class="fa fa-check"></i><b>7.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.4" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>7.4</b> Barplot</a></li>
+<li class="chapter" data-level="7.5" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>7.5</b> Boxplot</a></li>
+<li class="chapter" data-level="7.6" data-path="visual.html"><a href="visual.html#die-ggplot-funktion"><i class="fa fa-check"></i><b>7.6</b> Die ggplot()-Funktion</a></li>
+<li class="chapter" data-level="7.7" data-path="visual.html"><a href="visual.html#hausaufgabe-2"><i class="fa fa-check"></i><b>7.7</b> Hausaufgabe</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Datenvisualisierungen I</a><ul>
-<li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#scatterplot"><i class="fa fa-check"></i><b>8.1</b> Scatterplot</a></li>
-<li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.2</b> Barplot</a></li>
-<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.3</b> Boxplot</a></li>
-<li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#die-ggplot-funktion"><i class="fa fa-check"></i><b>8.4</b> Die ggplot()-Funktion</a></li>
-<li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#hausaufgabe-2"><i class="fa fa-check"></i><b>8.5</b> Hausaufgabe</a></li>
+<li class="chapter" data-level="8" data-path="visual2.html"><a href="visual2.html"><i class="fa fa-check"></i><b>8</b> Datenvisualisierungen II</a><ul>
+<li class="chapter" data-level="8.1" data-path="visual2.html"><a href="visual2.html#details-der-hausaufgabe"><i class="fa fa-check"></i><b>8.1</b> Details der Hausaufgabe</a></li>
+<li class="chapter" data-level="8.2" data-path="visual2.html"><a href="visual2.html#datenvisualisierungen-mit-ggplot"><i class="fa fa-check"></i><b>8.2</b> Datenvisualisierungen mit ggplot()</a></li>
+<li class="chapter" data-level="8.3" data-path="visual2.html"><a href="visual2.html#grafiken-mit-ggplot"><i class="fa fa-check"></i><b>8.3</b> Grafiken mit ggplot()</a></li>
+<li class="chapter" data-level="8.4" data-path="visual2.html"><a href="visual2.html#ggplot-übersicht-über-parameter-und-funktionen"><i class="fa fa-check"></i><b>8.4</b> ggplot() Übersicht über Parameter und Funktionen</a></li>
+<li class="chapter" data-level="8.5" data-path="visual2.html"><a href="visual2.html#geom-übersicht"><i class="fa fa-check"></i><b>8.5</b> geom-Übersicht</a></li>
+<li class="chapter" data-level="8.6" data-path="visual2.html"><a href="visual2.html#geom-spezifikationen-i"><i class="fa fa-check"></i><b>8.6</b> geom-Spezifikationen I</a></li>
+<li class="chapter" data-level="8.7" data-path="visual2.html"><a href="visual2.html#stat-spezifikationen-ii"><i class="fa fa-check"></i><b>8.7</b> stat-Spezifikationen II</a></li>
+<li class="chapter" data-level="8.8" data-path="visual2.html"><a href="visual2.html#korrelation-und-korrelationskoeffizient"><i class="fa fa-check"></i><b>8.8</b> Korrelation und Korrelationskoeffizient</a></li>
+<li class="chapter" data-level="8.9" data-path="visual2.html"><a href="visual2.html#darstellungsmöglichkeiten-barplot"><i class="fa fa-check"></i><b>8.9</b> Darstellungsmöglichkeiten: Barplot</a></li>
+<li class="chapter" data-level="8.10" data-path="visual2.html"><a href="visual2.html#explorative-datendarstellung"><i class="fa fa-check"></i><b>8.10</b> Explorative Datendarstellung</a></li>
+<li class="chapter" data-level="8.11" data-path="visual2.html"><a href="visual2.html#matplot-darstellung"><i class="fa fa-check"></i><b>8.11</b> Matplot() Darstellung</a></li>
+<li class="chapter" data-level="8.12" data-path="visual2.html"><a href="visual2.html#matplot"><i class="fa fa-check"></i><b>8.12</b> Matplot()</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="visual2.html"><a href="visual2.html"><i class="fa fa-check"></i><b>9</b> Datenvisualisierungen II</a><ul>
-<li class="chapter" data-level="9.1" data-path="visual2.html"><a href="visual2.html#details-der-hausaufgabe"><i class="fa fa-check"></i><b>9.1</b> Details der Hausaufgabe</a></li>
-<li class="chapter" data-level="9.2" data-path="visual2.html"><a href="visual2.html#datenvisualisierungen-mit-ggplot"><i class="fa fa-check"></i><b>9.2</b> Datenvisualisierungen mit ggplot()</a></li>
-<li class="chapter" data-level="9.3" data-path="visual2.html"><a href="visual2.html#grafiken-mit-ggplot"><i class="fa fa-check"></i><b>9.3</b> Grafiken mit ggplot()</a></li>
-<li class="chapter" data-level="9.4" data-path="visual2.html"><a href="visual2.html#ggplot-übersicht-über-parameter-und-funktionen"><i class="fa fa-check"></i><b>9.4</b> ggplot() Übersicht über Parameter und Funktionen</a></li>
-<li class="chapter" data-level="9.5" data-path="visual2.html"><a href="visual2.html#geom-übersicht"><i class="fa fa-check"></i><b>9.5</b> geom-Übersicht</a></li>
-<li class="chapter" data-level="9.6" data-path="visual2.html"><a href="visual2.html#geom-spezifikationen-i"><i class="fa fa-check"></i><b>9.6</b> geom-Spezifikationen I</a></li>
-<li class="chapter" data-level="9.7" data-path="visual2.html"><a href="visual2.html#stat-spezifikationen-ii"><i class="fa fa-check"></i><b>9.7</b> stat-Spezifikationen II</a></li>
-<li class="chapter" data-level="9.8" data-path="visual2.html"><a href="visual2.html#korrelation-und-korrelationskoeffizient"><i class="fa fa-check"></i><b>9.8</b> Korrelation und Korrelationskoeffizient</a></li>
-<li class="chapter" data-level="9.9" data-path="visual2.html"><a href="visual2.html#darstellungsmöglichkeiten-barplot"><i class="fa fa-check"></i><b>9.9</b> Darstellungsmöglichkeiten: Barplot</a></li>
-<li class="chapter" data-level="9.10" data-path="visual2.html"><a href="visual2.html#explorative-datendarstellung"><i class="fa fa-check"></i><b>9.10</b> Explorative Datendarstellung</a></li>
-<li class="chapter" data-level="9.11" data-path="visual2.html"><a href="visual2.html#matplot-darstellung"><i class="fa fa-check"></i><b>9.11</b> Matplot() Darstellung</a></li>
-<li class="chapter" data-level="9.12" data-path="visual2.html"><a href="visual2.html#matplot"><i class="fa fa-check"></i><b>9.12</b> Matplot()</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="visual3.html"><a href="visual3.html"><i class="fa fa-check"></i><b>10</b> Datenvisualisierungen III</a><ul>
-<li class="chapter" data-level="10.1" data-path="visual3.html"><a href="visual3.html#standardnormalverteilung"><i class="fa fa-check"></i><b>10.1</b> Standardnormalverteilung</a></li>
-<li class="chapter" data-level="10.2" data-path="visual3.html"><a href="visual3.html#normalverteilung-mit-histogram-hist-1"><i class="fa fa-check"></i><b>10.2</b> Normalverteilung mit Histogram <strong>hist()</strong></a></li>
-<li class="chapter" data-level="10.3" data-path="visual3.html"><a href="visual3.html#normalverteilung-schiefe-1"><i class="fa fa-check"></i><b>10.3</b> Normalverteilung: Schiefe</a></li>
-<li class="chapter" data-level="10.4" data-path="visual3.html"><a href="visual3.html#normalverteilung-kurtosis-1"><i class="fa fa-check"></i><b>10.4</b> Normalverteilung Kurtosis</a></li>
-<li class="chapter" data-level="10.5" data-path="visual3.html"><a href="visual3.html#normalverteilung-beispiel"><i class="fa fa-check"></i><b>10.5</b> Normalverteilung: Beispiel</a></li>
-<li class="chapter" data-level="10.6" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten"><i class="fa fa-check"></i><b>10.6</b> Plot Verteilung der Daten</a></li>
-<li class="chapter" data-level="10.7" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-mit-kurve"><i class="fa fa-check"></i><b>10.7</b> Plot Verteilung der Daten mit Kurve</a></li>
-<li class="chapter" data-level="10.8" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-von-tag-2"><i class="fa fa-check"></i><b>10.8</b> Plot Verteilung der Daten von Tag 2</a></li>
-<li class="chapter" data-level="10.9" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-von-tag-3"><i class="fa fa-check"></i><b>10.9</b> Plot Verteilung der Daten von Tag 3</a></li>
-<li class="chapter" data-level="10.10" data-path="visual3.html"><a href="visual3.html#q-q-plot"><i class="fa fa-check"></i><b>10.10</b> Q-Q plot</a></li>
-<li class="chapter" data-level="10.11" data-path="visual3.html"><a href="visual3.html#q-q-plot-1"><i class="fa fa-check"></i><b>10.11</b> Q-Q plot</a></li>
-<li class="chapter" data-level="10.12" data-path="visual3.html"><a href="visual3.html#wiederholung-describe-funktion"><i class="fa fa-check"></i><b>10.12</b> Wiederholung <strong>describe()</strong> Funktion</a></li>
-<li class="chapter" data-level="10.13" data-path="visual3.html"><a href="visual3.html#beispieldatensatz"><i class="fa fa-check"></i><b>10.13</b> Beispieldatensatz</a></li>
-<li class="chapter" data-level="10.14" data-path="visual3.html"><a href="visual3.html#verteilungen"><i class="fa fa-check"></i><b>10.14</b> Verteilungen</a></li>
-<li class="chapter" data-level="10.15" data-path="visual3.html"><a href="visual3.html#verteilungen-1"><i class="fa fa-check"></i><b>10.15</b> Verteilungen</a></li>
-<li class="chapter" data-level="10.16" data-path="visual3.html"><a href="visual3.html#verteilung-examenspunkte"><i class="fa fa-check"></i><b>10.16</b> Verteilung: Examenspunkte</a></li>
-<li class="chapter" data-level="10.17" data-path="visual3.html"><a href="visual3.html#vergleich-describe"><i class="fa fa-check"></i><b>10.17</b> Vergleich <strong>describe()</strong></a></li>
-<li class="chapter" data-level="10.18" data-path="visual3.html"><a href="visual3.html#vergleich-verschiedener-daten"><i class="fa fa-check"></i><b>10.18</b> Vergleich verschiedener Daten</a></li>
-<li class="chapter" data-level="10.19" data-path="visual3.html"><a href="visual3.html#vergleich-verschiedener-gruppen"><i class="fa fa-check"></i><b>10.19</b> Vergleich verschiedener Gruppen</a></li>
-<li class="chapter" data-level="10.20" data-path="visual3.html"><a href="visual3.html#vergleich-verschiedener-gruppen-1"><i class="fa fa-check"></i><b>10.20</b> Vergleich verschiedener Gruppen</a></li>
-<li class="chapter" data-level="10.21" data-path="visual3.html"><a href="visual3.html#vergleich"><i class="fa fa-check"></i><b>10.21</b> Vergleich</a></li>
-<li class="chapter" data-level="10.22" data-path="visual3.html"><a href="visual3.html#vergleich-zwischen-den-gruppen"><i class="fa fa-check"></i><b>10.22</b> Vergleich zwischen den Gruppen</a></li>
-<li class="chapter" data-level="10.23" data-path="visual3.html"><a href="visual3.html#funktion-rnorm"><i class="fa fa-check"></i><b>10.23</b> Funktion <strong>rnorm()</strong></a></li>
-<li class="chapter" data-level="10.24" data-path="visual3.html"><a href="visual3.html#test-für-normalverteilung-shapiro-wilk"><i class="fa fa-check"></i><b>10.24</b> Test für Normalverteilung: Shapiro-Wilk</a></li>
-<li class="chapter" data-level="10.25" data-path="visual3.html"><a href="visual3.html#kleiner-exkurs-p-werte"><i class="fa fa-check"></i><b>10.25</b> Kleiner Exkurs: p-Werte</a></li>
-<li class="chapter" data-level="10.26" data-path="visual3.html"><a href="visual3.html#shapiro-wilk-für-gruppen"><i class="fa fa-check"></i><b>10.26</b> Shapiro-Wilk für Gruppen</a></li>
-<li class="chapter" data-level="10.27" data-path="visual3.html"><a href="visual3.html#q-q-plots"><i class="fa fa-check"></i><b>10.27</b> Q-Q plots</a></li>
-<li class="chapter" data-level="10.28" data-path="visual3.html"><a href="visual3.html#shapiro-wilk-test"><i class="fa fa-check"></i><b>10.28</b> Shapiro-Wilk Test</a></li>
-<li class="chapter" data-level="10.29" data-path="visual3.html"><a href="visual3.html#testen-verschiedener-gruppen-varianz"><i class="fa fa-check"></i><b>10.29</b> Testen verschiedener Gruppen: Varianz</a></li>
-<li class="chapter" data-level="10.30" data-path="visual3.html"><a href="visual3.html#testen-verschiedener-gruppen-varianz-1"><i class="fa fa-check"></i><b>10.30</b> Testen verschiedener Gruppen: Varianz</a></li>
-<li class="chapter" data-level="10.31" data-path="visual3.html"><a href="visual3.html#testen-verschiedener-gruppen"><i class="fa fa-check"></i><b>10.31</b> Testen verschiedener Gruppen</a></li>
-<li class="chapter" data-level="10.32" data-path="visual3.html"><a href="visual3.html#extremwertbereinigung"><i class="fa fa-check"></i><b>10.32</b> Extremwertbereinigung</a></li>
-<li class="chapter" data-level="10.33" data-path="visual3.html"><a href="visual3.html#nicht-normalverteilte-daten-oder-heterogene-varianzen-zwischen-gruppen"><i class="fa fa-check"></i><b>10.33</b> Nicht-normalverteilte Daten oder heterogene Varianzen zwischen Gruppen</a></li>
-<li class="chapter" data-level="10.34" data-path="visual3.html"><a href="visual3.html#datentransformation-logarithmus-transformation"><i class="fa fa-check"></i><b>10.34</b> Datentransformation: Logarithmus Transformation</a></li>
-<li class="chapter" data-level="10.35" data-path="visual3.html"><a href="visual3.html#datentransformation-logarithmus-transformation-1"><i class="fa fa-check"></i><b>10.35</b> Datentransformation: Logarithmus Transformation</a></li>
-<li class="chapter" data-level="10.36" data-path="visual3.html"><a href="visual3.html#datentransformation-logarithmus-transformation-2"><i class="fa fa-check"></i><b>10.36</b> Datentransformation: Logarithmus Transformation</a></li>
-<li class="chapter" data-level="10.37" data-path="visual3.html"><a href="visual3.html#vergleich-1"><i class="fa fa-check"></i><b>10.37</b> Vergleich</a></li>
-<li class="chapter" data-level="10.38" data-path="visual3.html"><a href="visual3.html#datentransformation-wurzeltransformation"><i class="fa fa-check"></i><b>10.38</b> Datentransformation: Wurzeltransformation</a></li>
-<li class="chapter" data-level="10.39" data-path="visual3.html"><a href="visual3.html#datentransformation-wurzeltransformation-1"><i class="fa fa-check"></i><b>10.39</b> Datentransformation: Wurzeltransformation</a></li>
-<li class="chapter" data-level="10.40" data-path="visual3.html"><a href="visual3.html#datentransformation-wurzeltransformation-2"><i class="fa fa-check"></i><b>10.40</b> Datentransformation: Wurzeltransformation</a></li>
-<li class="chapter" data-level="10.41" data-path="visual3.html"><a href="visual3.html#hausaufgabe-3"><i class="fa fa-check"></i><b>10.41</b> Hausaufgabe</a></li>
+<li class="chapter" data-level="9" data-path="visual3.html"><a href="visual3.html"><i class="fa fa-check"></i><b>9</b> Datenvisualisierungen III</a><ul>
+<li class="chapter" data-level="9.1" data-path="visual3.html"><a href="visual3.html#standardnormalverteilung"><i class="fa fa-check"></i><b>9.1</b> Standardnormalverteilung</a></li>
+<li class="chapter" data-level="9.2" data-path="visual3.html"><a href="visual3.html#normalverteilung-mit-histogram-hist-1"><i class="fa fa-check"></i><b>9.2</b> Normalverteilung mit Histogram <strong>hist()</strong></a></li>
+<li class="chapter" data-level="9.3" data-path="visual3.html"><a href="visual3.html#normalverteilung-schiefe-1"><i class="fa fa-check"></i><b>9.3</b> Normalverteilung: Schiefe</a></li>
+<li class="chapter" data-level="9.4" data-path="visual3.html"><a href="visual3.html#normalverteilung-kurtosis-1"><i class="fa fa-check"></i><b>9.4</b> Normalverteilung Kurtosis</a></li>
+<li class="chapter" data-level="9.5" data-path="visual3.html"><a href="visual3.html#normalverteilung-beispiel"><i class="fa fa-check"></i><b>9.5</b> Normalverteilung: Beispiel</a></li>
+<li class="chapter" data-level="9.6" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten"><i class="fa fa-check"></i><b>9.6</b> Plot Verteilung der Daten</a></li>
+<li class="chapter" data-level="9.7" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-mit-kurve"><i class="fa fa-check"></i><b>9.7</b> Plot Verteilung der Daten mit Kurve</a></li>
+<li class="chapter" data-level="9.8" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-von-tag-2"><i class="fa fa-check"></i><b>9.8</b> Plot Verteilung der Daten von Tag 2</a></li>
+<li class="chapter" data-level="9.9" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-von-tag-3"><i class="fa fa-check"></i><b>9.9</b> Plot Verteilung der Daten von Tag 3</a></li>
+<li class="chapter" data-level="9.10" data-path="visual3.html"><a href="visual3.html#q-q-plot"><i class="fa fa-check"></i><b>9.10</b> Q-Q plot</a></li>
+<li class="chapter" data-level="9.11" data-path="visual3.html"><a href="visual3.html#q-q-plot-1"><i class="fa fa-check"></i><b>9.11</b> Q-Q plot</a></li>
+<li class="chapter" data-level="9.12" data-path="visual3.html"><a href="visual3.html#wiederholung-describe-funktion"><i class="fa fa-check"></i><b>9.12</b> Wiederholung <strong>describe()</strong> Funktion</a></li>
+<li class="chapter" data-level="9.13" data-path="visual3.html"><a href="visual3.html#beispieldatensatz"><i class="fa fa-check"></i><b>9.13</b> Beispieldatensatz</a></li>
+<li class="chapter" data-level="9.14" data-path="visual3.html"><a href="visual3.html#verteilungen"><i class="fa fa-check"></i><b>9.14</b> Verteilungen</a></li>
+<li class="chapter" data-level="9.15" data-path="visual3.html"><a href="visual3.html#verteilungen-1"><i class="fa fa-check"></i><b>9.15</b> Verteilungen</a></li>
+<li class="chapter" data-level="9.16" data-path="visual3.html"><a href="visual3.html#verteilung-examenspunkte"><i class="fa fa-check"></i><b>9.16</b> Verteilung: Examenspunkte</a></li>
+<li class="chapter" data-level="9.17" data-path="visual3.html"><a href="visual3.html#vergleich-describe"><i class="fa fa-check"></i><b>9.17</b> Vergleich <strong>describe()</strong></a></li>
+<li class="chapter" data-level="9.18" data-path="visual3.html"><a href="visual3.html#vergleich-verschiedener-daten"><i class="fa fa-check"></i><b>9.18</b> Vergleich verschiedener Daten</a></li>
+<li class="chapter" data-level="9.19" data-path="visual3.html"><a href="visual3.html#vergleich-verschiedener-gruppen"><i class="fa fa-check"></i><b>9.19</b> Vergleich verschiedener Gruppen</a></li>
+<li class="chapter" data-level="9.20" data-path="visual3.html"><a href="visual3.html#vergleich-verschiedener-gruppen-1"><i class="fa fa-check"></i><b>9.20</b> Vergleich verschiedener Gruppen</a></li>
+<li class="chapter" data-level="9.21" data-path="visual3.html"><a href="visual3.html#vergleich"><i class="fa fa-check"></i><b>9.21</b> Vergleich</a></li>
+<li class="chapter" data-level="9.22" data-path="visual3.html"><a href="visual3.html#vergleich-zwischen-den-gruppen"><i class="fa fa-check"></i><b>9.22</b> Vergleich zwischen den Gruppen</a></li>
+<li class="chapter" data-level="9.23" data-path="visual3.html"><a href="visual3.html#funktion-rnorm"><i class="fa fa-check"></i><b>9.23</b> Funktion <strong>rnorm()</strong></a></li>
+<li class="chapter" data-level="9.24" data-path="visual3.html"><a href="visual3.html#test-für-normalverteilung-shapiro-wilk"><i class="fa fa-check"></i><b>9.24</b> Test für Normalverteilung: Shapiro-Wilk</a></li>
+<li class="chapter" data-level="9.25" data-path="visual3.html"><a href="visual3.html#kleiner-exkurs-p-werte"><i class="fa fa-check"></i><b>9.25</b> Kleiner Exkurs: p-Werte</a></li>
+<li class="chapter" data-level="9.26" data-path="visual3.html"><a href="visual3.html#shapiro-wilk-für-gruppen"><i class="fa fa-check"></i><b>9.26</b> Shapiro-Wilk für Gruppen</a></li>
+<li class="chapter" data-level="9.27" data-path="visual3.html"><a href="visual3.html#q-q-plots"><i class="fa fa-check"></i><b>9.27</b> Q-Q plots</a></li>
+<li class="chapter" data-level="9.28" data-path="visual3.html"><a href="visual3.html#shapiro-wilk-test"><i class="fa fa-check"></i><b>9.28</b> Shapiro-Wilk Test</a></li>
+<li class="chapter" data-level="9.29" data-path="visual3.html"><a href="visual3.html#testen-verschiedener-gruppen-varianz"><i class="fa fa-check"></i><b>9.29</b> Testen verschiedener Gruppen: Varianz</a></li>
+<li class="chapter" data-level="9.30" data-path="visual3.html"><a href="visual3.html#testen-verschiedener-gruppen-varianz-1"><i class="fa fa-check"></i><b>9.30</b> Testen verschiedener Gruppen: Varianz</a></li>
+<li class="chapter" data-level="9.31" data-path="visual3.html"><a href="visual3.html#testen-verschiedener-gruppen"><i class="fa fa-check"></i><b>9.31</b> Testen verschiedener Gruppen</a></li>
+<li class="chapter" data-level="9.32" data-path="visual3.html"><a href="visual3.html#extremwertbereinigung"><i class="fa fa-check"></i><b>9.32</b> Extremwertbereinigung</a></li>
+<li class="chapter" data-level="9.33" data-path="visual3.html"><a href="visual3.html#nicht-normalverteilte-daten-oder-heterogene-varianzen-zwischen-gruppen"><i class="fa fa-check"></i><b>9.33</b> Nicht-normalverteilte Daten oder heterogene Varianzen zwischen Gruppen</a></li>
+<li class="chapter" data-level="9.34" data-path="visual3.html"><a href="visual3.html#datentransformation-logarithmus-transformation"><i class="fa fa-check"></i><b>9.34</b> Datentransformation: Logarithmus Transformation</a></li>
+<li class="chapter" data-level="9.35" data-path="visual3.html"><a href="visual3.html#datentransformation-logarithmus-transformation-1"><i class="fa fa-check"></i><b>9.35</b> Datentransformation: Logarithmus Transformation</a></li>
+<li class="chapter" data-level="9.36" data-path="visual3.html"><a href="visual3.html#datentransformation-logarithmus-transformation-2"><i class="fa fa-check"></i><b>9.36</b> Datentransformation: Logarithmus Transformation</a></li>
+<li class="chapter" data-level="9.37" data-path="visual3.html"><a href="visual3.html#vergleich-1"><i class="fa fa-check"></i><b>9.37</b> Vergleich</a></li>
+<li class="chapter" data-level="9.38" data-path="visual3.html"><a href="visual3.html#datentransformation-wurzeltransformation"><i class="fa fa-check"></i><b>9.38</b> Datentransformation: Wurzeltransformation</a></li>
+<li class="chapter" data-level="9.39" data-path="visual3.html"><a href="visual3.html#datentransformation-wurzeltransformation-1"><i class="fa fa-check"></i><b>9.39</b> Datentransformation: Wurzeltransformation</a></li>
+<li class="chapter" data-level="9.40" data-path="visual3.html"><a href="visual3.html#datentransformation-wurzeltransformation-2"><i class="fa fa-check"></i><b>9.40</b> Datentransformation: Wurzeltransformation</a></li>
+<li class="chapter" data-level="9.41" data-path="visual3.html"><a href="visual3.html#hausaufgabe-3"><i class="fa fa-check"></i><b>9.41</b> Hausaufgabe</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -295,9 +295,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="distribution" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Haufigkeitsverteilungen</h1>
+<h1><span class="header-section-number">Chapter 3</span> Haufigkeitsverteilungen</h1>
 <div id="wiederholung-r" class="section level2">
-<h2><span class="header-section-number">4.1</span> Wiederholung R</h2>
+<h2><span class="header-section-number">3.1</span> Wiederholung R</h2>
 <p>Bitte wiederholt noch einmal die folgenden Befehle für Euch selbst. Dies sind Befehle, die Euch den regelmäßigen Umgang mit R erleichtern können.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># einige nützliche Befehle, die man wiederholt bei </span>
 <span class="co"># der Datenbearbeitung einsetzen kann</span>
@@ -312,7 +312,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">subset</span>(list,item <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>)</code></pre></div>
 </div>
 <div id="skalenniveaus" class="section level2">
-<h2><span class="header-section-number">4.2</span> Skalenniveaus</h2>
+<h2><span class="header-section-number">3.2</span> Skalenniveaus</h2>
 <p>Die verschiedenen Ausprägungen von Eigenschaften eines Objektes sind messbar, zB.:</p>
 <ul>
 <li>die Länge eines Brettes ist messbar in cm oder m</li>
@@ -335,7 +335,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math inline">\(\rightarrow\)</span> Akzeptabilität von Sätzen der Bedingung (1) und der Bedingung (2) auf einer Skala gemessen <br> <span class="math inline">\(\rightarrow\)</span> wenn (2) akzeptabler: erhobener numerischer Akzeptabilitätswert von (2) höher als von (1)</p>
 </div>
 <div id="formate-verschiedener-variablen" class="section level2">
-<h2><span class="header-section-number">4.3</span> Formate verschiedener Variablen</h2>
+<h2><span class="header-section-number">3.3</span> Formate verschiedener Variablen</h2>
 <ul>
 <li><span class="math inline">\(\rightarrow\)</span> Wie können wir unsere Beobachtungen in eine numerische Skala übertragen und welche Eigenschaften hat diese Skala?</li>
 <li>Messen als Zuordnung von Zahlen zu Objekten gemäß einer bestimmten Regel</li>
@@ -381,7 +381,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <!-- - männlich $\leftrightarrow$ weiblich, lebend $\leftrightarrow$ tot, schwanger $\leftrightarrow$ nicht schwanger -->
 </div>
 <div id="skalenniveaus-1" class="section level2">
-<h2><span class="header-section-number">4.4</span> Skalenniveaus</h2>
+<h2><span class="header-section-number">3.4</span> Skalenniveaus</h2>
 <p><strong>Nominalskala</strong> <br> Kategorien: enthalten Namen und Zahlen, ungeordnete Bezeichnung von Eigenschaften, keine arithmetischen Operationen möglich: z.B. Trikotnummern</p>
 <ul>
 <li>numerische Skalenwerte von Kategorien Etikettenstatus, um zwei oder mehr Kategorien zu unterscheiden</li>
@@ -426,7 +426,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>Intervallvariable</strong> <br> gleiche Intervalle repräsentieren gleiche Messunterschiede <br> <strong>Ratio Intervalle</strong> <br> dieselben Bedingungen wie bei Intervallvariablen und Ratios sollten Bedeutungsunterschiede ausdrücken <br> <strong>diskrete Variablen</strong> <br> während kontinuierliche Variablen alle Werte annehmen können, diskrete Variablen können nur bestimmte Werte auf einer Skala annehmen</p>
 </div>
 <div id="häufigkeitsverteilungen" class="section level2">
-<h2><span class="header-section-number">4.5</span> Häufigkeitsverteilungen</h2>
+<h2><span class="header-section-number">3.5</span> Häufigkeitsverteilungen</h2>
 <p>Übersichtliche Darstellung von Stichprobendaten, bei welcher für jeden Beobachtungswert angegeben wird, wie häufig der Wert in der Stichprobe vorkommt.</p>
 <p>Gegeben ein diskretes Merkmal mit <span class="math inline">\(m\)</span> verschiedenen Ausprägungen <span class="math inline">\(a_1,a_2,a_3,\dots,a_m\)</span></p>
 <p>Es wird gezählt wie häufig dieselbe Merkmalsausprägung <span class="math inline">\(a_j\)</span> in der Stichprobe vorkommt.</p>
@@ -457,7 +457,7 @@ absolute Häufigkeit
 </ul>
 </div>
 <div id="häufigkeitsverteilungen-darstellungen" class="section level2">
-<h2><span class="header-section-number">4.6</span> Häufigkeitsverteilungen: Darstellungen</h2>
+<h2><span class="header-section-number">3.6</span> Häufigkeitsverteilungen: Darstellungen</h2>
 <p>1798 Kundenbewertungen insgesamt für “Halloween”</p>
 <table>
 <tr>
@@ -609,7 +609,7 @@ Kum. <span class="math inline">\(\%\)</span>
 <p>Wird ein stetiges Merkmal erhoben, sind die Beobachtungswerte der Stichprobe in der Regel alle voneinander verschieden. In diesem Fall ist eine Häufigkeitsverteilung unübersichtlich. <br> <span class="math inline">\(\rightarrow\)</span> Daher werden die individuellen Messwerte in aneinandergrenzende Kategorien bzw. Klassen zusammengefasst.</p>
 </div>
 <div id="klasseneinteilung" class="section level2">
-<h2><span class="header-section-number">4.7</span> Klasseneinteilung</h2>
+<h2><span class="header-section-number">3.7</span> Klasseneinteilung</h2>
 <ul>
 <li>Alle Klassen sollten im Normalfall die gleiche Breite aufweisen, da die Interpretation dadurch vereinfacht wird.</li>
 <li>Die maximale Anzahl der Kategorien sollte aus Gründen der Übersichtlichkeit 20 nicht überschreiten</li>
@@ -843,7 +843,7 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 </table>
 </div>
 <div id="histogramme" class="section level2">
-<h2><span class="header-section-number">4.8</span> Histogramme</h2>
+<h2><span class="header-section-number">3.8</span> Histogramme</h2>
 <p>Histogramme: graphische Darstellung der Häufigkeitsverteilung stetiger Merkmale.</p>
 <ol style="list-style-type: decimal">
 <li>Einteilung der Daten in Klassen (<em>bins</em>)</li>
@@ -885,7 +885,7 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 <span class="kw">cumsum</span>(x)</code></pre></div>
 </div>
 <div id="psycholinguistisches-experiment" class="section level2">
-<h2><span class="header-section-number">4.9</span> Psycholinguistisches Experiment</h2>
+<h2><span class="header-section-number">3.9</span> Psycholinguistisches Experiment</h2>
 <p>Hier machen wir einen kleinen Exkurs in das psycholinguistische Experimentieren.</p>
 <p><strong>Was brauchen wir für ein Experiment?</strong></p>
 <ul>
@@ -898,7 +898,7 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 </ul>
 </div>
 <div id="hypothese" class="section level2">
-<h2><span class="header-section-number">4.10</span> Hypothese</h2>
+<h2><span class="header-section-number">3.10</span> Hypothese</h2>
 <p><strong>Experimentelle Hypothese:</strong> Eine klare Vorhersage über eine Beobachtung (abhängige Variable) in einem kontrollierten Experiment (unabhängige Variable)</p>
 <ul>
 <li>Variablen die als Ursache einer Veränderung angesehen werden: unabhängige Variablen, predictor variable</li>
@@ -909,7 +909,7 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 </ul>
 </div>
 <div id="psycholinguistisches-experimnet" class="section level2">
-<h2><span class="header-section-number">4.11</span> Psycholinguistisches Experimnet</h2>
+<h2><span class="header-section-number">3.11</span> Psycholinguistisches Experimnet</h2>
 <p><strong>Validität</strong> Um herauszufinden, ob ein Instrument genau das misst, wofür es konzipiert wurde</p>
 <ul>
 <li>notwendige aber nicht hinreichende Bedingung</li>
@@ -920,24 +920,24 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 </ul>
 </div>
 <div id="hypothesenbeispiele" class="section level2">
-<h2><span class="header-section-number">4.12</span> Hypothesenbeispiele?</h2>
+<h2><span class="header-section-number">3.12</span> Hypothesenbeispiele?</h2>
 <ul>
 <li>Haben Sie sich schon einmal eine experimentelle Hypothese erarbeitet?</li>
 <li>Wenn Sie jetzt zurückschauen, entspricht diesen Hypothese den oben beschriebenen Anforderungen?</li>
 </ul>
 </div>
 <div id="experimentelle-und-nicht-experimentelle-forschung" class="section level2">
-<h2><span class="header-section-number">4.13</span> Experimentelle und nicht-experimentelle Forschung</h2>
+<h2><span class="header-section-number">3.13</span> Experimentelle und nicht-experimentelle Forschung</h2>
 <p><strong>Nicht-experimentelle Forschung:</strong> Forscher beobachtet Merkmale natürlich vorhandener Gruppen und untersucht, ob es Zusammenhänge zwischen den Merkmalen gibt</p>
 <p><strong>Experimentelle Forschung:</strong> Forscher verändert aktiv mindestens eine Variable und beobachtet, welchen Effekt diese sog. Manipulation auf ein oder mehrere Merkmale hat</p>
 </div>
 <div id="variablen" class="section level2">
-<h2><span class="header-section-number">4.14</span> Variablen</h2>
+<h2><span class="header-section-number">3.14</span> Variablen</h2>
 <p>In empirischen Untersuchungen werden experimentelle Bedingungen und erhobene Merkmale häufig als Variablen bezeichnet.</p>
 <p><strong>Unabhängige Variablen (UV):</strong> (oft auch Prädiktorvariablen) Variablen, durch deren Einfluss Veränderungen in der abhängigen Variablen erklärt werden sollen (z.B. Dosierung eines Schlafmittels als UV und Schlafdauer als AV). <br> <strong>Abhängige Variablen (AV):</strong> Die Variablen für welche vorhergesagt wird, dass sie von der/den unabhängigen Variablen beeinflusst werden. <br> <strong>Moderatorvariablen:</strong> Variablen, die den Einfluss einer unabhängigen auf die abhängige Variable verändert (z.B. Alter der Versuchsteilnehmer). <br> <strong>Störvariablen:</strong> weitere Variablen, die ebenfalls einen Einfluss auf die abhängige Variable haben und in der Untersuchung nicht erfasst wurden. <br> Ziel ist es den Einfluss von Störvariablen so gering wie möglich zu halten.</p>
 </div>
 <div id="kontrolle-von-störvariablen" class="section level2">
-<h2><span class="header-section-number">4.15</span> Kontrolle von Störvariablen</h2>
+<h2><span class="header-section-number">3.15</span> Kontrolle von Störvariablen</h2>
 <p>Welche Möglichkeiten gibt es, den Einfluß von Störvariablen zu kontrollieren.</p>
 <p><strong>Konstanthalten:</strong> Versuchen die Störvariable bei allen Versuchsteilnehmern und allen Items konstant zu halten</p>
 <p><strong>Randomisierung:</strong> man kombiniert Stufen der Störvariablen zufällig mit den Stufen der unabhängigen Variablen durch:</p>
@@ -953,7 +953,7 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 </ul>
 </div>
 <div id="versuchsdesigns" class="section level2">
-<h2><span class="header-section-number">4.16</span> Versuchsdesigns</h2>
+<h2><span class="header-section-number">3.16</span> Versuchsdesigns</h2>
 <p><strong>einfaktorielle Designs:</strong> der Einfluss eines einzigen Faktors auf eine (oder mehrere) Variable(n) wird untersucht</p>
 <ul>
 <li>Beispiel: Vergleich von Diät 1 und Diät 2</li>
@@ -975,12 +975,12 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 <p><strong>Nachteile</strong> von Versuchsplänen mit Messwiederholung: <br> - <strong>Carry-over Effekte</strong>: frühere experimentelle Bedingung beeinflusst später erscheinende <span class="math inline">\(\rightarrow\)</span> können bspw. durch Filleritems oder einen Zeitpuffer zwischen den Bedingungen abgemildert werden.</p>
 </div>
 <div id="latin-square-design" class="section level2">
-<h2><span class="header-section-number">4.17</span> Latin Square Design</h2>
+<h2><span class="header-section-number">3.17</span> Latin Square Design</h2>
 <p><strong>Latin square Design</strong> jeder Teilnehmer sieht jeden Satz in nur einer Bedingung <span class="math inline">\(\rightarrow\)</span> (die Bedingungen sind aber über die Versuchsteilnehmer gleich verteilt.)</p>
 <p>Dieses wird umgangssprachlich auch als <strong>ausgeglichenes Design</strong> bezeichnet: - jede Versuchsperson sieht die gleiche Anzahl experimenteller (kritischer) Sätze - jede Versuchsperson sieht die gleiche Anzahl der experimentellen Sätze in Bedingung 1 und Bedingung 2 - keine Versuchsperson sieht einen kritischen Satz mehrmals in beiden Bedingungen</p>
 </div>
 <div id="latin-square-design-beispiel-2-times-2-design" class="section level2">
-<h2><span class="header-section-number">4.18</span> Latin Square Design: Beispiel 2 <span class="math inline">\(\times\)</span> 2 Design</h2>
+<h2><span class="header-section-number">3.18</span> Latin Square Design: Beispiel 2 <span class="math inline">\(\times\)</span> 2 Design</h2>
 <table>
 <thead>
 <tr class="header">
@@ -1081,7 +1081,7 @@ Klassenbreite~K = \frac{Spannweite}{Anzahl~der~Klassen} = \frac{grösster~Wert -
 <!-- \end{description} -->
 </div>
 <div id="aufgabe-1" class="section level2">
-<h2><span class="header-section-number">4.19</span> Aufgabe</h2>
+<h2><span class="header-section-number">3.19</span> Aufgabe</h2>
 <p>Schreiben Sie bitte Ihren Lösungsweg zu den folgenden Fragen in ein R-Skript und laden dieses dann bei Studip unter Session3 hoch.</p>
 <ol style="list-style-type: decimal">
 <li><p>Rufen Sie sich die Hilfe zur Funktion <strong>hist()</strong> auf!</p></li>
