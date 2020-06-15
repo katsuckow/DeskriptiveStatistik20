@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Datenvisualisierungen III | Deskriptive Statistik mit R</title>
+  <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Datenvisualisierungen III | Deskriptive Statistik mit R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
+  <meta name="github-repo" content="katsuckow/DeskriptiveStatistik20" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Datenvisualisierungen III | Deskriptive Statistik mit R" />
+  
+  <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
+  
+
+<meta name="author" content="Katja Suckow   katja.suckow@gmail.com   katja.suckow@phil.uni-goettingen.de" />
+
+
+<meta name="date" content="2020-06-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visual2.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Deskriptive Statistik mit R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Willkommen und Einleitung</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#was-braucht-man-für-diesen-kurs"><i class="fa fa-check"></i><b>1.1</b> Was braucht man für diesen Kurs?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#anforderungen-und-zeitplan-für-das-semester"><i class="fa fa-check"></i><b>1.2</b> Anforderungen und Zeitplan für das Semester</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#tutorium"><i class="fa fa-check"></i><b>1.3</b> Tutorium</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#psycholinguistische-experimente"><i class="fa fa-check"></i><b>1.4</b> Psycholinguistische Experimente</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#einleitung-datentypen-in-der-linguistik"><i class="fa fa-check"></i><b>1.5</b> Einleitung: Datentypen in der Linguistik</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#population-und-stichprobe"><i class="fa fa-check"></i><b>1.6</b> Population und Stichprobe</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#deskriptive-statistik-und-inferenzstatistik"><i class="fa fa-check"></i><b>1.7</b> Deskriptive Statistik und Inferenzstatistik</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#kurze-einführung-in-r"><i class="fa fa-check"></i><b>1.8</b> Kurze Einführung in R</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="index.html"><a href="index.html#drei-hauptfenster"><i class="fa fa-check"></i><b>1.8.1</b> drei Hauptfenster:</a></li>
+<li class="chapter" data-level="1.8.2" data-path="index.html"><a href="index.html#editoren"><i class="fa fa-check"></i><b>1.8.2</b> Editoren:</a></li>
+<li class="chapter" data-level="1.8.3" data-path="index.html"><a href="index.html#skript"><i class="fa fa-check"></i><b>1.8.3</b> Skript</a></li>
+<li class="chapter" data-level="1.8.4" data-path="index.html"><a href="index.html#workspace"><i class="fa fa-check"></i><b>1.8.4</b> Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#r-als-taschenrechner-beispiele"><i class="fa fa-check"></i><b>1.9</b> R als Taschenrechner: Beispiele</a></li>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#einige-vordefinierte-beispielfunktionen"><i class="fa fa-check"></i><b>1.10</b> Einige vordefinierte Beispielfunktionen</a></li>
+<li class="chapter" data-level="1.11" data-path="index.html"><a href="index.html#hilfefunktionen"><i class="fa fa-check"></i><b>1.11</b> Hilfefunktionen</a></li>
+<li class="chapter" data-level="1.12" data-path="index.html"><a href="index.html#pakete-laden"><i class="fa fa-check"></i><b>1.12</b> Pakete Laden</a></li>
+<li class="chapter" data-level="1.13" data-path="index.html"><a href="index.html#vergleichsoperatoren"><i class="fa fa-check"></i><b>1.13</b> Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="1.14" data-path="index.html"><a href="index.html#logische-vergleichsoperatoren"><i class="fa fa-check"></i><b>1.14</b> Logische Vergleichsoperatoren</a></li>
+<li class="chapter" data-level="1.15" data-path="index.html"><a href="index.html#variablen-in-r"><i class="fa fa-check"></i><b>1.15</b> Variablen in R</a></li>
+<li class="chapter" data-level="1.16" data-path="index.html"><a href="index.html#bis-nächste-woche"><i class="fa fa-check"></i><b>1.16</b> Bis nächste Woche</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="description.html"><a href="description.html"><i class="fa fa-check"></i><b>2</b> Datenbeschreibungen in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="description.html"><a href="description.html#kurze-wiederholung"><i class="fa fa-check"></i><b>2.1</b> Kurze Wiederholung</a></li>
+<li class="chapter" data-level="2.2" data-path="description.html"><a href="description.html#r-vektoren"><i class="fa fa-check"></i><b>2.2</b> R-Vektoren</a></li>
+<li class="chapter" data-level="2.3" data-path="description.html"><a href="description.html#r-datentypen"><i class="fa fa-check"></i><b>2.3</b> R-Datentypen</a></li>
+<li class="chapter" data-level="2.4" data-path="description.html"><a href="description.html#r-data-frames"><i class="fa fa-check"></i><b>2.4</b> R-Data frames</a></li>
+<li class="chapter" data-level="2.5" data-path="description.html"><a href="description.html#r-matritzen"><i class="fa fa-check"></i><b>2.5</b> R-Matritzen</a></li>
+<li class="chapter" data-level="2.6" data-path="description.html"><a href="description.html#r---nützliche-funktionen"><i class="fa fa-check"></i><b>2.6</b> R - nützliche Funktionen</a></li>
+<li class="chapter" data-level="2.7" data-path="description.html"><a href="description.html#aufgabe"><i class="fa fa-check"></i><b>2.7</b> Aufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribution.html"><a href="distribution.html"><i class="fa fa-check"></i><b>3</b> Haufigkeitsverteilungen</a><ul>
+<li class="chapter" data-level="3.1" data-path="distribution.html"><a href="distribution.html#wiederholung-r"><i class="fa fa-check"></i><b>3.1</b> Wiederholung R</a></li>
+<li class="chapter" data-level="3.2" data-path="distribution.html"><a href="distribution.html#skalenniveaus"><i class="fa fa-check"></i><b>3.2</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="3.3" data-path="distribution.html"><a href="distribution.html#formate-verschiedener-variablen"><i class="fa fa-check"></i><b>3.3</b> Formate verschiedener Variablen</a></li>
+<li class="chapter" data-level="3.4" data-path="distribution.html"><a href="distribution.html#skalenniveaus-1"><i class="fa fa-check"></i><b>3.4</b> Skalenniveaus</a></li>
+<li class="chapter" data-level="3.5" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen"><i class="fa fa-check"></i><b>3.5</b> Häufigkeitsverteilungen</a></li>
+<li class="chapter" data-level="3.6" data-path="distribution.html"><a href="distribution.html#häufigkeitsverteilungen-darstellungen"><i class="fa fa-check"></i><b>3.6</b> Häufigkeitsverteilungen: Darstellungen</a></li>
+<li class="chapter" data-level="3.7" data-path="distribution.html"><a href="distribution.html#klasseneinteilung"><i class="fa fa-check"></i><b>3.7</b> Klasseneinteilung</a></li>
+<li class="chapter" data-level="3.8" data-path="distribution.html"><a href="distribution.html#histogramme"><i class="fa fa-check"></i><b>3.8</b> Histogramme</a></li>
+<li class="chapter" data-level="3.9" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experiment"><i class="fa fa-check"></i><b>3.9</b> Psycholinguistisches Experiment</a></li>
+<li class="chapter" data-level="3.10" data-path="distribution.html"><a href="distribution.html#hypothese"><i class="fa fa-check"></i><b>3.10</b> Hypothese</a></li>
+<li class="chapter" data-level="3.11" data-path="distribution.html"><a href="distribution.html#psycholinguistisches-experimnet"><i class="fa fa-check"></i><b>3.11</b> Psycholinguistisches Experimnet</a></li>
+<li class="chapter" data-level="3.12" data-path="distribution.html"><a href="distribution.html#hypothesenbeispiele"><i class="fa fa-check"></i><b>3.12</b> Hypothesenbeispiele?</a></li>
+<li class="chapter" data-level="3.13" data-path="distribution.html"><a href="distribution.html#experimentelle-und-nicht-experimentelle-forschung"><i class="fa fa-check"></i><b>3.13</b> Experimentelle und nicht-experimentelle Forschung</a></li>
+<li class="chapter" data-level="3.14" data-path="distribution.html"><a href="distribution.html#variablen"><i class="fa fa-check"></i><b>3.14</b> Variablen</a></li>
+<li class="chapter" data-level="3.15" data-path="distribution.html"><a href="distribution.html#kontrolle-von-störvariablen"><i class="fa fa-check"></i><b>3.15</b> Kontrolle von Störvariablen</a></li>
+<li class="chapter" data-level="3.16" data-path="distribution.html"><a href="distribution.html#versuchsdesigns"><i class="fa fa-check"></i><b>3.16</b> Versuchsdesigns</a></li>
+<li class="chapter" data-level="3.17" data-path="distribution.html"><a href="distribution.html#latin-square-design"><i class="fa fa-check"></i><b>3.17</b> Latin Square Design</a></li>
+<li class="chapter" data-level="3.18" data-path="distribution.html"><a href="distribution.html#latin-square-design-beispiel-2-times-2-design"><i class="fa fa-check"></i><b>3.18</b> Latin Square Design: Beispiel 2 <span class="math inline">\(\times\)</span> 2 Design</a></li>
+<li class="chapter" data-level="3.19" data-path="distribution.html"><a href="distribution.html#aufgabe-1"><i class="fa fa-check"></i><b>3.19</b> Aufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="central.html"><a href="central.html"><i class="fa fa-check"></i><b>4</b> Maße der zentralen Tendenz</a><ul>
+<li class="chapter" data-level="4.1" data-path="central.html"><a href="central.html#maße-der-zentralen-tendenz"><i class="fa fa-check"></i><b>4.1</b> Maße der zentralen Tendenz</a></li>
+<li class="chapter" data-level="4.2" data-path="central.html"><a href="central.html#modus"><i class="fa fa-check"></i><b>4.2</b> Modus</a></li>
+<li class="chapter" data-level="4.3" data-path="central.html"><a href="central.html#median"><i class="fa fa-check"></i><b>4.3</b> Median</a></li>
+<li class="chapter" data-level="4.4" data-path="central.html"><a href="central.html#median-bei-n-gerade-zahl"><i class="fa fa-check"></i><b>4.4</b> Median (bei n = gerade Zahl)</a></li>
+<li class="chapter" data-level="4.5" data-path="central.html"><a href="central.html#median-1"><i class="fa fa-check"></i><b>4.5</b> Median</a></li>
+<li class="chapter" data-level="4.6" data-path="central.html"><a href="central.html#r-befehle"><i class="fa fa-check"></i><b>4.6</b> R-Befehle</a></li>
+<li class="chapter" data-level="4.7" data-path="central.html"><a href="central.html#quantile"><i class="fa fa-check"></i><b>4.7</b> Quantile</a></li>
+<li class="chapter" data-level="4.8" data-path="central.html"><a href="central.html#mittelwert"><i class="fa fa-check"></i><b>4.8</b> Mittelwert</a></li>
+<li class="chapter" data-level="4.9" data-path="central.html"><a href="central.html#beispiel"><i class="fa fa-check"></i><b>4.9</b> Beispiel</a></li>
+<li class="chapter" data-level="4.10" data-path="central.html"><a href="central.html#r-befehle-1"><i class="fa fa-check"></i><b>4.10</b> R Befehle</a></li>
+<li class="chapter" data-level="4.11" data-path="central.html"><a href="central.html#normalverteilung"><i class="fa fa-check"></i><b>4.11</b> Normalverteilung</a></li>
+<li class="chapter" data-level="4.12" data-path="central.html"><a href="central.html#normalverteilung-mit-histogram-hist"><i class="fa fa-check"></i><b>4.12</b> Normalverteilung mit Histogram <strong>hist()</strong></a></li>
+<li class="chapter" data-level="4.13" data-path="central.html"><a href="central.html#normalverteilung-schiefe"><i class="fa fa-check"></i><b>4.13</b> Normalverteilung: Schiefe</a></li>
+<li class="chapter" data-level="4.14" data-path="central.html"><a href="central.html#normalverteilung-kurtosis"><i class="fa fa-check"></i><b>4.14</b> Normalverteilung: Kurtosis</a></li>
+<li class="chapter" data-level="4.15" data-path="central.html"><a href="central.html#hausaufgabe"><i class="fa fa-check"></i><b>4.15</b> Hausaufgabe</a></li>
+<li class="chapter" data-level="4.16" data-path="central.html"><a href="central.html#übung"><i class="fa fa-check"></i><b>4.16</b> Übung</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="variance.html"><a href="variance.html"><i class="fa fa-check"></i><b>5</b> Kovarianz und Korrelation</a><ul>
+<li class="chapter" data-level="5.1" data-path="variance.html"><a href="variance.html#kurze-wiederholung-1"><i class="fa fa-check"></i><b>5.1</b> Kurze Wiederholung</a></li>
+<li class="chapter" data-level="5.2" data-path="variance.html"><a href="variance.html#streuungsmaße"><i class="fa fa-check"></i><b>5.2</b> Streuungsmaße</a></li>
+<li class="chapter" data-level="5.3" data-path="variance.html"><a href="variance.html#spannweite-range"><i class="fa fa-check"></i><b>5.3</b> Spannweite (“range”)</a></li>
+<li class="chapter" data-level="5.4" data-path="variance.html"><a href="variance.html#quartilsabstände"><i class="fa fa-check"></i><b>5.4</b> Quartilsabstände</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="variance.html"><a href="variance.html#quartilsabstände-beispiel"><i class="fa fa-check"></i><b>5.4.1</b> Quartilsabstände: Beispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="variance.html"><a href="variance.html#quantilsabstand"><i class="fa fa-check"></i><b>5.5</b> Quantilsabstand</a></li>
+<li class="chapter" data-level="5.6" data-path="variance.html"><a href="variance.html#beispiel-1"><i class="fa fa-check"></i><b>5.6</b> Beispiel</a></li>
+<li class="chapter" data-level="5.7" data-path="variance.html"><a href="variance.html#abweichungen-vom-mittelwert"><i class="fa fa-check"></i><b>5.7</b> Abweichungen vom Mittelwert</a></li>
+<li class="chapter" data-level="5.8" data-path="variance.html"><a href="variance.html#quadratsumme-sum-of-squares"><i class="fa fa-check"></i><b>5.8</b> Quadratsumme: <em>sum of squares</em></a></li>
+<li class="chapter" data-level="5.9" data-path="variance.html"><a href="variance.html#durchschnitt-der-quadratischen-abweichungen"><i class="fa fa-check"></i><b>5.9</b> Durchschnitt der quadratischen Abweichungen</a></li>
+<li class="chapter" data-level="5.10" data-path="variance.html"><a href="variance.html#varianz"><i class="fa fa-check"></i><b>5.10</b> Varianz</a></li>
+<li class="chapter" data-level="5.11" data-path="variance.html"><a href="variance.html#varianz-warum-teilt-man-durch-n---1"><i class="fa fa-check"></i><b>5.11</b> Varianz: warum teilt man durch n - 1?</a></li>
+<li class="chapter" data-level="5.12" data-path="variance.html"><a href="variance.html#standardabweichung"><i class="fa fa-check"></i><b>5.12</b> Standardabweichung</a></li>
+<li class="chapter" data-level="5.13" data-path="variance.html"><a href="variance.html#standardabweichung-und-varianz"><i class="fa fa-check"></i><b>5.13</b> Standardabweichung und Varianz</a></li>
+<li class="chapter" data-level="5.14" data-path="variance.html"><a href="variance.html#median-absolute-deviation-mad"><i class="fa fa-check"></i><b>5.14</b> Median absolute deviation (MAD)</a></li>
+<li class="chapter" data-level="5.15" data-path="variance.html"><a href="variance.html#r-befehle-2"><i class="fa fa-check"></i><b>5.15</b> R Befehle</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ZKD.html"><a href="ZKD.html"><i class="fa fa-check"></i><b>6</b> Kovarianz + Datenvisualisierungen</a><ul>
+<li class="chapter" data-level="6.1" data-path="ZKD.html"><a href="ZKD.html#wiederholung"><i class="fa fa-check"></i><b>6.1</b> Wiederholung</a></li>
+<li class="chapter" data-level="6.2" data-path="ZKD.html"><a href="ZKD.html#beziehungen-zwischen-beobachtungen"><i class="fa fa-check"></i><b>6.2</b> Beziehungen zwischen Beobachtungen</a></li>
+<li class="chapter" data-level="6.3" data-path="ZKD.html"><a href="ZKD.html#streudiagramm-scatterplot"><i class="fa fa-check"></i><b>6.3</b> Streudiagramm <strong>scatterplot</strong></a></li>
+<li class="chapter" data-level="6.4" data-path="ZKD.html"><a href="ZKD.html#scatterplot-mit-mittelwert"><i class="fa fa-check"></i><b>6.4</b> Scatterplot mit Mittelwert</a></li>
+<li class="chapter" data-level="6.5" data-path="ZKD.html"><a href="ZKD.html#kovarianz"><i class="fa fa-check"></i><b>6.5</b> Kovarianz</a></li>
+<li class="chapter" data-level="6.6" data-path="ZKD.html"><a href="ZKD.html#r-befehle-korrelation"><i class="fa fa-check"></i><b>6.6</b> R-Befehle Korrelation</a></li>
+<li class="chapter" data-level="6.7" data-path="ZKD.html"><a href="ZKD.html#korrelation"><i class="fa fa-check"></i><b>6.7</b> Korrelation</a></li>
+<li class="chapter" data-level="6.8" data-path="ZKD.html"><a href="ZKD.html#produkt-moment-korrelation-bravais-pearson-korrelation"><i class="fa fa-check"></i><b>6.8</b> Produkt Moment Korrelation (Bravais-Pearson Korrelation)</a></li>
+<li class="chapter" data-level="6.9" data-path="ZKD.html"><a href="ZKD.html#korrelation-beispiel"><i class="fa fa-check"></i><b>6.9</b> Korrelation: Beispiel</a></li>
+<li class="chapter" data-level="6.10" data-path="ZKD.html"><a href="ZKD.html#hausaufgabe-1"><i class="fa fa-check"></i><b>6.10</b> Hausaufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>7</b> Datenvisualisierungen I</a><ul>
+<li class="chapter" data-level="7.1" data-path="visual.html"><a href="visual.html#hausaufgabe-beispiellösung"><i class="fa fa-check"></i><b>7.1</b> Hausaufgabe: Beispiellösung</a></li>
+<li class="chapter" data-level="7.2" data-path="visual.html"><a href="visual.html#datenvisualisierung-generell"><i class="fa fa-check"></i><b>7.2</b> Datenvisualisierung: generell</a></li>
+<li class="chapter" data-level="7.3" data-path="visual.html"><a href="visual.html#scatterplot"><i class="fa fa-check"></i><b>7.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.4" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>7.4</b> Barplot</a></li>
+<li class="chapter" data-level="7.5" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>7.5</b> Boxplot</a></li>
+<li class="chapter" data-level="7.6" data-path="visual.html"><a href="visual.html#die-ggplot-funktion"><i class="fa fa-check"></i><b>7.6</b> Die ggplot()-Funktion</a></li>
+<li class="chapter" data-level="7.7" data-path="visual.html"><a href="visual.html#hausaufgabe-2"><i class="fa fa-check"></i><b>7.7</b> Hausaufgabe</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visual2.html"><a href="visual2.html"><i class="fa fa-check"></i><b>8</b> Datenvisualisierungen II</a><ul>
+<li class="chapter" data-level="8.1" data-path="visual2.html"><a href="visual2.html#details-der-hausaufgabe"><i class="fa fa-check"></i><b>8.1</b> Details der Hausaufgabe</a></li>
+<li class="chapter" data-level="8.2" data-path="visual2.html"><a href="visual2.html#datenvisualisierungen-mit-ggplot"><i class="fa fa-check"></i><b>8.2</b> Datenvisualisierungen mit ggplot()</a></li>
+<li class="chapter" data-level="8.3" data-path="visual2.html"><a href="visual2.html#grafiken-mit-ggplot"><i class="fa fa-check"></i><b>8.3</b> Grafiken mit ggplot()</a></li>
+<li class="chapter" data-level="8.4" data-path="visual2.html"><a href="visual2.html#ggplot-übersicht-über-parameter-und-funktionen"><i class="fa fa-check"></i><b>8.4</b> ggplot() Übersicht über Parameter und Funktionen</a></li>
+<li class="chapter" data-level="8.5" data-path="visual2.html"><a href="visual2.html#geom-übersicht"><i class="fa fa-check"></i><b>8.5</b> geom-Übersicht</a></li>
+<li class="chapter" data-level="8.6" data-path="visual2.html"><a href="visual2.html#geom-spezifikationen-i"><i class="fa fa-check"></i><b>8.6</b> geom-Spezifikationen I</a></li>
+<li class="chapter" data-level="8.7" data-path="visual2.html"><a href="visual2.html#stat-spezifikationen-ii"><i class="fa fa-check"></i><b>8.7</b> stat-Spezifikationen II</a></li>
+<li class="chapter" data-level="8.8" data-path="visual2.html"><a href="visual2.html#korrelation-und-korrelationskoeffizient"><i class="fa fa-check"></i><b>8.8</b> Korrelation und Korrelationskoeffizient</a></li>
+<li class="chapter" data-level="8.9" data-path="visual2.html"><a href="visual2.html#darstellungsmöglichkeiten-barplot"><i class="fa fa-check"></i><b>8.9</b> Darstellungsmöglichkeiten: Barplot</a></li>
+<li class="chapter" data-level="8.10" data-path="visual2.html"><a href="visual2.html#explorative-datendarstellung"><i class="fa fa-check"></i><b>8.10</b> Explorative Datendarstellung</a></li>
+<li class="chapter" data-level="8.11" data-path="visual2.html"><a href="visual2.html#matplot-darstellung"><i class="fa fa-check"></i><b>8.11</b> Matplot() Darstellung</a></li>
+<li class="chapter" data-level="8.12" data-path="visual2.html"><a href="visual2.html#matplot"><i class="fa fa-check"></i><b>8.12</b> Matplot()</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="visual3.html"><a href="visual3.html"><i class="fa fa-check"></i><b>9</b> Datenvisualisierungen III</a><ul>
+<li class="chapter" data-level="9.1" data-path="visual3.html"><a href="visual3.html#standardnormalverteilung"><i class="fa fa-check"></i><b>9.1</b> Standardnormalverteilung</a></li>
+<li class="chapter" data-level="9.2" data-path="visual3.html"><a href="visual3.html#normalverteilung-mit-histogram-hist-1"><i class="fa fa-check"></i><b>9.2</b> Normalverteilung mit Histogram <strong>hist()</strong></a></li>
+<li class="chapter" data-level="9.3" data-path="visual3.html"><a href="visual3.html#normalverteilung-schiefe-1"><i class="fa fa-check"></i><b>9.3</b> Normalverteilung: Schiefe</a></li>
+<li class="chapter" data-level="9.4" data-path="visual3.html"><a href="visual3.html#normalverteilung-kurtosis-1"><i class="fa fa-check"></i><b>9.4</b> Normalverteilung Kurtosis</a></li>
+<li class="chapter" data-level="9.5" data-path="visual3.html"><a href="visual3.html#normalverteilung-beispiel"><i class="fa fa-check"></i><b>9.5</b> Normalverteilung: Beispiel</a></li>
+<li class="chapter" data-level="9.6" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten"><i class="fa fa-check"></i><b>9.6</b> Plot Verteilung der Daten</a></li>
+<li class="chapter" data-level="9.7" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-mit-kurve"><i class="fa fa-check"></i><b>9.7</b> Plot Verteilung der Daten mit Kurve</a></li>
+<li class="chapter" data-level="9.8" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-von-tag-2"><i class="fa fa-check"></i><b>9.8</b> Plot Verteilung der Daten von Tag 2</a></li>
+<li class="chapter" data-level="9.9" data-path="visual3.html"><a href="visual3.html#plot-verteilung-der-daten-von-tag-3"><i class="fa fa-check"></i><b>9.9</b> Plot Verteilung der Daten von Tag 3</a></li>
+<li class="chapter" data-level="9.10" data-path="visual3.html"><a href="visual3.html#q-q-plot"><i class="fa fa-check"></i><b>9.10</b> Q-Q plot</a></li>
+<li class="chapter" data-level="9.11" data-path="visual3.html"><a href="visual3.html#wiederholung-describe-funktion"><i class="fa fa-check"></i><b>9.11</b> Wiederholung <strong>describe()</strong> Funktion</a></li>
+<li class="chapter" data-level="9.12" data-path="visual3.html"><a href="visual3.html#verteilungen"><i class="fa fa-check"></i><b>9.12</b> Verteilungen</a></li>
+<li class="chapter" data-level="9.13" data-path="visual3.html"><a href="visual3.html#verteilung-examenspunkte"><i class="fa fa-check"></i><b>9.13</b> Verteilung: Examenspunkte</a></li>
+<li class="chapter" data-level="9.14" data-path="visual3.html"><a href="visual3.html#vergleich-mit-der-describe-funktion"><i class="fa fa-check"></i><b>9.14</b> Vergleich mit der <strong>describe()</strong> Funktion</a></li>
+<li class="chapter" data-level="9.15" data-path="visual3.html"><a href="visual3.html#vergleich-verschiedener-gruppen"><i class="fa fa-check"></i><b>9.15</b> Vergleich verschiedener Gruppen</a></li>
+<li class="chapter" data-level="9.16" data-path="visual3.html"><a href="visual3.html#vergleich-zwischen-den-gruppen"><i class="fa fa-check"></i><b>9.16</b> Vergleich zwischen den Gruppen</a></li>
+<li class="chapter" data-level="9.17" data-path="visual3.html"><a href="visual3.html#die-rnorm-funktion"><i class="fa fa-check"></i><b>9.17</b> Die <strong>rnorm()</strong> Funktion</a></li>
+<li class="chapter" data-level="9.18" data-path="visual3.html"><a href="visual3.html#hausaufgabe-3"><i class="fa fa-check"></i><b>9.18</b> Hausaufgabe</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deskriptive Statistik mit R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visual3" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Datenvisualisierungen III</h1>
+<div id="standardnormalverteilung" class="section level2">
+<h2><span class="header-section-number">9.1</span> Standardnormalverteilung</h2>
+<p>Annahme über erhobene Daten: <span class="math inline">\(\leftrightarrow\)</span> Daten der erhobenen Stichprobe normalverteilt. Was heißt das?</p>
+<ul>
+<li>symmetrische Glockenkurve oder Gauß’sche Kurve</li>
+<li>bei vertikalem Schnitt durch Mittelwert <span class="math inline">\(\rightarrow\)</span> angestrebt beide Seiten möglichst deckungsgleich</li>
+<li><strong>Annahme:</strong> die meisten Daten liegen ungefähr um den Mittelpunkt</li>
+<li>Länge der Balken bei einem Histogramm werden kleiner, je weiter diese vom Mittelpunkt abweichen</li>
+<li>die Daten einer großen Stichprobe sind wahrscheinlicher normalverteilt.</li>
+<li>zusätzlich zur statistischen Überprüfung gibt es Möglichkeiten der visuellen Darstellung und Inspektion um einzuschätzen, ob die Daten einer Stichprobe normalverteilt sind.</li>
+</ul>
+</div>
+<div id="normalverteilung-mit-histogram-hist-1" class="section level2">
+<h2><span class="header-section-number">9.2</span> Normalverteilung mit Histogram <strong>hist()</strong></h2>
+<ul>
+<li>Plot zeigt auf der x-Achse die Werte der erhobenen Daten an und auf y-Achse, wie oft diese Werte auftauchen</li>
+</ul>
+<div class="figure">
+<img src="img/NormalDistribution.png" />
+
+</div>
+</div>
+<div id="normalverteilung-schiefe-1" class="section level2">
+<h2><span class="header-section-number">9.3</span> Normalverteilung: Schiefe</h2>
+<ul>
+<li>Wir haben schon rechts- und linksschiefe Verteilungen besprochen.</li>
+<li>Schiefe Verteilungen sind nicht symmetrisch und somit nicht normalverteilt. Sie zeichnen sich dadurch aus, dass deren häufigste Werte entweder am rechten oder am linken Rand des Spektrums der Verteilungskurve liegen.</li>
+</ul>
+<div class="figure">
+<img src="img/Schiefe1.png" />
+
+</div>
+</div>
+<div id="normalverteilung-kurtosis-1" class="section level2">
+<h2><span class="header-section-number">9.4</span> Normalverteilung Kurtosis</h2>
+<ul>
+<li>Beschreibung Kurvigkeit der Verteilung</li>
+<li><ol style="list-style-type: decimal">
+<li>Wie spitz ist die Kurve?</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>Wie sehr verteilen sich die Werte an den äußeren Enden der Kurve?</li>
+</ol></li>
+</ul>
+<p><strong>leptokurtic</strong> (positive Kurtosis) ist eine spitze Kurve, viele Werte verteilen sich auch an den Enden <br> <strong>platykurtic</strong> (negative Kurtosis) flache Kurve, relativ wenige Werte an den Enden</p>
+<div class="figure">
+<img src="img/kurtosis.png" />
+
+</div>
+<ul>
+<li>Schiefe und Kurtosis in einer Normalverteilung sollten 0 sein</li>
+<li>positive Kurtosis ist hier +4 und negative -1</li>
+</ul>
+</div>
+<div id="normalverteilung-beispiel" class="section level2">
+<h2><span class="header-section-number">9.5</span> Normalverteilung: Beispiel</h2>
+<p>Wir werden noch einmal mit dem Datensatz <strong>DownloadFestival1.dat</strong> arbeiten.</p>
+<p>Dieser beschreibt: <br> - Einschätzung der persönlichen Hygiene von Teilnehmern über den Zeitram von 3 Tagen, die sie an einem Rockfestival teilnehmen - Spanne: 0-4 - 0: sehr schlecht (Geruch vergleichbar mit verwesender Leiche und einem Stinktier) - 4: sehr gut (Geruch vergleichbar süßer Rosen an einem frischen Frühlingstag)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)</code></pre></div>
+</div>
+<div id="plot-verteilung-der-daten" class="section level2">
+<h2><span class="header-section-number">9.6</span> Plot Verteilung der Daten</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">ggplot</span>(df,<span class="kw">aes</span>(day1)) <span class="op">+</span><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),  <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Hygienezustand am 1. Tag&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="img/dfhist.png" />
+
+</div>
+<!-- \begin{center} -->
+<!--   \includegraphics[width = 8cm]{ND.pdf} -->
+<!-- \end{center} -->
+</div>
+<div id="plot-verteilung-der-daten-mit-kurve" class="section level2">
+<h2><span class="header-section-number">9.7</span> Plot Verteilung der Daten mit Kurve</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">ggplot</span>(df,<span class="kw">aes</span>(day1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),  <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Hygienezustand am 1. Tag&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,  <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(df<span class="op">$</span>day1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),  <span class="dt">sd =</span> <span class="kw">sd</span>(df<span class="op">$</span>day1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)), <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</code></pre></div>
+<div class="figure">
+<img src="img/dfhistnorm.png" />
+
+</div>
+<ul>
+<li>die <strong>stat_function()</strong> plottet noch eine Normalkurve mit den übergebenen Mittelwerten und Standardabweichungen von unseren Daten von Tag 1</li>
+</ul>
+<!-- #\begin{center} -->
+<!-- #  \includegraphics[width = 8cm]{NDCurve.pdf} -->
+<!-- #\end{center} -->
+</div>
+<div id="plot-verteilung-der-daten-von-tag-2" class="section level2">
+<h2><span class="header-section-number">9.8</span> Plot Verteilung der Daten von Tag 2</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">ggplot</span>(df,<span class="kw">aes</span>(day2)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),  <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Hygienezustand am 2. Tag&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,  <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(df<span class="op">$</span>day2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),  <span class="dt">sd =</span> <span class="kw">sd</span>(df<span class="op">$</span>day2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)), <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</code></pre></div>
+<img src="img/dfhistday2.png" /> #
+
+</div>
+<div id="plot-verteilung-der-daten-von-tag-3" class="section level2">
+<h2><span class="header-section-number">9.9</span> Plot Verteilung der Daten von Tag 3</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">ggplot</span>(df,<span class="kw">aes</span>(day3)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),  <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Hygienezustand am 3. Tag&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,  <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(df<span class="op">$</span>day3, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),  <span class="dt">sd =</span> <span class="kw">sd</span>(df<span class="op">$</span>day3, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)), <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</code></pre></div>
+<div class="figure">
+<img src="img/dfhistday3.png" />
+
+</div>
+<!-- #\begin{center} -->
+<!-- #  \includegraphics[width = 8cm]{Curveday3.pdf} -->
+<!-- #\end{center} -->
+</div>
+<div id="q-q-plot" class="section level2">
+<h2><span class="header-section-number">9.10</span> Q-Q plot</h2>
+<ul>
+<li>Der quantile-quantile Plot ist eine alternative Methode, um die Normalverteilung von Daten einzuschätzen</li>
+<li><strong>qplot()</strong> plottet die kumulativen Werte unserer Daten gegen die kumulative Wahrscheinlichkeit der Normalverteilung <span class="math inline">\(\rightarrow\)</span> Werte werden geordnet und mit erwarteten Werten verglichen</li>
+<li>wenn die Stichprobe tatsächlich normalverteilt ist <span class="math inline">\(\rightarrow\)</span> dann erscheint der Plot als gerade Linie</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)
+df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">qplot</span>(<span class="dt">sample =</span> df<span class="op">$</span>day1, <span class="dt">stat =</span> <span class="st">&quot;qq&quot;</span>)</code></pre></div>
+<!-- ![](./img/qqplotday1.png) -->
+<p>Darstellung der Verteilung am 1. Tag</p>
+<table>
+<tr>
+<td>
+<img src="img/NDCurve.png" alt="Verteilung Tag 1" />
+</td>
+<td>
+<img src="img/qqnormal.png" alt="Q-Q Plot Tag 1" />
+</td>
+</tr>
+</table>
+Darstellung der Verteilung am 2. Tag
+<table>
+<tr>
+<td>
+<img src="img/Curveday2.png" alt="Verteilung Tag 2" />
+</td>
+<td>
+<img src="img/qqnormal2.png" alt="Q-Q Plot Tag 2" />
+</td>
+</tr>
+</table>
+Darstellung der Verteilung am 3. Tag
+<table>
+<tr>
+<td>
+<img src="img/Curveday3.png" alt="Verteilung Tag 3" />
+</td>
+<td>
+<img src="img/qqnormal3.png" alt="Q-Q Plot Tag 3" />
+</td>
+</tr>
+</table>
+</div>
+<div id="wiederholung-describe-funktion" class="section level2">
+<h2><span class="header-section-number">9.11</span> Wiederholung <strong>describe()</strong> Funktion</h2>
+<p>Für diese Funktion braucht benötigt man das <strong>psych</strong>-Paket</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;psych&quot;</span>)
+<span class="kw">library</span>(psych)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;psych&quot;)</span>
+<span class="kw">library</span>(psych)
+df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="co"># für Tag 1</span>
+<span class="kw">describe</span>(df<span class="op">$</span>day1)</code></pre></div>
+<pre><code>##    vars   n mean   sd median trimmed mad  min  max range skew kurtosis   se
+## X1    1 810 1.77 0.69   1.79    1.77 0.7 0.02 3.69  3.67    0    -0.42 0.02</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># für alle Tage</span>
+<span class="kw">describe</span>(<span class="kw">cbind</span>(df<span class="op">$</span>day1,df<span class="op">$</span>day2,df<span class="op">$</span>day3))</code></pre></div>
+<pre><code>##    vars   n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## X1    1 810 1.77 0.69   1.79    1.77 0.70 0.02 3.69  3.67 0.00    -0.42 0.02
+## X2    2 264 0.96 0.72   0.79    0.87 0.61 0.00 3.44  3.44 1.08     0.76 0.04
+## X3    3 123 0.98 0.71   0.76    0.90 0.61 0.02 3.41  3.39 1.01     0.59 0.06</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># alternative Darstellung für alle 3 Tage</span>
+<span class="kw">describe</span>(df[,<span class="kw">c</span>(<span class="st">&quot;day1&quot;</span>,<span class="st">&quot;day2&quot;</span>,<span class="st">&quot;day3&quot;</span>)])</code></pre></div>
+<pre><code>##      vars   n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+## day1    1 810 1.77 0.69   1.79    1.77 0.70 0.02 3.69  3.67 0.00    -0.42 0.02
+## day2    2 264 0.96 0.72   0.79    0.87 0.61 0.00 3.44  3.44 1.08     0.76 0.04
+## day3    3 123 0.98 0.71   0.76    0.90 0.61 0.02 3.41  3.39 1.01     0.59 0.06</code></pre>
+</div>
+<div id="verteilungen" class="section level2">
+<h2><span class="header-section-number">9.12</span> Verteilungen</h2>
+<p>Bitte ladet für das folgende Kapitel die Datei <strong>rexam1.dat</strong> bei studip herunter.</p>
+<p>Der Daten beschreiben die Examensergebnisse der Studenten zweier Universitäten und sind wie folgt aufgeteilt:</p>
+<ul>
+<li><strong>exam</strong> Examennoten in % nach dem 1. Jahr</li>
+<li><strong>computer</strong> Computerfähigkeiten in %</li>
+<li><strong>lecture</strong> Wieviel % der Vorlesungen besucht wurden</li>
+<li><strong>numeracy</strong> numerische Fähigkeiten mit Maximum 15</li>
+<li><strong>university</strong> 0: Duncetown University, 1: Sussex University</li>
+</ul>
+<table>
+<tr>
+<th>
+Examenpunkte
+</th>
+<th>
+Teilnahme an Vorlesung
+</th>
+</tr>
+<tr>
+<td>
+<img src="img/ReExam.png" />
+</td>
+<td>
+<img src="img/ReLectures.png" />
+</td>
+</tr>
+</table>
+<!-- \begin{center} -->
+<!-- \footnotesize{Examenpunkte} -->
+<!-- \includegraphics[width = 4cm]{ReExam.pdf} -->
+<!-- \footnotesize{Teilnahme an Vorlesung} -->
+<!-- \includegraphics[width =  4cm]{ReLectures.pdf} -->
+<!-- \end{center}   -->
+<table>
+<tr>
+<th>
+Computerfertigkeiten
+</th>
+<th>
+Numerische Fertigkeiten
+</th>
+</tr>
+<tr>
+<td>
+<img src="img/ReComp.png" />
+</td>
+<td>
+<img src="img/ReNumb.png" />
+</td>
+</tr>
+</table>
+<!-- \footnotesize{Computerfertigkeiten} -->
+<!-- \includegraphics[width = 4cm]{ReComp.pdf} -->
+<!-- \footnotesize{Numerische Fähigkeiten} -->
+<!-- \includegraphics[width = 4cm]{ReNumb.pdf} -->
+Examenpunkte
+<table>
+<tr>
+<td>
+<img src="img/ReExam.png" />
+</td>
+<td>
+<img src="img/ReExamqq.png" />
+</td>
+</tr>
+</table>
+Teilnahme an Vorlesung
+<table>
+<tr>
+<td>
+<img src="img/ReLectures.png" />
+</td>
+<td>
+<img src="img/ReLectureqq.png" />
+</td>
+</tr>
+</table>
+<!-- \includegraphics[width = 4cm]{ReLectureqq.pdf} -->
+<p><strong>Computerfertigkeiten</strong></p>
+<table>
+<tr>
+<td>
+<img src="img/ReComp.png" />
+</td>
+<td>
+<img src="img/ReCompqq.png" />
+</td>
+</tr>
+</table>
+<p><strong>Numerische Fähigkeiten</strong></p>
+<table>
+<tr>
+<td>
+<img src="img/ReNumb.png" />
+</td>
+<td>
+<img src="img/ReNumbqq.png" />
+</td>
+</tr>
+</table>
+</div>
+<div id="verteilung-examenspunkte" class="section level2">
+<h2><span class="header-section-number">9.13</span> Verteilung: Examenspunkte</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(rexam,<span class="kw">aes</span>(exam)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Examenpunkte&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(rexam<span class="op">$</span>exam, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">sd =</span> <span class="kw">sd</span>(rexam<span class="op">$</span>exam, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)), <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</code></pre></div>
+</div>
+<div id="vergleich-mit-der-describe-funktion" class="section level2">
+<h2><span class="header-section-number">9.14</span> Vergleich mit der <strong>describe()</strong> Funktion</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">describe</span>(rexam<span class="op">$</span>exam)
+<span class="kw">describe</span>(rexam<span class="op">$</span>computer)
+<span class="kw">describe</span>(rexam<span class="op">$</span>lecture)
+<span class="kw">describe</span>(rexam<span class="op">$</span>numeracy)</code></pre></div>
+<p>Wie sind die Daten jeweils verteilt?</p>
+<ul>
+<li><strong>exam</strong> zeigt eine Verteilung mit zwei Spitzen: eine solche Verteilung wird auch bimodal genannt</li>
+<li>die Studenten sind entweder sehr gut oder nicht so gut. Es scheint keine große Anzahl durchschnittlicher Studenten zu geben.</li>
+</ul>
+</div>
+<div id="vergleich-verschiedener-gruppen" class="section level2">
+<h2><span class="header-section-number">9.15</span> Vergleich verschiedener Gruppen</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(<span class="dt">data =</span> rexam<span class="op">$</span>exam, <span class="dt">INDICES =</span> rexam<span class="op">$</span>uni, <span class="dt">FUN =</span> describe)</code></pre></div>
+<p><strong>Beispiel</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dunce =<span class="st"> </span><span class="kw">subset</span>(rexam, rexam<span class="op">$</span>uni <span class="op">==</span><span class="st">&quot;Duncetown University&quot;</span>)
+dunce =<span class="st"> </span>rexam[rexam<span class="op">$</span>uni <span class="op">==</span><span class="st"> &quot;Duncetown University&quot;</span>,]
+
+sussex =<span class="st"> </span><span class="kw">subset</span>(rexam,rexam<span class="op">$</span>uni <span class="op">==</span><span class="st"> &quot;Sussex University&quot;</span>)
+sussex =rexam[rexam<span class="op">$</span>uni <span class="op">==</span><span class="st"> &quot;Sussex University&quot;</span>,]</code></pre></div>
+<p>Was ist der Unterschied zwischen beiden Gruppen?</p>
+<table>
+<tr>
+<th>
+Sussex
+</th>
+<th>
+Duncehall
+</th>
+</tr>
+<td>
+<img src="img/ReExamSussex.png" />
+</td>
+<td>
+<img src="img/ReExamDunce.png" />
+</td>
+</tr>
+</table>
+<!-- \begin{columns} -->
+<!-- \column{1.7in} -->
+<!-- \begin{center} -->
+<!-- \footnotesize{Sussex} -->
+<!-- \includegraphics[width = 5cm]{ReExamSussex.pdf} -->
+<!-- \end{center} -->
+<!-- \column{1.7in} -->
+<!-- \begin{center} -->
+<!-- \footnotesize{Duncehall} -->
+<!-- \includegraphics[width = 5cm]{ReExamDunce.pdf} -->
+<!-- \end{center} -->
+<!-- \end{columns} -->
+</div>
+<div id="vergleich-zwischen-den-gruppen" class="section level2">
+<h2><span class="header-section-number">9.16</span> Vergleich zwischen den Gruppen</h2>
+<p>Gibt es weitere Unterschiede zwischen den Gruppen?</p>
+<ul>
+<li>benutze die <strong>by()</strong> Funktion, um <em>Teilnahme an Lehrveranstaltungen</em>, <em>Computerfähigkeit</em> und <em>Numerische Fähigkeit</em> zwischen beiden Gruppen zu vergleichen</li>
+<li>Plotte die Histogramme mit Kurve für die jeweiligen Gruppen</li>
+</ul>
+</div>
+<div id="die-rnorm-funktion" class="section level2">
+<h2><span class="header-section-number">9.17</span> Die <strong>rnorm()</strong> Funktion</h2>
+<ul>
+<li>generiert Daten in Normalverteilung, die folgende Bedingungen erfüllen</li>
+<li>z.B.:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">500</span>, <span class="dt">mean =</span> <span class="dv">30</span>, <span class="dt">sd =</span> <span class="dv">4</span>)</code></pre></div>
+<p>Der obige Befehl generiert eine Stichprobe mit 500 Werten, diese sind normalverteilt mit dem Mittelwert 30 und der Standardabweichung 4.</p>
+</div>
+<div id="hausaufgabe-3" class="section level2">
+<h2><span class="header-section-number">9.18</span> Hausaufgabe</h2>
+<p>Generiere eine Stichprobe der Größe 250, mit Mittelwert 10 und Standardabweichung 2. Plotte die Daten in einem Histogramm mit einer Kurve.</p>
+<p><br> <br></p>
+<ul>
+<li>Lade die Datei <strong>chickflick.dat</strong> von studip herunter und importiere diese in R!</li>
+<li>Schau Dir die Datei mit ihren Eigenschaften an! Was sind die Mittelwerte und Standardabweichungen für anxiety getrennt für Männer und Frauen?</li>
+<li>Berechne den Korrelationskoeffizienten p zwischen film1 und anxiety? <br> Welche Funktion ist hier angemessen und warum?</li>
+<li>Stelle den Zusammenhang zwischen <strong>film1</strong> und <strong>anxiety</strong> graphisch mit <strong>ggplot()</strong> dar!</li>
+<li>Versuche beide Gruppen (<strong>male</strong> <span class="math inline">\(\leftrightarrow\)</span> <strong>female</strong>) bei der graphischen Darstellung von <strong>film1</strong> und <strong>anxiety</strong> farblich voneinander abzuheben!</li>
+<li>Plotte den Zusammenhang zwischen <strong>film1</strong> und <strong>anxiety</strong> für beide Gruppen male und female getrennt nebeneinander!</li>
+<li>Wie lassen sich die Daten interpretieren?</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visual2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["NewBook.pdf", "NewBook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
