@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Maße der zentralen Tendenz | Deskriptive Statistik mit R</title>
+  <title>Chapter 10 Explorative Datenanalyse | Deskriptive Statistik mit R</title>
   <meta name="description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Maße der zentralen Tendenz | Deskriptive Statistik mit R" />
+  <meta property="og:title" content="Chapter 10 Explorative Datenanalyse | Deskriptive Statistik mit R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="katsuckow/DeskriptiveStatistik20" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Maße der zentralen Tendenz | Deskriptive Statistik mit R" />
+  <meta name="twitter:title" content="Chapter 10 Explorative Datenanalyse | Deskriptive Statistik mit R" />
   
   <meta name="twitter:description" content="Dies ist der digitalisierte Kurs `Deskriptive Statistik’. Fragen an (katja.suckow@gmail.com) oder (katja.suckow@phil.uni-goettingen.de)" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Katja Suckow   katja.suckow@gmail.com   katja.suckow@phil.uni-goettingen.de" />
 
 
-<meta name="date" content="2020-06-25" />
+<meta name="date" content="2020-06-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="distribution.html"/>
-<link rel="next" href="variance.html"/>
+<link rel="prev" href="visual3.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -175,6 +175,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.13" data-path="central.html"><a href="central.html#normalverteilung-schiefe"><i class="fa fa-check"></i><b>4.13</b> Normalverteilung: Schiefe</a></li>
 <li class="chapter" data-level="4.14" data-path="central.html"><a href="central.html#normalverteilung-kurtosis"><i class="fa fa-check"></i><b>4.14</b> Normalverteilung: Kurtosis</a></li>
 <li class="chapter" data-level="4.15" data-path="central.html"><a href="central.html#hausaufgabe"><i class="fa fa-check"></i><b>4.15</b> Hausaufgabe</a></li>
+<li class="chapter" data-level="4.16" data-path="central.html"><a href="central.html#übung"><i class="fa fa-check"></i><b>4.16</b> Übung</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="variance.html"><a href="variance.html"><i class="fa fa-check"></i><b>5</b> Kovarianz und Korrelation</a><ul>
 <li class="chapter" data-level="5.1" data-path="variance.html"><a href="variance.html#kurze-wiederholung-1"><i class="fa fa-check"></i><b>5.1</b> Kurze Wiederholung</a></li>
@@ -250,26 +251,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.17" data-path="visual3.html"><a href="visual3.html#die-rnorm-funktion"><i class="fa fa-check"></i><b>9.17</b> Die <strong>rnorm()</strong> Funktion</a></li>
 <li class="chapter" data-level="9.18" data-path="visual3.html"><a href="visual3.html#hausaufgabe-3"><i class="fa fa-check"></i><b>9.18</b> Hausaufgabe</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html"><i class="fa fa-check"></i><b>10</b> Explorative Datenanalyse</a><ul>
-<li class="chapter" data-level="10.1" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#test-für-normalverteilung-shapiro-wilk"><i class="fa fa-check"></i><b>10.1</b> Test für Normalverteilung: Shapiro-Wilk</a></li>
-<li class="chapter" data-level="10.2" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#kleiner-exkurs-p-werte"><i class="fa fa-check"></i><b>10.2</b> Kleiner Exkurs: p-Werte</a></li>
-<li class="chapter" data-level="10.3" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#shapiro-wilk-für-gruppen"><i class="fa fa-check"></i><b>10.3</b> Shapiro-Wilk für Gruppen</a></li>
-<li class="chapter" data-level="10.4" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#testen-verschiedener-gruppen-varianz"><i class="fa fa-check"></i><b>10.4</b> Testen verschiedener Gruppen: Varianz</a></li>
-<li class="chapter" data-level="10.5" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#testen-verschiedener-gruppen"><i class="fa fa-check"></i><b>10.5</b> Testen verschiedener Gruppen</a></li>
-<li class="chapter" data-level="10.6" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#extremwertbereinigung"><i class="fa fa-check"></i><b>10.6</b> Extremwertbereinigung</a></li>
-<li class="chapter" data-level="10.7" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#datentransformation-logarithmus-transformation"><i class="fa fa-check"></i><b>10.7</b> Datentransformation: Logarithmus Transformation</a></li>
-<li class="chapter" data-level="10.8" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#datentransformation-logarithmus-transformation-1"><i class="fa fa-check"></i><b>10.8</b> Datentransformation: Logarithmus Transformation</a></li>
-<li class="chapter" data-level="10.9" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#vergleich"><i class="fa fa-check"></i><b>10.9</b> Vergleich</a></li>
-<li class="chapter" data-level="10.10" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#datentransformation-wurzeltransformation"><i class="fa fa-check"></i><b>10.10</b> Datentransformation: Wurzeltransformation</a></li>
-<li class="chapter" data-level="10.11" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#modelle"><i class="fa fa-check"></i><b>10.11</b> Modelle</a></li>
-<li class="chapter" data-level="10.12" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#hypothesen-generieren-leftrightarrow-testen"><i class="fa fa-check"></i><b>10.12</b> Hypothesen generieren <span class="math inline">\(\leftrightarrow\)</span> testen</a></li>
-<li class="chapter" data-level="10.13" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#grundlagen-eines-modells"><i class="fa fa-check"></i><b>10.13</b> Grundlagen eines Modells</a></li>
-<li class="chapter" data-level="10.14" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#modell-fit"><i class="fa fa-check"></i><b>10.14</b> Modell-Fit</a></li>
-<li class="chapter" data-level="10.15" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#statistische-modelle-um-forschungsfragen-zu-testen"><i class="fa fa-check"></i><b>10.15</b> Statistische Modelle um Forschungsfragen zu testen</a></li>
-<li class="chapter" data-level="10.16" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#einfache-modelle-mittelwert"><i class="fa fa-check"></i><b>10.16</b> Einfache Modelle: Mittelwert</a></li>
-<li class="chapter" data-level="10.17" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#einfache-modelle-standardabweichung"><i class="fa fa-check"></i><b>10.17</b> Einfache Modelle: Standardabweichung</a></li>
-<li class="chapter" data-level="10.18" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#einfache-modelle-standardfehler"><i class="fa fa-check"></i><b>10.18</b> Einfache Modelle: Standardfehler</a></li>
-<li class="chapter" data-level="10.19" data-path="explorative-datenanalyse.html"><a href="explorative-datenanalyse.html#modelle-konfidenzintervall"><i class="fa fa-check"></i><b>10.19</b> Modelle: Konfidenzintervall</a></li>
+<li class="chapter" data-level="10" data-path="explore.html"><a href="explore.html"><i class="fa fa-check"></i><b>10</b> Explorative Datenanalyse</a><ul>
+<li class="chapter" data-level="10.1" data-path="explore.html"><a href="explore.html#test-für-normalverteilung-shapiro-wilk"><i class="fa fa-check"></i><b>10.1</b> Test für Normalverteilung: Shapiro-Wilk</a></li>
+<li class="chapter" data-level="10.2" data-path="explore.html"><a href="explore.html#kleiner-exkurs-p-werte"><i class="fa fa-check"></i><b>10.2</b> Kleiner Exkurs: p-Werte</a></li>
+<li class="chapter" data-level="10.3" data-path="explore.html"><a href="explore.html#shapiro-wilk-für-gruppen"><i class="fa fa-check"></i><b>10.3</b> Shapiro-Wilk für Gruppen</a></li>
+<li class="chapter" data-level="10.4" data-path="explore.html"><a href="explore.html#testen-verschiedener-gruppen-varianz"><i class="fa fa-check"></i><b>10.4</b> Testen verschiedener Gruppen: Varianz</a></li>
+<li class="chapter" data-level="10.5" data-path="explore.html"><a href="explore.html#extremwertbereinigung"><i class="fa fa-check"></i><b>10.5</b> Extremwertbereinigung</a></li>
+<li class="chapter" data-level="10.6" data-path="explore.html"><a href="explore.html#datentransformation-logarithmus-transformation"><i class="fa fa-check"></i><b>10.6</b> Datentransformation: Logarithmus Transformation</a></li>
+<li class="chapter" data-level="10.7" data-path="explore.html"><a href="explore.html#datentransformation-logarithmus-transformation-1"><i class="fa fa-check"></i><b>10.7</b> Datentransformation: Logarithmus Transformation</a></li>
+<li class="chapter" data-level="10.8" data-path="explore.html"><a href="explore.html#vergleich"><i class="fa fa-check"></i><b>10.8</b> Vergleich</a></li>
+<li class="chapter" data-level="10.9" data-path="explore.html"><a href="explore.html#datentransformation-wurzeltransformation"><i class="fa fa-check"></i><b>10.9</b> Datentransformation: Wurzeltransformation</a></li>
+<li class="chapter" data-level="10.10" data-path="explore.html"><a href="explore.html#modelle"><i class="fa fa-check"></i><b>10.10</b> Modelle</a></li>
+<li class="chapter" data-level="10.11" data-path="explore.html"><a href="explore.html#hypothesen-generieren-leftrightarrow-testen"><i class="fa fa-check"></i><b>10.11</b> Hypothesen generieren <span class="math inline">\(\leftrightarrow\)</span> testen</a></li>
+<li class="chapter" data-level="10.12" data-path="explore.html"><a href="explore.html#grundlagen-eines-modells"><i class="fa fa-check"></i><b>10.12</b> Grundlagen eines Modells</a></li>
+<li class="chapter" data-level="10.13" data-path="explore.html"><a href="explore.html#statistische-modelle-um-forschungsfragen-zu-testen"><i class="fa fa-check"></i><b>10.13</b> Statistische Modelle um Forschungsfragen zu testen</a></li>
+<li class="chapter" data-level="10.14" data-path="explore.html"><a href="explore.html#einfache-modelle-mittelwert"><i class="fa fa-check"></i><b>10.14</b> Einfache Modelle: Mittelwert</a></li>
+<li class="chapter" data-level="10.15" data-path="explore.html"><a href="explore.html#einfache-modelle-standardabweichung"><i class="fa fa-check"></i><b>10.15</b> Einfache Modelle: Standardabweichung</a></li>
+<li class="chapter" data-level="10.16" data-path="explore.html"><a href="explore.html#einfache-modelle-standardfehler"><i class="fa fa-check"></i><b>10.16</b> Einfache Modelle: Standardfehler</a></li>
+<li class="chapter" data-level="10.17" data-path="explore.html"><a href="explore.html#modelle-konfidenzintervall"><i class="fa fa-check"></i><b>10.17</b> Modelle: Konfidenzintervall</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -291,550 +290,335 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="central" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Maße der zentralen Tendenz</h1>
-<p><strong>Histogramme: hist()</strong></p>
-<p>Aus der Übung von letzter Woche! Hier ist ein Beispiel für ein Historgramm mit einer neuen Überschrift.</p>
-<div class="figure">
-<img src="img/hist.png" />
-
-</div>
-<div id="maße-der-zentralen-tendenz" class="section level2">
-<h2><span class="header-section-number">4.1</span> Maße der zentralen Tendenz</h2>
-<p>Gebräuchliche Maße der zentralen Tendenz bei Datenbeschreibungen sind:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Modus</strong></li>
-<li><strong>Median</strong></li>
-<li><strong>Mittelwert</strong></li>
-</ol>
-</div>
-<div id="modus" class="section level2">
-<h2><span class="header-section-number">4.2</span> Modus</h2>
-<p><strong>Modus:</strong> ist der häufigste Wert in einer Reihe von Beobachtungswerten. In einer Stichprobe kann es mehr als einen Modus geben.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right"></th>
-<th align="left">Punkte im Sprachtest</th>
-<th align="left">Häufigkeit</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">1</td>
-<td align="left">0</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">2</td>
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">3</td>
-<td align="left">0</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">4</td>
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">5</td>
-<td align="left">1</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">6</td>
-<td align="left">1</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">7</td>
-<td align="left">2</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">8</td>
-<td align="left">2</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">9</td>
-<td align="left">3</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">10</td>
-<td align="left">1</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">11</td>
-<td align="left">5</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">12</td>
-<td align="left">7</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">13</td>
-<td align="left">7</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">14</td>
-<td align="left">7</td>
-</tr>
-<tr class="even">
-<td align="right"><strong>Modus</strong> <span class="math inline">\(\rightarrow\)</span></td>
-<td align="left">15</td>
-<td align="left">8</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">16</td>
-<td align="left">5</td>
-</tr>
-<tr class="even">
-<td align="right"></td>
-<td align="left">17</td>
-<td align="left">5</td>
-</tr>
-<tr class="odd">
-<td align="right"></td>
-<td align="left">18</td>
-<td align="left">4</td>
-</tr>
-</tbody>
-</table>
-<!-- \begin{scriptsize} -->
-<!-- \begin{tabular}{rll} -->
-<!-- \hline -->
-<!-- & Punkte im Sprachtest & Häufigkeit \\ -->
-<!-- \hline -->
-<!-- & 0 & 0 \\ -->
-<!-- & 1 & 0 \\ -->
-<!-- & 2 & 0 \\ -->
-<!-- & 3 & 0 \\ -->
-<!-- & 4 & 0 \\ -->
-<!-- & 5 & 1 \\ -->
-<!-- & 6 & 1 \\ -->
-<!-- & 7 & 2 \\ -->
-<!-- & 8 & 2 \\ -->
-<!-- & 9 & 3 \\ -->
-<!-- & 10 & 1 \\ -->
-<!-- & 11 & 5 \\ -->
-<!-- & 12 & 7 \\ -->
-<!-- & 13 & 7 \\ -->
-<!-- & 14 & 7 \\ -->
-<!-- Modus $\rightarrow$ & 15 & 8 \\ -->
-<!-- & 16 & 5 \\ -->
-<!-- & 17 & 5 \\  -->
-<!-- & 18 & 4 \\ -->
-<!-- \hline -->
-<!-- \end{tabular} -->
-<!-- \end{scriptsize} -->
-</div>
-<div id="median" class="section level2">
-<h2><span class="header-section-number">4.3</span> Median</h2>
-<p>Wenn alle Werte nach Größe aufsteigend angeordnet werden, ist der Median der Wert, der in der Mitte liegt.</p>
-<ol style="list-style-type: decimal">
-<li>Werte <span class="math inline">\(x_1,x_2,x_3,~\dots,~x_n\)</span> der Größe nach aufsteigend sortieren, ergibt folgende Ordnungsstatistik: <span class="math inline">\(x_1~&lt;~x_2~&lt;~x_3~&lt;~\dots~&lt;~x_n\)</span></li>
-<li><strong>Median</strong> teilt Daten in zwei gleich große Teile.</li>
-</ol>
-<p>Man unterscheidet bei der Berechnung des Medians zwischen 2 unterschiedlichen Vorgehensweisen: <br></p>
-<p><strong>Median (bei n = ungerader Zahl)</strong> wenn die Anzahl der Werte ungerade ist, dann ist die Ermittlung des Medians recht einfach zu ermitteln.</p>
-<p>Nehmen wir ein Beispiel <span class="math inline">\((n = 7)\)</span>. Die ungeordnete Folge könnte wie folgt aussehen: <br></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(x_1\)</span></th>
-<th align="center"><span class="math inline">\(x_2\)</span></th>
-<th align="center"><span class="math inline">\(x_3\)</span></th>
-<th align="center"><span class="math inline">\(x_4\)</span></th>
-<th align="center"><span class="math inline">\(x_5\)</span></th>
-<th align="center"><span class="math inline">\(x_6\)</span></th>
-<th align="center"><span class="math inline">\(x_7\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">7</td>
-<td align="center">5</td>
-<td align="center">8</td>
-<td align="center">9</td>
-<td align="center">8</td>
-<td align="center">6</td>
-<td align="center">7</td>
-</tr>
-</tbody>
-</table>
-<p>Diese Werte werden dann in aufsteigender Reihenfolge geordnet: <br></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(x_{(1)}\)</span></th>
-<th align="center"><span class="math inline">\(x_{(2)}\)</span></th>
-<th align="center"><span class="math inline">\(x_{(3)}\)</span></th>
-<th align="center"><span class="math inline">\(x_{(4)}\)</span></th>
-<th align="center"><span class="math inline">\(x_{(5)}\)</span></th>
-<th align="center"><span class="math inline">\(x_{(6)}\)</span></th>
-<th align="center"><span class="math inline">\(x_{(7)}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
-<td align="center">7</td>
-<td align="center">8</td>
-<td align="center">8</td>
-<td align="center">9</td>
-</tr>
-</tbody>
-</table>
-<p>Die sortierten Daten werden gleich große Teile geteilt.<br></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">5</th>
-<th align="center">6</th>
-<th align="center">7</th>
-<th align="center"></th>
-<th align="center">7</th>
-<th align="center"></th>
-<th align="center">8</th>
-<th align="center">8</th>
-<th align="center">9</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(\uparrow\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">Median</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="median-bei-n-gerade-zahl" class="section level2">
-<h2><span class="header-section-number">4.4</span> Median (bei n = gerade Zahl)</h2>
-<p>Beispiel <span class="math inline">\((n = 8)\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">5</th>
-<th align="center">6</th>
-<th align="center">7</th>
-<th align="center">7</th>
-<th align="center"></th>
-<th align="center">8</th>
-<th align="center">8</th>
-<th align="center">9</th>
-<th align="center">9</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(x_{(4)}\)</span></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(x_{(5)}\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-<span class="math display">\[\begin{equation}
-Median~\tilde{x} = \frac{1}{2}(x_{(4)} + x_{(5)}) = \frac{1}{2}(7 + 8) = 7.5
-\end{equation}\]</span>
-</div>
-<div id="median-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Median</h2>
-<strong>Fall 1</strong>: Ungerade Anzahl an Werten in der Stichprobe (n ist eine ungerade Zahl)
-<span class="math display">\[\begin{equation}
-\tilde{x}~=~x_{(\frac{n+1}{2})}
-\end{equation}\]</span>
-<p><strong>Fall 2</strong>: Gerade Anzahl an Werten in der Stichprobe (<span class="math inline">\(n\)</span> ist gerade Zahl)</p>
-<span class="math display">\[\begin{equation}
-\tilde{x} = \frac{1}{2}(x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)})
-\end{equation}\]</span>
-</div>
-<div id="r-befehle" class="section level2">
-<h2><span class="header-section-number">4.6</span> R-Befehle</h2>
-<p>Der Median wird mit folgendem R-Befehl ermittelt:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Zur Berechnung des Medians </span>
-<span class="kw">median</span>()
-
-<span class="co"># Um die Daten in einem Boxplott darzustellen</span>
-<span class="kw">boxplot</span>(x)</code></pre></div>
-<div class="figure">
-<img src="img/Boxplot.png" />
-
-</div>
-<ol style="list-style-type: decimal">
-<li>Rohdaten werden nach Größe sortiert und Median <span class="math inline">\(x_{(m)}\)</span> bestimmt <br></li>
-<li>Unterer Angelpunkt: Es wird ein neuer Datensatz gebaut, der die Hälfte der sortierten Daten umfasst: <span class="math inline">\(x_1,x_2,\dots,x_m\)</span>. <br> Das untere Quartil ist der Median dieses Datensatzes <br></li>
-<li>Oberer Angelpunkt: Datensatz <span class="math inline">\(x_{(m)},~x_{(m+1)},~\dots,~x_{(n)}\)</span> wird gebildet. Der obere Angelpunkt ist der Median dieses Datensatzes.</li>
-</ol>
-</div>
-<div id="quantile" class="section level2">
-<h2><span class="header-section-number">4.7</span> Quantile</h2>
-<p><strong>p Quantile</strong></p>
-<p>Empirische Quantile teilen die Daten einer Messreihe prozentual in zwei Teil, sodass mindestens $ p<sub></sub>100%$ der kleiner oder gleich dem Quantil sind und mindestens <span class="math inline">\((1-p)~\times~100\%\)</span> größer oder gleich.</p>
-<p>Eine Möglichkeit p-Quantile zu berechnen:</p>
-<p>wenn n <span class="math inline">\(\cdot\)</span> p ganzzahlig ist:</p>
-<span class="math display">\[\begin{equation}
-\tilde{x}_p = \frac{1}{2}(x_{n \cdot p} + x_{n \cdot p + 1})
-\end{equation}\]</span>
-<p>wenn <span class="math inline">\(n~\cdot~p\)</span> nicht ganzzahlig ist:</p>
-<span class="math display">\[\begin{equation}
-\tilde{x}_p = x_{(\lceil n \cdot p \rceil)}
-\end{equation}\]</span>
-<p>Spezielle Quantile</p>
-<p><strong>Quartile</strong>: Teilen die Daten in vier (ungefähr) gleich große Teile <br> <strong>Dezile</strong>: Teilen die Daten in zehn (ungefähr) gleich große Teile <br> <strong>Perzentile</strong>: Teilen die Daten in hundert (ungefähr) gleich große Teile - <span class="math inline">\(\dots\)</span></p>
-<p>Quartile unterteilen die aufsteigend sortierten Daten in vier (ungefähr) gleich große Teile:</p>
-<p><span class="math inline">\(Q_{0.25}\)</span>: mindestens <span class="math inline">\(25\%\)</span> der Daten sind kleiner oder gleich dem <span class="math inline">\(Q_{0.25}\)</span> und mindestens <span class="math inline">\(75\%\)</span> der Daten sind größer oder gleich dem <span class="math inline">\(Q_{0.25}\)</span> <br> <span class="math inline">\(Q_{0.5}\)</span>: Median <br> <span class="math inline">\(Q_{0.75}\)</span>: mindestens <span class="math inline">\(75\%\)</span> der Daten sind kleiner oder gleich <span class="math inline">\(Q_{0.75}\)</span> und mindestens <span class="math inline">\(25\%\)</span> der Daten sind größer oder gleich dem <span class="math inline">\(Q_{0.75}\)</span> <br></p>
-<p>Beispiel <span class="math inline">\((n = 10)\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">1</th>
-<th align="center">3</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center"></th>
-<th align="center">6</th>
-<th align="center">6</th>
-<th align="center">7</th>
-<th align="center">8</th>
-<th align="center">8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(\uparrow\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(\uparrow\)</span></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(\uparrow\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(Q_{0.25}\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(Q_{0.5}\)</span></td>
-<td align="center"></td>
-<td align="center"><span class="math inline">\(Q_{0.75}\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="mittelwert" class="section level2">
-<h2><span class="header-section-number">4.8</span> Mittelwert</h2>
-<p><strong>Mittelwert</strong></p>
-<span class="math display">\[\begin{equation}
-\bar{x} = \frac{x_1 + x_2 + \dots + x_n}{n} = \frac{1}{n}\sum_{i= 1}^{n} x_i
-\end{equation}\]</span>
-<p>Das Summenzeichen <span class="math inline">\(\sum_{i=1}^{n}x_i\)</span> ist eine alternative Schreibweise für Summen</p>
-<p>Beispiel:</p>
-<p>Reihe von fünf Beobachtungswerten: 5 6 7 7 8</p>
-<span class="math display">\[\begin{equation}
-\sum_{i=1}^{5} x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 5 + 6 + 7 + 7 + 8
-\end{equation}\]</span>
-</div>
-<div id="beispiel" class="section level2">
-<h2><span class="header-section-number">4.9</span> Beispiel</h2>
-<p><strong>list-Datei</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Gruppe</th>
-<th align="center">Mittelwert</th>
-<th align="center">Median</th>
-<th align="center"><span class="math inline">\(Q_{0.25}\)</span></th>
-<th align="center"><span class="math inline">\(Q_{0.75}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">1</td>
-<td align="center">3450.693</td>
-<td align="center">2649.00</td>
-<td align="center">1129.25</td>
-<td align="center">4943.50</td>
-</tr>
-<tr class="even">
-<td align="center">2</td>
-<td align="center">3781.403</td>
-<td align="center">3128</td>
-<td align="center">1222.0</td>
-<td align="center">5539.5</td>
-</tr>
-</tbody>
-</table>
-<div class="figure">
-<img src="img/boxplot2.png" />
-
-</div>
-</div>
-<div id="r-befehle-1" class="section level2">
-<h2><span class="header-section-number">4.10</span> R Befehle</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mittelwert der Werte des Vektors x</span>
-<span class="kw">mean</span>(x) 
-
-<span class="co"># Median der Werte des Vektors x</span>
-<span class="kw">median</span>(x) 
-
-<span class="co">#  Quartile der Werte des Vektors x</span>
-<span class="kw">quantile</span>(x, <span class="dt">probs =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.25</span>)) 
-
-<span class="co"># x = ein Vektor,</span>
-<span class="co"># INDEX = Liste von einem oder mehreren Faktoren,</span>
-<span class="co">#  FUN = Funktion, die auf die Daten angewendet </span>
-<span class="co"># werden soll (z.B. mean)</span>
-
-<span class="kw">tapply</span>(x, INDEX, FUN)
-
-<span class="co"># Sortiert die Werte eines Vektors der Größe nach.</span>
-<span class="kw">sort</span>(x) 
-
-<span class="co">#Aufsteigende Sortierung (default). </span>
-<span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">FALSE</span>, ...)
-
-<span class="co"># Absteigende Sortierung.</span>
-<span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>, ...) </code></pre></div>
-</div>
-<div id="normalverteilung" class="section level2">
-<h2><span class="header-section-number">4.11</span> Normalverteilung</h2>
+<div id="explore" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Explorative Datenanalyse</h1>
+<div id="test-für-normalverteilung-shapiro-wilk" class="section level2">
+<h2><span class="header-section-number">10.1</span> Test für Normalverteilung: Shapiro-Wilk</h2>
+<p>Shapiro-Wilk Test: <strong>shapiro.test()</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(rexam<span class="op">$</span>exam)</code></pre></div>
 <ul>
-<li><strong>Annahme</strong> bei vielen erhobenen Daten <span class="math inline">\(\leftrightarrow\)</span> Daten der erhobenen Stichprobe sind normalverteilt: Was heißt das?</li>
-<li>Das Histogramm der erhobenen Daten hat die Form einer symmetrischen Glockenkurve oder Gauß’schen Kurve.</li>
-<li>Bei einem vertikalem Schnitt durch den Mittelwert sollen beide Seiten möglichst deckungsgleich sein.</li>
-<li><strong>Annahme</strong>: man geht davon aus, dass die meisten Daten ungefähr um den Mittelpunkt liegen.</li>
-<li>Das würde auch bedeuten, dass die Länge der Balken kleiner werden, je weiter diese vom Mittelpunkt abweichen.</li>
+<li>testet, ob eine Stichprobe signifikant von der Normalverteilung abweicht</li>
+<li><strong>p</strong>-Wert kleiner .05 zeigt Abweichung von Normalverteilung an</li>
 </ul>
-<p>Die Daten einer großen Stichprobe sind wahrscheinlicher normalverteilt. Mithilfe von Histogrammen gibt es die Möglichkeit einer visuellen Inspektion, ob die Daten einer Stichprobe normalverteilt sind.</p>
 </div>
-<div id="normalverteilung-mit-histogram-hist" class="section level2">
-<h2><span class="header-section-number">4.12</span> Normalverteilung mit Histogram <strong>hist()</strong></h2>
+<div id="kleiner-exkurs-p-werte" class="section level2">
+<h2><span class="header-section-number">10.2</span> Kleiner Exkurs: p-Werte</h2>
+<ul>
+<li>Geben Hinweis, ob untersuchte Stichprobe signifikant von Normalverteilung abweicht (p<span class="math inline">\(&lt;\)</span>.05) oder nicht (p<span class="math inline">\(&gt;\)</span>.05)</li>
+<li>Dabei Signifikanzniveau von .05 festgelegt (irgendwo muss man ja anfangen)</li>
+<li><p>Signifikanzniveaus <span class="math inline">\(\alpha\)</span> geben an, welches Risiko man eingehen will, dass das Ergebnis falsch ist (Signifikanzniveaus: .05, .001 <span class="math inline">\(\dots\)</span>)</p></li>
+<li>Signifikanzniveau <span class="math inline">\(\alpha\)</span> = .05, p <span class="math inline">\(&lt;\)</span> .05: man nimmt an, dass das Ergebnis mit 95%-er Wahrscheinlichkeit richtig ist</li>
+<li>Signifikanzniveau <span class="math inline">\(\alpha\)</span> = .001, p <span class="math inline">\(&lt;\)</span> .001: man nimmt an, dass das Ergebnis mit 99% Wahrscheinlichkeit richtig ist</li>
+<li><span class="math inline">\(\rightarrow\)</span> bei mehreren Signifikanztests Wahrscheinlichkeit hoch, dass das Ergebnis nicht korrekt (20 Signifikanztests: Wahrscheinlichkeit geht gegen 100%, dass mindestens einer der Tests ein falsches Ergebnis liefert)</li>
+<li><p>dabei geht man von einem Signifikanzniveau von 95% aus</p></li>
+</ul>
+</div>
+<div id="shapiro-wilk-für-gruppen" class="section level2">
+<h2><span class="header-section-number">10.3</span> Shapiro-Wilk für Gruppen</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rexam =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;rexam1.dat&quot;</span>, <span class="dt">header =</span> T)
+<span class="kw">by</span>(rexam<span class="op">$</span>exam, rexam<span class="op">$</span>uni, shapiro.test)</code></pre></div>
+<pre><code>## rexam$uni: Duncetown University
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  dd[x, ]
+## W = 0.97217, p-value = 0.2829
+## 
+## ------------------------------------------------------------ 
+## rexam$uni: Sussex University
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  dd[x, ]
+## W = 0.98371, p-value = 0.7151</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(rexam<span class="op">$</span>computer, rexam<span class="op">$</span>uni, shapiro.test)</code></pre></div>
+<pre><code>## rexam$uni: Duncetown University
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  dd[x, ]
+## W = 0.97764, p-value = 0.4571
+## 
+## ------------------------------------------------------------ 
+## rexam$uni: Sussex University
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  dd[x, ]
+## W = 0.94392, p-value = 0.01931</code></pre>
+<p>Vergleich Ergebnisse des Shapiro-Wilk Tests mit den deskriptiven Daten!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)
+<span class="kw">qplot</span>(<span class="dt">sample =</span> sussex<span class="op">$</span>exam, <span class="dt">stat =</span> <span class="st">&quot;qq&quot;</span>)
+<span class="kw">qplot</span>(<span class="dt">sample =</span> dunce<span class="op">$</span>exam, <span class="dt">stat =</span> <span class="st">&quot;qq&quot;</span>)
+<span class="kw">qplot</span>(<span class="dt">sample =</span> sussex<span class="op">$</span>computer, <span class="dt">stat =</span> <span class="st">&quot;qq&quot;</span>)
+<span class="kw">qplot</span>(<span class="dt">sample =</span> dunce<span class="op">$</span>computer, <span class="dt">stat =</span> <span class="st">&quot;qq&quot;</span>)</code></pre></div>
+<ul>
+<li>wenn Werte konsistent über oder unter idealer gerader Linie liegt, die Normalverteilung anzeigen, dann abweichende Kurtosis</li>
+<li>wenn Werte in einer Art S-Kurve angeordnet, dann abweichende Schiefe der Verteilung</li>
+</ul>
+<p><br></p>
+<ul>
+<li>bei großer Stichprobe kann geringe Abweichung von Normalverteilung schon signifikantes Ergebnis in Shapiro-Wilk Test bedeuten</li>
+<li>Interpretation des Ergebnisses zusammen mit Histogramm, Q-Q plots und den Schiefe und Kurtosis-Werten</li>
+</ul>
+</div>
+<div id="testen-verschiedener-gruppen-varianz" class="section level2">
+<h2><span class="header-section-number">10.4</span> Testen verschiedener Gruppen: Varianz</h2>
+<p><strong>Homogenität der Varianz</strong></p>
+<ul>
+<li>Annahme: wenn Daten verschiedener Gruppen gesammelt, die Varianz der Daten beider Gruppen sollte gleich sein</li>
+<li>Man kann diese Annahme mithilfe von deskriptiver Beschreibungen – Graphiken – testen</li>
+<li>oder Levene’s Test, um die Annahme zu testen, dass die Varianzen der Daten zwischen zwei Gruppen homogen ist</li>
+</ul>
+<table>
+<tr>
+<th>
+<td>
+homogen
+</td>
+<td>
+heterogen
+</td>
+</th>
+</tr>
+</table>
 <div class="figure">
-<img src="img/NormalDistribution.png" alt="Plot, der auf x-Achse Werte der Daten anzeigt und auf y-Achse, wie oft diese Daten auftauchen" />
-<p class="caption">Plot, der auf x-Achse Werte der Daten anzeigt und auf y-Achse, wie oft diese Daten auftauchen</p>
+<img src="img/VarianzHomogenitat.png" />
+
 </div>
-<!-- **Schiefe und Symmetrie** -->
-<!-- ![](./img/Verteilung.png) -->
+<ul>
+<li>direkter Vergleich der Varianzen zwischen beiden Gruppen subjektiv</li>
+<li>Levene’s Test <strong>leveneTest()</strong> benötigt <strong>car</strong> Paket</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">leveneTest</span>(rexam<span class="op">$</span>exam, rexam<span class="op">$</span>uni)</code></pre></div>
+<ul>
+<li>nicht signifikantes Ergebnis: Pr (<span class="math inline">\(&gt;\)</span>F) größer als .05, Varianzen im Vergleich zwischen beiden Gruppen nicht signifikant verschieden – Homogenität der Varianz kann angenommen werden</li>
+</ul>
 </div>
-<div id="normalverteilung-schiefe" class="section level2">
-<h2><span class="header-section-number">4.13</span> Normalverteilung: Schiefe</h2>
-<p>Schiefe Verteilungen sind nicht symmetrische Verteilungen. Deren häufigste Werte liegen am rechten Rand oder am linken Rand des Spektrums. Es gibt rechts- und linksschiefe Verteilungen besprochen.</p>
+<div id="extremwertbereinigung" class="section level2">
+<h2><span class="header-section-number">10.5</span> Extremwertbereinigung</h2>
+<ul>
+<li>Versuchspersonen aus der Analyse ausschliessen, von denen man annehmen kann, dass sie auf irgendeine Weise von den anderen Versuchspersonen abweichen und somit nicht in die Stichprobe passen</li>
+<li><span class="math inline">\(\rightarrow\)</span> Bsp. VP während <strong>self-paced reading</strong> Studie sein Brot ausgepackt und angefangen zu essen</li>
+<li>Lesezeiten dieser VP werden signifikant von diesem Verhalten beeinflusst sein – VP kann ausgeschlossen werden</li>
+</ul>
+<p><strong>Nicht-normalverteilte Daten oder heterogene Varianzen zwischen Gruppen</strong></p>
+<ul>
+<li>Transformation der Daten kann Lösung sein</li>
+<li>wenn für eine Datentransformation entschieden, dann sollten alle Daten die miteinander verglichen werden auch transformiert werden</li>
+</ul>
+</div>
+<div id="datentransformation-logarithmus-transformation" class="section level2">
+<h2><span class="header-section-number">10.6</span> Datentransformation: Logarithmus Transformation</h2>
+<ul>
+<li>Logarithmus Transformation kann den rechten Teil einer Verteilung reduzieren</li>
+<li><span class="math inline">\(\rightarrow\)</span> kann rechtsschiefe oder positive Schiefe einer Verteilung korrigieren</li>
+<li><strong>log()</strong> umgekehrte Exponentialfunktion</li>
+<li><span class="math inline">\(log_b(x) = y\)</span> <span class="math inline">\(b^y = x\)</span></li>
+<li><strong>log()</strong> zu welcher Basis - <strong>log10</strong> (Basis 10), <strong>log2</strong> (Basis 2) – <strong>log()</strong> (natürlicher Logarithmus, eulersche Zahl: 2.7183)</li>
+</ul>
+</div>
+<div id="datentransformation-logarithmus-transformation-1" class="section level2">
+<h2><span class="header-section-number">10.7</span> Datentransformation: Logarithmus Transformation</h2>
+<ul>
+<li>Logarithmus kann nicht mit Zahl 0 gebildet werden, wenn Originalwerte 0 enthalten, alle Werte <strong>+1</strong></li>
+<li>Beispiel: <strong>DownloadFestival.dat</strong> von letzter Woche!</li>
+<li><p>plotte Tag 2</p></li>
+<li><p>transformiere die Daten mit <em>log</em></p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(df<span class="op">$</span>day1 <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<ul>
+<li>und plotte nochmal (kurze Wiederholung, wie ging der Plot?)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df,<span class="kw">aes</span>(logday2))
+<span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),
+<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)
+<span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Hygienezustand am 1. Tag&quot;</span>)
+<span class="op">+</span><span class="st"> </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,
+<span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(df<span class="op">$</span>logday2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+<span class="dt">sd =</span> <span class="kw">sd</span>(df<span class="op">$</span>logday2, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)),
+<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</code></pre></div>
+<ul>
+<li>dasselbe dann mit Tag 3</li>
+</ul>
+</div>
+<div id="vergleich" class="section level2">
+<h2><span class="header-section-number">10.8</span> Vergleich</h2>
+<tabl>
+<tr>
+<td>
+<img src="img/Curveday2.png" />
+</td>
+<td>
+<img src="img/logday2.png" />
+</td>
+</tr>
+<tr>
+<td>
+<img src="img/Curveday3.png" />
+</td>
+<td>
+<img src="img/logday3.png" />
+</td>
+</tr>
+</table>
+</div>
+<div id="datentransformation-wurzeltransformation" class="section level2">
+<h2><span class="header-section-number">10.9</span> Datentransformation: Wurzeltransformation</h2>
+<ul>
+<li><strong>sqrt()</strong> diese Transformation hat beeinflusst eher grössere Werte</li>
+<li>höhere Werte werden dadurch eher in die Mitte geschoben</li>
+<li><span class="math inline">\(\rightarrow\)</span> Folge, Werte am rechten Rand werden abgeschnitten, ähnlich zu Logarithmus Transformation</li>
+<li>Transformation nicht mit negativen Werten möglich</li>
+<li>Vergleich der Transformation von Day 2 mit und ohne Transformation</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(df<span class="op">$</span>day2)</code></pre></div>
+<ul>
+<li>Vergleiche Logarithmus und Wurzeltransformation für die Festivaldaten für Tag 2 und Tag 3</li>
+<li>Sind diese Daten nach der Transformation jetzt normalverteilt?</li>
+</ul>
+<table>
+<tr>
+<td>
+<img src="img/Curveday2.png" />
+</td>
+<td>
+<img src="img/sqrtday2.png" />
+</td>
+</tr>
+<tr>
+<td>
+<img src="img/Curveday3.png" />
+</td>
+<td>
+<img src="img/sqrtday3.png" />
+</td>
+</tr>
+</table>
+</div>
+<div id="modelle" class="section level2">
+<h2><span class="header-section-number">10.10</span> Modelle</h2>
+<p>“Alle Modelle sind falsch, aber einige sind nützlich.”</p>
+<ul>
+<li>Ein Modell liefert eine einfache Beschreibung der Daten</li>
+<li>mithilfe eines Modells lernt man signifikante Faktoren von <strong>Noise</strong> zu unterscheiden</li>
+<li>vorhersagende Modelle, werden nicht die mathematischen Grundlagen herleiten, sondern Intuitionen entwickeln, wie statistische Modelle erarbeitet werden</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Grundlagen: lineare Modelle</li>
+<li>Erstellen eines Modells</li>
+<li>einfaches Modell, um komplexe Daten zu verstehen</li>
+</ol>
+</div>
+<div id="hypothesen-generieren-leftrightarrow-testen" class="section level2">
+<h2><span class="header-section-number">10.11</span> Hypothesen generieren <span class="math inline">\(\leftrightarrow\)</span> testen</h2>
+<ul>
+<li>Modelle, um Daten zu erforschen</li>
+<li>Daten, um Hypothesen zu generieren</li>
+<li>: nicht dieselben Daten nutzen, um aus diesen Daten erstellte Hypothese inferenzstatistisch zu testen (optimistische Dateneinschätzung)</li>
+</ul>
+</div>
+<div id="grundlagen-eines-modells" class="section level2">
+<h2><span class="header-section-number">10.12</span> Grundlagen eines Modells</h2>
+<ul>
+<li>Modelle in Muster und Residuen aufgeteilt</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Gruppe von Modellen mit generellem Muster</li>
+<li>angepasstes Modell: massgeschneidert auf die eigenen Daten aus der Gruppe von Modellen</li>
+</ol>
+</div>
+<div id="statistische-modelle-um-forschungsfragen-zu-testen" class="section level2">
+<h2><span class="header-section-number">10.13</span> Statistische Modelle um Forschungsfragen zu testen</h2>
+<ul>
+<li>können statistische Modelle Daten gut genug beschreiben?</li>
+<li>systematische und unsystematische Varianz in den Daten</li>
+<li>systematische Varianz kann man in das Modell integrieren</li>
+<li>unsystematische Varianz kann man nicht in das Modell integrieren: Fehler</li>
+</ul>
+<p><strong>Modell Fit</strong></p>
+<ul>
+<li>Wie sehr kann das Modell die erhobenen Daten repräsentieren <br> <em>degree to which modell represents data collected</em></li>
+</ul>
+<p>Vergleich systematische gegen unsystematische Varianz</p>
+<span class="math display">\[\begin{equation}
+test~statistic = \frac{variance~explained~by~model}{variance~not~explained~by~model} = \frac{effect}{error}
+\end{equation}\]</span>
+</div>
+<div id="einfache-modelle-mittelwert" class="section level2">
+<h2><span class="header-section-number">10.14</span> Einfache Modelle: Mittelwert</h2>
+<ul>
+<li>arithmetischer Mittelwert: <span class="math inline">\(\bar{X} = \frac{x_1 + x_2 ... x_n}{n}\)</span></li>
+<li>Probleme dieses Modells für die Daten</li>
+</ul>
+</div>
+<div id="einfache-modelle-standardabweichung" class="section level2">
+<h2><span class="header-section-number">10.15</span> Einfache Modelle: Standardabweichung</h2>
+<ul>
+<li><p>Standardabweichung: Messwert, der anzeigt wie repräsentativ ist der Mittelwert als Modell für die Daten</p></li>
+<li>kleine sd: geringe Abweichung der einzelnen Beobachtungen vom Mittelwert</li>
+<li><p>große sd: große Abweichung der einzelnen Beobachtungen vom Mittelwert</p></li>
+</ul>
+<span class="math display">\[\begin{equation}
+s=\sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \tilde{x})^2}{n-1}}
+\end{equation}\]</span>
+</div>
+<div id="einfache-modelle-standardfehler" class="section level2">
+<h2><span class="header-section-number">10.16</span> Einfache Modelle: Standardfehler</h2>
+<ul>
+<li>Standardfehler: SD of the sample means</li>
+<li><p>große Stichprobe: Daten normalverteilt angenommen</p></li>
+<li>leicht verschiedener Wert</li>
+<li><p>zeigt Abweichung vom Mittelwert einzelner Stichproben vom Mittelwert der Gesamtpopulation</p></li>
+</ul>
+<div class="figure">
+<img src="img/SE-graphic1a.png" />
+
+</div>
+<div class="figure">
+<img src="img/SE-graphic1b.png" />
+
+</div>
+<span class="math display">\[\begin{equation}
+\sigma_{\bar{X}} = \frac{s}{\sqrt{N}}
+\end{equation}\]</span>
+<ul>
+<li>s = sample standard deviation</li>
+<li>N = number of observations of the sample</li>
+</ul>
+<p><strong>central limit theorem:</strong></p>
+<ul>
+<li>bei großer Stichprobe können wir Gleichung als angemessene Annäherung an standard error annehmen - Daten sind normalverteilt</li>
+<li>bei kleiner Stichprobe (N <span class="math inline">\(&lt;\)</span> 30) - Daten nicht normalverteilt</li>
+</ul>
+</div>
+<div id="modelle-konfidenzintervall" class="section level2">
+<h2><span class="header-section-number">10.17</span> Modelle: Konfidenzintervall</h2>
+<p><strong>Konfidenzintervall</strong> man nimmt an, dass der wirkliche Mittelwert der Gesamtpopulation in ein Intervall zwischen Ober- und Untergrenze fällt. Dieses Intervall ist das Konfidenzintervall.</p>
+<div class="figure">
+<img src="img/CI1a.png" />
+
+</div>
+<ul>
+<li>Konfidenzintervalle sind Ober- und Untergrenzen</li>
+<li><p>diese Grenzen so angelegt, dass der wahre Mittelwert der Gesamtpopulation mit einer bestimmten Wahrscheinlichkeit (95% oder 99%) zwischen Ober- und Untegrenze liegt</p></li>
+<li>bei großer Stichprobe Daten normalverteilt angenommen</li>
+<li>angenommener normalverteilter Datensatz hat Mittelwert: 0 und SE: 1</li>
+<li>bei einem solchen Datensatz kennen wir Konfidenzintervall: -1.96 <span class="math inline">\(\leftrightarrow\)</span> 1.96</li>
+<li><span class="math inline">\(\rightarrow\)</span> 95% Wahrscheinlichkeit, liegt der wahre Mittelwert zwischen -1.96 und 1.96 (bei normalverteilten Daten mit Mittelwert 0 und SE 1)</li>
+<li>normalverteilte Daten können transformiert werden, so dass Sie den Mittelwert 0 und den SE 1 haben</li>
+<li><p>wenn wir Mittelwert und SE einer normalverteilten Stichprobe haben, kann Konfidenzintervall ausgerechnet werden</p></li>
+</ul>
+<span class="math display">\[\begin{equation}
+Untergrenze = \bar{X} - (1.96 \times SE)
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+Obergrenze = \bar{X} + (1.96 \times SE)
+\end{equation}\]</span>
 <div class="figure">
 <img src="img/Verteilung.png" />
 
 </div>
-<div class="figure">
-<img src="img/Schiefe1.png" />
-
-</div>
-</div>
-<div id="normalverteilung-kurtosis" class="section level2">
-<h2><span class="header-section-number">4.14</span> Normalverteilung: Kurtosis</h2>
-<ul>
-<li>Beschreibung Kurvigkeit der Verteilung</li>
-<li><ol style="list-style-type: decimal">
-<li>Wie spitz ist die Kurve?</li>
-</ol></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>Wie sehr verteilen sich die Werte an den äußeren Enden der Kurve?</li>
-</ol></li>
-</ul>
-<p><strong>leptokurtic</strong> <em>positive Kurtosis</em> spitze Kurve, viele Werte verteilen sich auch an den Enden <br> <strong>platykurtic</strong> <em>negative Kurtosis</em> flache Kurve, relativ wenige Werte an den Enden <br></p>
-<div class="figure">
-<img src="img/kurtosis.png" />
-
-</div>
-<ul>
-<li>Schiefe und Kurtosis in einer Normalverteilung sollten 0 sein</li>
-<li>positive Kurtosis ist hier +4 und negative -1</li>
-</ul>
-<!-- ## Shiny App -->
-<!-- - Darstellung größere Stichprobe -> Visualisierung der Daten nähert sich der Gaußschen Glockenkurve an -->
-</div>
-<div id="hausaufgabe" class="section level2">
-<h2><span class="header-section-number">4.15</span> Hausaufgabe</h2>
-<p>Schreiben Sie wie immer die Lösungen in ein R-Skript und laden Sie das bei studip hoch.</p>
-<ol style="list-style-type: decimal">
-<li>Rufen Sie die Hilfe für die Funktion <strong>tapply()</strong> auf!</li>
-<li><p>Lassen Sie sich den Median für alle 4 Bedingungen der FFD ausgeben! Falls Sie andere Lösungsansätze finden, dann schreiben Sie diese gerne auf! ## Übung</p></li>
-<li>Berechne mithilfe der Funktion <strong>quantile()</strong> die Quantile <span class="math inline">\(x_{0.25}\)</span>, <span class="math inline">\(x_{0.5}\)</span>, <span class="math inline">\(x_{0.75}\)</span> der <strong>DWELL</strong> von <strong>list</strong>! <br></li>
-<li>Generiere einen Boxplot dieser Daten mit <strong>boxplot()</strong> und fülle diesen Plot entweder mit einer Farber Deiner Wahl oder mit <strong>cyan</strong> aus!</li>
-<li><p>Laden Sie die Datei <strong>DownloadFestival1.dat</strong> von studip herunter und lesen Sie den Datensatz bei R ein! <br></p></li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df =<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;DownloadFestival1.dat&quot;</span>, <span class="dt">header =</span> T)</code></pre></div>
-<ul>
-<li>Der Datensatz zeigt die Ergebnisse einer Umfrage zur persönlichen Hygiene von Festivalteilnehmern über den Zeitraum von 3 Tagen.</li>
-<li>Die Spanne ist von 0-4</li>
-<li>0 = sehr schlecht (Geruch vergleichbar mit verwesender Leiche und einem Stinktier)</li>
-<li>4 = sehr gut (Geruch vergleichbar süßer Rosen an einem frischen Frühlingstag)</li>
-</ul>
-<ol start="6" style="list-style-type: decimal">
-<li>Um einige deskriptive Daten des Datensatzes zusammenfassen zu können, benutzen Sie die <strong>describe()</strong> Funktion. Um diese Funktion benutzen zu können, müssen Sie das <strong>psych</strong> Paket herunterladen</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;psych&quot;</span>)
-<span class="kw">library</span>(psych)</code></pre></div>
-<ol start="7" style="list-style-type: decimal">
-<li>Beschreiben Sie bitte die Ergebnisse, die die folgenden Befehle liefern.</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># für Tag 1</span>
-<span class="kw">describe</span>(df<span class="op">$</span>day1)
-<span class="co"># für alle Tage</span>
-<span class="kw">describe</span>(<span class="kw">cbind</span>(df<span class="op">$</span>day1,df<span class="op">$</span>day2,df<span class="op">$</span>day3))
-<span class="co"># alternative Darstellung für alle 3 Tage</span>
-<span class="kw">describe</span>(df[,<span class="kw">c</span>(<span class="st">&quot;day1&quot;</span>,<span class="st">&quot;day2&quot;</span>,<span class="st">&quot;day3&quot;</span>)])</code></pre></div>
-<p>Wie würden Sie diese Ergebnisse interpretieren? Sind die Verteilungen normalverteilt? Wie ist Schiefe und Kurtosis der Verteilungen an den unterschiedlichen Tagen. Beschreiben Sie Ihre Interpretation mit der Kommentarmöglichkeit im R-Skript.</p>
 
 </div>
 </div>
@@ -843,8 +627,8 @@ Median~\tilde{x} = \frac{1}{2}(x_{(4)} + x_{(5)}) = \frac{1}{2}(7 + 8) = 7.5
           </div>
         </div>
       </div>
-<a href="distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="variance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="visual3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
